@@ -1,0 +1,837 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/utils/weebox.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/utils/fanweUI.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/deal.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/side_deal_list.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/business_address.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/sort_row.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/review_list.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/relate_goods.css";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.pngfix.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.animateToClass.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/login_panel.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/login_panel.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/cart.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/cart.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/user.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/user.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/business_address.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/business_address.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/side_deal_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/side_deal_list.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/review_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/review_list.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/deal.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/deal.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/relate_goods.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/relate_goods.js";
+
+if(defined("FX_LEVEL"))
+{
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_fx_deal_fx.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_fx_deal_fx.js";
+}
+
+?>
+{include file="inc/header.html"}
+<?php if(defined("FX_LEVEL")){ ?>
+<script>
+    var ajax_url = '{url r="index" p="uc_fx"}';
+</script>
+<?php }?>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={function name="app_conf" v="BAIDU_MAP_APPKEY"}"></script>
+<div class="blank"></div>
+				<div class="LJN_main" style="display:block;">
+<div class="{function name="load_wrap" t=$wrap_type} clearfix">
+	<div class="deal_introduce clearfix border">
+	    	<h1 class="title">{$deal.sub_name}</h1>
+	    	<p class="details "> {$deal.name}</p>
+			<div class="kf_qq_box">
+			{if $deal.location_qqs}
+				<div class="s_kf_qq">
+					<ul>
+						{foreach from=$deal.location_qqs item=row}
+						{if $row.location_qq}
+							<li><a href="http://wpa.qq.com/msgrd?v=3&uin={$row.location_qq}&site=qq&menu=yes" title="{$row.name}"><i class="iconfont">&#xe64a;</i>客服QQ</a></li>
+						{/if}
+						{/foreach}
+					</ul>
+				</div>
+				{/if}
+			</div>
+			<div class="component clearfix">
+				<div class="component_left f_l">
+					<div class="big_pic">
+						<div class="tags">
+							{foreach from=$deal.deal_tags item=tag}
+							<h2 class="tag{$tag}"></h2>
+							{/foreach}
+							{if $deal.buyin_app eq 1}
+							<h2 class="tag_buyinapp"></h2>
+							{/if}
+						</div>
+						<img id="big_pic" src="{function name="get_spec_image" v=$deal.icon w=460 h=280 g=1}" lazy="true" alt="{$deal.sub_name}" origin="{$deal.icon}" width="460" height="280">
+					</div>
+					{if $deal.image_list}
+					<div class="pic_hidden">
+						<div class="small_pic word" id="small_pic">
+							{foreach from=$deal.image_list item=img}
+							<a href="javascript:void(0);" {if $img.current eq 1}class="active"{/if}><img src="{function name="get_spec_image" v=$img.img w=78 h=45 g=1}" big_pic="{function name="get_spec_image" v=$img.img w=460 h=280 g=1}" origin="{$img.img}" lazy="true" width="78" height="45"></a>
+							{/foreach}
+							<!--当前用active标示-->
+					    </div>
+						{if count($deal.image_list) > 5}
+					    <a href="javascript:void(0);" class="pre hide_tag"></a>
+						<a href="javascript:void(0);" class="next hide_tag"></a>
+						{/if}
+					</div>
+					{/if}
+
+				</div>
+				<div class="component_rigth f_r" id="main_package_choose">
+					<div class="component_price clearfix">
+						<div class="base_info f_l">
+							<h2>{if $deal.buy_type ne 1}¥{else}<span>所需积分</span>{/if}<strong id="deal_price">{if $deal.buy_type ne 1}{function name="round" v=$deal.current_price p=2}{else}{function name="abs" v=$deal.return_score}{/if}</strong></h2>
+							{if $deal.buy_type ne 1}
+							<div class="f_l">
+							<span class="discount">{$deal.discount}折</span>
+							<del class="item">¥ {function name="round" v=$deal.origin_price p=2}</del>
+							</div>
+							{/if}
+						</div>
+						{if ($deal.begin_time neq 0 and $deal.time_status eq 3) or ($deal.end_time neq 0 and $deal.time_status eq 1)}
+						<div
+							class="countdown f_r"
+							id="countdown"
+							nowtime="{$NOW_TIME}000"
+							{if $deal.begin_time ne 0 and $deal.time_status eq 3}
+							endtime="{$deal.begin_time}000" showtitle="距离开始："
+							{/if}
+							{if $deal.end_time ne 0 and $deal.time_status eq 1}
+							endtime="{$deal.end_time}000" showtitle="距离结束："
+							{/if}
+						></div><!--倒计时-->
+						{/if}
+					</div>
+					<div class="component_rating clearfix" >
+					     <ul>
+					     	<li class="first f_l">
+					     		<span>已售</span>
+								<strong>{$deal.buy_count}</strong>
+					     	</li>
+							<li class="f_l">
+								<strong>{function name="round" v=$deal.avg_point p=1}</strong>
+					     		<span>分</span>
+							</li>
+							<li class="f_r last">
+					     		<strong>{$deal.dp_count}</strong>
+					     		<span>人评价</span>
+					     	</li>
+							</ul>
+					</div>
+					<div class="hangtag">
+						<ul>
+							{if $deal.supplier_info}
+							<li class="clearfix">
+								<span class="tag f_l">商家</span>
+								<div class="width f_l">
+									<a href="{$deal.supplier_info.url}">{$deal.supplier_info.name}</a>
+									{if $deal.supplier_location_count gt 0 and $deal.is_shop eq 0 }
+									<span class="cross">|</span>
+									<a href="javascript:void(0);" id="show_store">{$deal.supplier_location_count}店通用</a>
+									{/if}
+								</div>
+							</li>
+							{/if}
+							{if $deal.brand_info}
+							<li class="clearfix">
+								<span class="tag f_l">品牌</span>
+								<div class="width f_l">
+									<a href="{url x="index" r="cate" p="cid=$deal.shop_cate_id&bid=$deal.brand_info.id"}">{$deal.brand_info.name}</a>
+								</div>
+							</li>
+							{/if}
+							{if $deal.is_coupon eq 1}
+							<li class="clearfix">
+								<span class="tag f_l">消费券</span>
+								<div class="width f_l">
+								    <span>
+								    {if $deal.coupon_time_type eq 0}
+
+									{if $deal.coupon_begin_time>0&&$NOW_TIME<$deal.coupon_begin_time&&$deal.coupon_end_time>0}
+									{$deal.coupon_begin_time_format}至{$deal.coupon_end_time_format}有效
+									{/if}
+									{if $deal.coupon_begin_time>0&&$NOW_TIME<$deal.coupon_begin_time&&$deal.coupon_end_time eq 0}
+									{$deal.coupon_begin_time_format}后有效
+									{/if}
+									{if $NOW_TIME>$deal.coupon_begin_time&&$deal.coupon_end_time>0}
+									{$deal.coupon_end_time_format}前有效
+									{/if}
+									{if $NOW_TIME>$deal.coupon_begin_time&&$deal.coupon_end_time==0}
+									永久有效
+									{/if}
+
+									{else}
+									{$deal.coupon_day}天内有效
+									{/if}
+
+									</span>
+								</div>
+							</li>
+							{/if}
+						</ul>
+					</div>
+					{if $deal.deal_attr}
+					{foreach from=$deal.deal_attr item=deal_attr_type}
+					{if $deal_attr_type.attr_list}
+					<div class="package_choose clearfix " rel="{$deal_attr_type.id}">
+						<span class="info_title f_l">{$deal_attr_type.name}</span>
+						<div class="choose f_r clearfix active_parent">
+							{foreach from=$deal_attr_type.attr_list item=attr_item}
+							<a href="javascript:void(0);" rel="{$attr_item.id}" price="{$attr_item.price}">
+								{$attr_item.name}
+								<i class="iconfont">&#xe620;</i>
+							</a>
+							{/foreach}
+						</div>
+					</div>
+					{/if}
+					{/foreach}
+					{/if}
+					<script type="text/javascript">
+						var deal_price = {$deal.current_price};  //商品的基础价格
+						var deal_stock = {$deal.max_bought};   //原始库存
+						var deal_buy_count = {$deal.buy_count};  //销量
+						var deal_user_min_bought = {$deal.user_min_bought};  //会员最小购买
+						var deal_user_max_bought = {$deal.user_max_bought};	 //会员最大购买
+						var deal_attr_stock_json = {$deal.deal_attr_stock_json};
+						var buy_type = {$deal.buy_type};  //购物类型
+						var deal_id = {$deal.id};
+					</script>
+					{if $deal.time_status eq 1}
+					<div class="num_choose clearfix">
+						      <span class="info_title f_l">数量</span>
+							  <div class="f_l">
+							  	  <a href="javascript:void(0);" class="less">−</a>
+								  <input type="text"  name="q" value="1" maxlength="9" class="change_box" id="deal_num" />
+								  <a href="javascript:void(0);" class="increase">+</a>
+							  </div>
+							  <span class="total f_l" id="stock_span">
+							  	<div>还剩<span class="inventory">0</span>份</div>
+							  </span>
+							  <span class="tips f_l none" id="stock_tips"></span><!--当数量超出库存时，此项显示-->
+                    </div>
+					{/if}
+					{if !$preview}
+					<div class="roduct_button clearfix">
+						{if $deal.time_status eq 3}
+						<button class="ui-button disabled f_l" rel="disabled" type="button">未开始</button><!--disabled-->
+						{/if}
+						{if $deal.time_status eq 1}
+						<button {if $deal.buyin_app eq 1}style="display:none;"{/if} class="ui-button disabled f_l" rel="disabled" type="button" id="buy_btn">{if $deal.buy_type eq 1}立即购买{else}立即购买{/if}</button><!--disabled-->
+						{/if}
+						{if $deal.time_status eq 2}
+						<button class="ui-button disabled f_l" rel="disabled" type="button">已过期</button><!--disabled-->
+						{/if}
+
+						<?php if(defined("FX_LEVEL")){ ?>
+						{if $deal.is_fx eq 2}
+						<button class="ui-button blue f_l" rel="blue" type="button" onclick="add_user_deal_fx({$deal.id})">我要分销</button>
+						<a class="f_l collect_ico" id="add_collect" href="javascript:void(0);">
+							<i class="iconfont">&#xe649;</i>
+							<span>收藏</span>
+						</a>
+						{else}
+						<button class="ui-button blue f_l" rel="blue" type="button"  id="add_collect">收藏本单</button>
+						{/if}
+						<?php }else{ ?>
+						<button class="ui-button blue f_l" rel="blue" type="button"  id="add_collect">收藏本单</button>
+						<?php }?>
+
+						<div class="f_r share_to">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<span class="jiathis_txt">分享到：</span>
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript">
+							 var jiathis_config = {
+							 	title:"{$deal.name}",
+							    url:"{$deal.share_url}"
+
+							};
+						</script>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+						<!-- JiaThis Button END -->
+
+						</div>
+					</div>
+					{/if}
+
+					{if $promote}
+					<div class="blank"></div>
+					<div class="promote_list">
+					{foreach from=$promote item=promote_item}
+					<div class="item">{$promote_item.description}</div>
+					{/foreach}
+					</div>
+					{/if}
+
+					{if $deal.buyin_app eq 1}
+					<div class="blank"></div>
+					<span class="app_tip">
+					本单仅限移动APP端下单购买  &nbsp;&nbsp;
+					<span class="ios"><a href="javascript:void(0);"  down_url="{url x="index" r="ajax#app_download" p="t=ios"}" ><i class="iconfont">&#xe614;</i>IOS应用下载</a></span>
+					&nbsp;
+					<span class="android"><a href="javascript:void(0);"  down_url="{url x="index" r="ajax#app_download" p="t=android"}" ><i class="iconfont">&#xe613;</i>安卓应用下载</a></span>
+					</span>
+					{/if}
+				</div>
+			</div>
+		</div><!--end deal_introduce-->
+		<div class="blank"></div>
+
+		<div class="clearfix">
+
+            <!--合并购买-->
+			<div class="clearfix">
+
+				<!--合并购买-->
+				<div id="relate_goods" deal_id="{$deal.id}" supplier_id="{$deal.supplier_id}" supplier_name="{$deal.supplier_info.name}"></div>
+
+				<div class="wrap_m2 f_l">
+
+					{if $deal.is_shop eq 0 and !$preview}
+					<div id="supplier_deal" deal_id="{$deal.id}" supplier_id="{$deal.supplier_id}" supplier_name="{$deal.supplier_info.name}">
+					</div>
+					{/if}
+
+					<!--详情导航-->
+					<div class="show-nav" id="rel_nav">
+						<!--{start: 详情导航 -->
+						<ul>
+							{if $deal.is_shop eq 0 and $deal.supplier_info and $deal.supplier_location_count >0}
+							<li rel="n0">商家位置</li>
+							{/if}
+							{if $deal.notes}
+							<li rel="n1">购买需知</li>
+							{/if}
+							{if $deal.description || $deal.pc_setmeal}
+							<li rel="n2">本单详细</li>
+							{/if}
+							{if !$preview}
+							<li rel="n3">消费评价</li>
+							{/if}
+
+						</ul>
+						<!--}end: 详情导航 -->
+					</div>
+					<div style="display:none;" class="fix-nav wrap_m2">
+						<!--{start: 浮动导航 -->
+						<div class="show-nav">
+							<!--{start: 详情导航 -->
+							<ul class="f_l">
+								{if $deal.is_shop eq 0 and $deal.supplier_info and $deal.supplier_location_count >0}
+								<li rel="n0">商家位置</li>
+								{/if}
+								{if $deal.notes}
+								<li rel="n1">购买需知</li>
+								{/if}
+								{if $deal.description || $deal.pc_setmeal}
+								<li rel="n2">本单详细</li>
+								{/if}
+								{if !$preview}
+								<li rel="n3">消费评价</li>
+								{/if}
+							</ul>
+							{if !$preview}
+							<button class="ui-button flow_btn" id="flow_btn" rel="white">{if $deal.buy_type eq 1}立即兑换{else}立即购买{/if}</button>
+							{/if}
+							<!--}end: 详情导航 -->
+						</div>
+						<!--}end: 浮动导航 -->
+					</div>
+					<!--end 详情导航-->
+					<div class="show-content">
+						{if $deal.is_shop eq 0 and $deal.supplier_info and $deal.supplier_location_count >0}
+						<div rel="n0" class="content_box">
+							<div class="box_title nomargin">商家位置</div>
+							<div class="box_content nopadding">
+								<div id="business_address" deal_id="{$deal.id}" supplier_id="{$deal.supplier_id}">
+
+								</div>
+							</div>
+						</div>
+						{/if}
+						{if $deal.notes}
+						<div rel="n1" class="content_box">
+							<div class="box_title">购买需知</div>
+							<div class="box_content">
+								{$deal.notes}
+							</div>
+						</div>
+						{/if}
+						{if $deal.description || $deal.pc_setmeal}
+						<div rel="n2" class="content_box">
+							<div class="box_title">本单详细</div>
+							<div class="box_content">
+								{$deal.description}
+								<div class="blank"></div>
+								{$deal.pc_setmeal}
+							</div>
+						</div>
+						{/if}
+						{if !$preview}
+						<div rel="n3" class="content_box">
+							<div class="box_title">
+								<div class="box_title_text">消费评价</div>
+								<div class="box_title_more">我买过本单，<a href="{url r="index" r="review" p="deal_id=$deal.id"}" target="_blank">我要评价</a></div>
+							</div>
+							<div class="box_content">
+								<div id="review_list" deal_id="{$deal.id}">
+								</div>
+							</div>
+						</div>
+						{/if}
+						<div class="content_box"></div>
+					</div>
+				</div><!--end wrap_m2-->
+				<div class="wrap_s2 f_r">
+					{if $side_deal_list}
+					<div class="side_deal_box">
+						<div class="title_row">
+							<span>您可能喜欢的</span>
+							<a href="javascript:void(0);" class="change_favdeal" deal_id="{$deal.id}"><i class="iconfont">&#xe624;</i>换一批</a>
+						</div>
+						<div class="content_row" id="favdeal_list">
+							{include file="inc/side_favdeal_list.html"}
+						</div>
+					</div>
+					<div class="blank"></div>
+					{/if}
+
+					{if $history_deal_list}
+					<div class="side_deal_box">
+						<div class="title_row">
+							<span>浏览历史</span>
+							<a href="javascript:void(0);" class="clear_history" {if $deal.is_shop eq 0}type="deal"{else}type="shop"{/if}>清空</a>
+						</div>
+						<div class="content_row">
+							<ul class="side_deal_list">
+								{foreach from=$history_deal_list item=side_deal}
+								<li>
+									<a href="{$side_deal.url}" class="deal_img"><img src="{function name="get_spec_image" v=$side_deal.icon w=198 h=134 g=1}" lazy="true" /></a>
+									<a href="{$side_deal.url}"  class="deal_title">{$side_deal.sub_name}</a>
+									<div class="deal_info">
+							<span class="deal_price f_l">
+								<span class="current_price"><i>&yen;</i>{function name="round" v=$side_deal.current_price l=2}</span>
+								<span class="origin_price">&yen;{function name="round" v=$side_deal.origin_price l=2}</span>
+							</span>
+							<span class="sale_count f_r">
+								已售<span>{$side_deal.buy_count}</span>
+							</span>
+									</div>
+								</li>
+								{/foreach}
+
+							</ul>
+						</div>
+					</div>
+					{/if}
+				</div>
+			</div>
+
+		</div>
+
+<div class="blank20"></div>
+
+{include file="inc/footer.html"}
+</div></div></div>
+<!--------------------------------------------------拼团开始-------------------------------------------->
+<div class="blank15"></div>
+<div class="LJN_content" style="width: 100%;margin: 0 auto;">
+	<div class="LJN_main1" style="display: none; position: absolute; top: 200px; left: 0; right: 0;bottom: 0; margin: auto;">
+
+
+<div class="wrap_full main_layout">
+	<div class="blank"></div>
+	<!--<div class="site_nav">-->
+		<!--<a href="/mingming/index.php" title="首页">首页</a>-->
+		<!--&nbsp;&nbsp;»&nbsp;&nbsp;<a href="/mingming/index.php?ctl=tuan&cid=23" title="拼团">拼团</a>-->
+		<!--&nbsp;&nbsp;»&nbsp;&nbsp;<a href="/mingming/index.php?ctl=deal&act=48" title="双人游">双人游</a>-->
+	<!--</div>-->
+
+</div>
+<script>
+	var ajax_url = '/mingming/index.php?ctl=uc_fx';
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0wRWx8gjEKAS1CFOv57h8VH0Gs3mljQR"></script>
+<div class="blank"></div>
+<div class="wrap_full main_layout clearfix">
+	<div class="deal_introduce clearfix border">
+		<h1 class="title">双人游</h1>
+		<p class="details ">
+			双人游不一样的全新体验
+		</p>
+		<div class="kf_qq_box">
+		</div>
+		<div class="component clearfix">
+			<div class="component_left f_l">
+				<div class="big_pic">
+					<div class="tags">
+					</div>
+					<img id="big_pic" data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be679c49965_460x280.jpg" lazy="true" alt="双人游" origin="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be679c49965.jpg" width="460" height="280">
+				</div>
+				<div class="pic_hidden">
+					<div class="small_pic word" id="small_pic">
+						<a href="javascript:void(0);" class="active"><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be679c49965_78x45.jpg" big_pic="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be679c49965_460x280.jpg" origin="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be679c49965.jpg" lazy="true" width="78" height="45"></a>
+						<a href="javascript:void(0);" ><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67a1e67e5_78x45.jpg" big_pic="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67a1e67e5_460x280.jpg" origin="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67a1e67e5.jpg" lazy="true" width="78" height="45"></a>
+						<a href="javascript:void(0);" ><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67ab3ef9e_78x45.jpg" big_pic="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67ab3ef9e_460x280.jpg" origin="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67ab3ef9e.jpg" lazy="true" width="78" height="45"></a>
+						<a href="javascript:void(0);" ><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67b284487_78x45.jpg" big_pic="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67b284487_460x280.jpg" origin="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67b284487.jpg" lazy="true" width="78" height="45"></a>
+						<!--当前用active标示-->
+					</div>
+				</div>
+
+			</div>
+			<div class="component_rigth f_r" id="main_package_choose">
+				<div class="component_price clearfix">
+					<div class="base_info f_l">
+						<h2>¥<strong id="deal_price">430</strong></h2>
+						<div class="f_l">
+							<span class="discount">9.4折</span>
+							<del class="item">¥ 456.8</del>
+						</div>
+					</div>
+
+					<div
+							class="countdown f_r"
+							id="countdown"
+							nowtime="1505629328000"
+							endtime="1506744693000" showtitle="距离结束："
+							></div><!--倒计时-->
+				</div>
+				<div class="component_rating clearfix" >
+					<ul>
+						<li class="first f_l">
+							<span>已售</span>
+							<strong>1</strong>
+						</li>
+						<li class="f_l">
+							<strong>0</strong>
+							<span>分</span>
+						</li>
+						<li class="f_r last">
+							<strong>0</strong>
+							<span>人评价</span>
+						</li>
+					</ul>
+				</div>
+				<div class="hangtag">
+					<ul>
+						<li class="clearfix">
+							<span class="tag f_l">消费券</span>
+							<div class="width f_l">
+								    <span>
+
+																																													永久有效
+
+
+									</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<script type="text/javascript">
+					var deal_price = 430.0000;  //商品的基础价格
+					var deal_stock = 15;   //原始库存
+					var deal_buy_count = 1;  //销量
+					var deal_user_min_bought = 1;  //会员最小购买
+					var deal_user_max_bought = 15;	 //会员最大购买
+					var deal_attr_stock_json = [];
+					var buy_type = 0;  //购物类型
+					var deal_id = 48;
+				</script>
+				<div class="num_choose clearfix">
+					<span class="info_title f_l">数量</span>
+					<div class="f_l">
+						<a href="javascript:void(0);" class="less">−</a>
+						<input type="text"  name="q" value="1" maxlength="9" class="change_box" id="deal_num" />
+						<a href="javascript:void(0);" class="increase">+</a>
+					</div>
+							  <span class="total f_l" id="stock_span">
+							  	<div>还剩<span class="inventory">0</span>份</div>
+							  </span>
+					<span class="tips f_l none" id="stock_tips"></span><!--当数量超出库存时，此项显示-->
+				</div>
+				<div class="roduct_button clearfix">
+
+					<button  class="ui-button disabled f_l" rel="disabled" type="button" id="buy_btn">立即购买</button><!--disabled-->
+
+					<button class="ui-button blue f_l" rel="blue" type="button"  id="add_collect">收藏本单</button>
+
+					<div class="f_r share_to">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<span class="jiathis_txt">分享到：</span>
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript">
+							var jiathis_config = {
+								title:"双人游不一样的全新体验",
+								url:"http://192.168.0.118/mingming/index.php?ctl=deal&act=48"
+
+							};
+						</script>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+						<!-- JiaThis Button END -->
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div><!--end deal_introduce-->
+	<div class="blank"></div>
+
+	<div class="clearfix">
+
+		<!--合并购买-->
+		<div id="relate_goods" deal_id="48" supplier_id="0" supplier_name=""></div>
+
+		<div class="wrap_m2 f_l">
+
+			<div id="supplier_deal" deal_id="48" supplier_id="0" supplier_name="">
+			</div>
+
+			<!--详情导航-->
+			<div class="show-nav" id="rel_nav">
+				<!--{start: 详情导航 -->
+				<ul>
+					<li rel="n1">购买需知</li>
+					<li rel="n2">本单详细</li>
+					<li rel="n3">消费评价</li>
+
+				</ul>
+				<!--}end: 详情导航 -->
+			</div>
+			<div style="display:none;" class="fix-nav wrap_m2">
+				<!--{start: 浮动导航 -->
+				<div class="show-nav">
+					<!--{start: 详情导航 -->
+					<ul class="f_l">
+						<li rel="n1">购买需知</li>
+						<li rel="n2">本单详细</li>
+						<li rel="n3">消费评价</li>
+					</ul>
+					<button class="ui-button flow_btn" id="flow_btn" rel="white">立即购买</button>
+					<!--}end: 详情导航 -->
+				</div>
+				<!--}end: 浮动导航 -->
+			</div>
+			<!--end 详情导航-->
+			<div class="show-content">
+				<div rel="n1" class="content_box">
+					<div class="box_title">购买需知</div>
+					<div class="box_content">
+						<h3>第一天不管早餐，需自备运动鞋</h3>
+					</div>
+				</div>
+				<div rel="n2" class="content_box">
+					<div class="box_title">本单详细</div>
+					<div class="box_content">
+						<div class="section-cont"><span style="font-size:18px;">                    </span><ul><li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第1天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                北京                                                                                                -                                银川                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+							<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+							</ul>
+							<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第2天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                银川                                                                                                -                                腾格里沙漠天鹅湖                                                                                                                                -                                巴彦浩特                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 巴彦浩特 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  银川</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第3天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                巴彦浩特                                                                                                -                                额济纳旗                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 额济纳旗尚景公寓 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗浩洋商务酒店</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第4天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                额济纳旗                                                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 额济纳旗尚景公寓 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗西苑商务宾馆 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗浩洋商务酒店 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗鸿福大酒店</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第5天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                额济纳旗                                                                                                -                                居延海                                                                                                                                -                                黑城                                                                                                                                -                                怪树林                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 额济纳旗尚景公寓 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗西苑商务宾馆 </span><span class="or" style="font-size:18px;">或</span><span style="font-size:18px;">  额济纳旗鸿福大酒店</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第6天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                额济纳旗                                                                                                -                                银川                                                                                                                                -                                北京                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">已含</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 火车上</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+							<li><span style="font-size:18px;">                            </span><h5><span style="font-size:18px;">                                </span><span class="time" style="font-size:18px;">第7天</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">                                                                北京                                                                                                                                                                </span><span style="font-size:18px;">                            </span></h5>
+								<span style="font-size:18px;">                            </span><ul><li><span class="title" style="font-size:18px;">餐饮：</span><span style="font-size:18px;">                                </span><span style="font-size:18px;">早餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">午餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span><span style="font-size:18px;">晚餐-</span><span style="font-size:18px;">自理</span><span style="font-size:18px;">；                                </span></li>
+									<li><span class="title" style="font-size:18px;">住宿：</span><span style="font-size:18px;"> 温馨的家</span></li>
+								</ul>
+								<span style="font-size:18px;">                        </span></li>
+						</ul>
+							<span style="font-size:18px;">                </span></div>
+						<div class="blank"></div>
+					</div>
+				</div>
+				<div rel="n3" class="content_box">
+					<div class="box_title">
+						<div class="box_title_text">消费评价</div>
+						<div class="box_title_more">我买过本单，<a href="/mingming/index.php?ctl=review&deal_id=48" target="_blank">我要评价</a></div>
+					</div>
+					<div class="box_content">
+						<div id="review_list" deal_id="48">
+						</div>
+					</div>
+				</div>
+				<div class="content_box"></div>
+			</div>
+		</div><!--end wrap_m2-->
+		<div class="wrap_s2 f_r">
+
+			<div class="side_deal_box">
+				<div class="title_row">
+					<span>浏览历史</span>
+					<a href="javascript:void(0);" class="clear_history" type="deal">清空</a>
+				</div>
+				<div class="content_row">
+					<ul class="side_deal_list">
+						<li>
+							<a href="/mingming/index.php?ctl=deal&act=47" class="deal_img"><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be65d8bc9fd_198x134.jpg" lazy="true" /></a>
+							<a href="/mingming/index.php?ctl=deal&act=47"  class="deal_title">海洋主题房</a>
+							<div class="deal_info">
+							<span class="deal_price f_l">
+								<span class="current_price"><i>&yen;</i>631.8</span>
+								<span class="origin_price">&yen;880.8</span>
+							</span>
+							<span class="sale_count f_r">
+								已售<span>1</span>
+							</span>
+							</div>
+						</li>
+						<li>
+							<a href="/mingming/index.php?ctl=deal&act=48" class="deal_img"><img data-src="http://192.168.0.118/mingming/public/attachment/201709/17/20/59be67959f08c_198x134.jpg" lazy="true" /></a>
+							<a href="/mingming/index.php?ctl=deal&act=48"  class="deal_title">双人游</a>
+							<div class="deal_info">
+							<span class="deal_price f_l">
+								<span class="current_price"><i>&yen;</i>430</span>
+								<span class="origin_price">&yen;456.8</span>
+							</span>
+							<span class="sale_count f_r">
+								已售<span>1</span>
+							</span>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="blank20"></div>
+
+<div class="footer_box">
+	<div class="footer_inner_box">
+
+		<div class="wrap_full main_layout clearfix">
+			<div class="help_row f_l">
+				<span>
+		<dl>
+			<dt><i class="diyfont">&#58899;</i>&nbsp;公司信息</dt>
+			<dd>
+				<ul>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=31">公司简介</a></li>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=30">联系我们</a></li>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=20">关于我们</a></li>
+					<li><b></b><a href="/mingming/index.php?ctl=user&act=register">加入我们</a></li>
+				</ul>
+			</dd>
+		</dl>
+		</span>
+				<span>
+		<dl>
+			<dt><i class="diyfont">&#58898;</i>&nbsp;获取更新</dt>
+			<dd>
+				<ul>
+					<li><b></b><a href="/mingming/index.php?ctl=rss">RSS订阅</a></li>
+				</ul>
+			</dd>
+		</dl>
+		</span>
+				<span>
+		<dl>
+			<dt><i class="diyfont">&#58891;</i>&nbsp;商务合作</dt>
+			<dd>
+				<ul>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=29">咨询热点</a></li>
+					<li><b></b><a href="/mingming/index.php?ctl=link">友情链接</a></li>
+				</ul>
+			</dd>
+		</dl>
+		</span>
+				<span>
+		<dl>
+			<dt><i class="diyfont">&#58897;</i>&nbsp;用户帮助</dt>
+			<dd>
+				<ul>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=28">隐私保护</a></li>
+					<li><b></b><a href="/mingming/index.php?ctl=help&act=5">如何抽奖</a></li>
+				</ul>
+			</dd>
+		</dl>
+		</span>
+
+			</div>
+			<div class="foot_logo f_r">
+				<a class="link" href="/mingming/">
+					<span style='display:inline-block; width:263px; height:70px; background:url(http://192.168.0.118/mingming/public/attachment/201708/30/15/59a667dd743ef.png) no-repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=http://192.168.0.118/mingming/public/attachment/201708/30/15/59a667dd743ef.png, sizingMethod=scale);_background-image:none;'></span>		</a>
+			</div>
+			<div class="blank"></div>
+			<div class="foot_info">
+				电话：400-800-8888 周一至周六 9:00-18:00
+				&nbsp;&nbsp;
+
+				&nbsp;&nbsp;
+				<div style="text-align:center;">[鸣鸣o2o商业系统] http://www.pi-brand.cn<br />
+				</div>
+
+				<div class="qq_div">
+					<div class="qq_div_in">
+						<a class="qq_bg" href="http://wpa.qq.com/msgrd?v=3&uin=88888888&site=qq&menu=yes" target=_blank></a>
+						<a class="qq_bg" href="http://wpa.qq.com/msgrd?v=3&uin=9999999&site=qq&menu=yes" target=_blank></a>
+
+					</div>
+				</div>
+				<div class="blank"></div>
+			</div>
+
+		</div><!--end foot_wrap-->
+
+	</div>
+</div>
+<div class="blank"></div>
+<a id="go_top" href="javascript:void(0);"></a>
+		</div>
+</div>

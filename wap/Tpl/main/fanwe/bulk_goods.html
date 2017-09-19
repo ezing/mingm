@@ -1,0 +1,296 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a>{$data.sub_name}</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+			     <div class="hotshow_title_down">
+				<ul>
+					<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+					<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+					<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+				</ul>
+			</div>
+			</div>
+			<div class="top-stop"></div>
+			<!--头部下拉-->
+		</header>
+		<!--内容-->
+		<form id="goods-form" action="{url a="index" r="cart#addcart"}"  method="post">
+		<section>
+			<div class="commodity_img_show">
+				<img src="{$data.icon}" alt=""/>
+				<div class="share_box">
+					<div class="commodity_share_title clear">
+						<p>{$data.sub_name}</p>
+						<div class="share_collect clear">
+							<a onClick="WapTosinaweibo('{$data.name}', '{$data.share_url}');"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin4.png" alt=""/></a>
+							{if $data.is_collect eq 1}
+								<a onClick="del_collect({$data.id},this);" class="xin"><img src="{$TMPL}/html/img/icon/hongxin.png" alt="" /></a>
+							{else}
+								<a onClick="add_collect({$data.id},this);" class="xin"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin3.png" alt="" /></a>
+							{/if}
+						</div>
+						<p>{$data.name}</p>
+					</div>
+				</div>
+			</div>
+			<div class="price_time_now">
+				<div class="commodity_price clear">
+					{if $data.buy_type eq 1}
+						<p>{$data.return_score_show}积分</p>
+					{else}
+						<p>{$data.current_price}元<span>{$data.origin_price}元</span></p>
+					{/if}
+					<input type="hidden" name="id" value="{$data.id}">
+					<button class="buy-btn">{if $data.buy_type eq 1}立即兑换{else}立即团购{/if}</button>
+				</div>
+				<div class="commodity_countdown clear">
+					{if $data.end_time gt $data.now_time}
+					<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin6.png" alt="" />
+					
+						<p class="countdown">距离结束：<span id="t_d">00天</span><span id="t_h">00时</span><span id="t_m">00分</span><span id="t_s">00秒</span></p>
+					{/if}
+					<p>已售：{$data.buy_count}</p>
+				</div>
+			</div>
+			<!-- 进店查看更多开始 -->
+			<div class="baguette">
+				<a href="{url a="index" r="store" p="data_id=$data.location_id"}">
+					<img src="{$data.supplier_img}" alt="" class="left">
+					<div class="center">
+						<p class="top">{$data.supplier_info.name}</p>
+						<p class="bottom">进店查看更多优惠团购</p>
+					</div>
+					<img src="{$TMPL}/html/img/icon/fx_06.png" alt="" class="right">
+				</a>
+			</div>
+			<!-- 进店查看更多结束 -->
+			{if $data.notes or $data.description}
+			<div class="recommend_reason">
+				<div class="recommend_reason_title clear">
+					<p>推荐理由</p>
+					<a href="{$data.detail_url}">图文详情</a>
+				</div>
+				
+					{$data.description}
+				
+			</div>
+			{/if}
+                   <div class="line"></div>
+			<div class="commodity_address clear">
+				<div class="commodity_address_left">
+					<a href="{$sl.location_url}"><p class="add_commod">{$data.supplier_info.name}</p></a>
+					{if $data.supplier_info.address}
+						<p class="add_wid">{$data.supplier_info.address} </p>
+					{/if}
+				</div>
+
+					<div class="commodity_address_right">
+						<a href="tel:{$data.supplier_info.tel}"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin7.png" alt="" /></a>
+					</div>
+			</div>
+		
+
+			<div class="banner"></div>
+
+			<div class="line"></div>
+
+			<div class="commodity_address_bottom clear">
+				<p class="clear">评价<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin8.png" alt="" /></p>
+				<ul>{$data.pingjun_xingxing}</ul>
+			</div>
+			{if $data.dp_list}
+			{foreach from="$data.dp_list" item="dp"}
+				<div class="user_evaluate">
+					<div class="user_evaluate_data">
+						<p>{$dp.create_time}</p>
+					</div>
+					<div class="user_evaluate_text clear">
+						<p>{if $dp.title == ''}{$dp.content}{else}{$dp.content}{/if}</p>
+						<!-- <img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin10.png" alt="" /> -->
+						<ul>
+						     {$dp.xingxing}
+						  </ul>
+					</div>
+					{if $data.dp_list.is_img == '1'}
+						<div class="user_evaluate_img">
+
+								{foreach from=$data.dp_list.images item=val}
+								<img src="{$val}" alt=" " />
+								{/foreach}
+						</div>
+					{/if}
+				</div>
+			{/foreach}
+			{else}
+
+			<div class="no_evaluate">暂无评价</div>
+			<div class="line"></div>
+			{/if}
+			{if $data.dp_list}
+
+			<div class="load_more">
+				<a href="{$data.dp_url}"><p>查看全部评价<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin11.png" alt="" /></p></a>
+
+			</div>
+			{/if}
+
+		</section>
+		</form>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+	</body>
+	<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".buy-btn").bind("click",function(){
+		    	$("#goods-form").submit();
+		    });  
+		    init_addcart();	
+		});
+		function WapTosinaweibo(_rt,_ru) {
+		    _rt = encodeURI(_rt);
+		    _ru = encodeURIComponent(_ru);
+		    var _u = 'http://v.t.sina.com.cn/share/share.php?title='+_rt+'&url='+_ru;
+		    window.location.href = _u;
+		}
+		//收藏活动
+		function add_collect(){
+			var id = {$data.id};//活动的id
+			if(!id){
+				alert('参数不足，请稍后重试');
+				return false;
+			}
+			$.ajax({
+				url:'{url a="index" r="deal#addcollect"}',
+				data: {activity_id:id},
+				dataType:"json",
+				type: "post",
+				success: function(obj){
+				//console.log(obj);
+//					alert(obj);
+					location.reload();
+					
+				}
+			});
+		}
+		//取消商品
+				function del_collect(){
+				
+					var id = {$data.id};//活动的id
+					
+					if(!id){
+						alert('参数不足，请稍后重试');
+						return false;
+					}
+					$.ajax({
+						url:'{url a="index" r="deal#delcollect"}',
+						data: {activity_id:id},
+						dataType:"json",
+						type: "post",
+						success: function(obj){
+						//console.log(obj);
+//							alert(obj);
+							location.reload();
+						}
+					});
+				}
+	    function init_addcart()
+		{
+			$("#goods-form").bind("submit",function(){
+				
+				var query = $(this).serialize();
+				var action = $(this).attr("action");
+
+				$.ajax({
+					url:action,
+					data:query,
+					type:"POST",
+					dataType:"json",
+					success:function(obj){
+						if(obj.status==-1)
+						{
+							location.href = obj.jump;
+						}
+						else if(obj.status)
+						{
+							if(obj.jump!="")
+							location.href = obj.jump;
+						}
+						else
+						{
+							alert(obj.info);
+						}
+					}			
+				});
+				
+				
+				return false;
+			});
+		}
+	    function GetRTime(){
+		    var EndTime= {$data.end_time}+'000';
+		    var NowTime = new Date();
+		    var t =EndTime- NowTime.getTime();
+		    var d=0;
+		    var h=0;
+		    var m=0;
+		    var s=0;
+		    if(t>=0){
+		      d=Math.floor(t/1000/60/60/24);
+		      h=Math.floor(t/1000/60/60%24);
+		      m=Math.floor(t/1000/60%60);
+		      s=Math.floor(t/1000%60);
+		    }
+		    document.getElementById("t_d").innerHTML = d + "天";
+		    document.getElementById("t_h").innerHTML = h + "时";
+		    document.getElementById("t_m").innerHTML = m + "分";
+		    document.getElementById("t_s").innerHTML = s + "秒";
+		  }
+		  if({$data.end_time}>0){
+		  	setInterval(GetRTime,0);
+		  }
+		  
+
+	</script>
+</html>

@@ -1,0 +1,449 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/css/spell_details.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">拼团详情</p>
+						<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" class="ka_city_right" />
+					</div>
+                    <div class="hotshow_title_down">
+					<ul>
+						<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+						<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+						<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+					</ul>
+				</div>					
+				</div>
+				
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+			</header>
+			<section>
+				<!--顶部图片-->
+				<div class="spell_img">
+					<img src="{$data.item.goods_img}" alt="" />
+				</div>
+				<!--商品名称分享-->
+				<div class="wid">
+					<div class="wid_small">
+						<div class="name_share clearfix">
+							<h5>{$data.item.goods_name}</h5>
+							<div class="share">
+								<a onClick="add_collect({$data.pintuan_id},this);" style="padding-right:0.14rem;" {if $data.is_collect eq 1}style="display:none;"{/if}  ><img src="{$TMPL}/html/img/icon/tuangoushangpin3.png" alt="" /></a>
+								<a onClick="WapTosinaweibo('{$data.name}', '{$data.share_url}');" style="width: 0.2rem;"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin4.png" alt="" /></a>
+							</div>
+						</div>
+						<!--商品简介-->
+						<div class="introduction">
+							<p>{$data.item.sub_name}</p>
+						</div>
+						<!--原价 已拼-->
+						<div class="original_yipin clearfix">
+							<p class="original">原价<span>{$data.item.current_price}元</span></p>
+							<p class="yipin"><img src="{$TMPL}/html/img/icon/pin.png" alt="" />已拼{$data.item.yipin_num}件</p>
+						</div>
+					</div>
+				</div>
+				<div class="pillar"></div>
+				<!--拼团价格-->
+				<div class="wid cheak">
+					{if $data.item.one_num}
+						<div class="pin_mun clearfix">
+							<p>{$data.item.one_num}人团</p>
+							<p>{$data.item.one_price}元</p>
+							<a onclick="open_group({$data.item.one_num},{$data.item.id},{$data.item.deal_id},{$data.item.end_time},{$user_info.id},{$data.item.one_price})"></a>
+						</div>
+					{/if}
+					{if $data.item.two_num}
+						<div class="pin_mun clearfix">
+							<p>{$data.item.two_num}人团</p>
+							<p>{$data.item.two_price}元</p>
+							<a onclick="open_group({$data.item.two_num},{$data.item.id},{$data.item.deal_id},{$data.item.end_time},{$user_info.id},{$data.item.two_price})"></a>
+						</div>
+					{/if}
+					{if $data.item.three_num}
+						<div class="pin_mun clearfix">
+							<p>{$data.item.three_num}人团</p>
+							<p>{$data.item.three_price}元</p>
+							<a onclick="open_group({$data.item.three_num},{$data.item.id},{$data.item.deal_id},{$data.item.end_time},{$user_info.id},{$data.item.three_price})"></a>
+						</div>	
+					{/if}
+					<form id="goods-form" action="{url a="index" r="cart#addcart" }"  method="post">
+						<input type="hidden" value="{$data.item.deal_id}" name="id">
+						<input type="hidden" id="price" value="" name="price">
+						<input type="hidden" id="group_id" value="" name="group_id">
+					</form>
+					<input type="hidden" id="open_deal_id" value="">
+					<input type="hidden" id="open_num" value="">
+					<input type="hidden" id="open_id" value="">	
+					<input type="hidden" id="end_time" value="">
+					<input type="hidden" id="user_id" value="">
+
+				</div>
+				<!--点击选择-->
+				<div class="wid partition">
+					<div class="wid_small">
+						<div class="cli_select clearfix">
+							<a class="buy-btnn">原价购买</a>
+							{if $data.item.begin_time lt $data.item.now_time && $data.item.end_time gt $data.item.now_time}
+							<a onclick="dan_open_group(1)">单独开团</a>
+							<a class="buy-btn" id="hid">单独开团</a>
+							{else}
+								<a>活动已结束</a>
+							{/if}
+						</div>
+					</div>
+				</div>
+				<!--团列表-->
+				{if $data.group}
+					{foreach from=$data.group item="gr"}
+						<div class="wid partition">
+							<div class="wid_small clearfix gai">
+								<div class="regiment_list">
+									<div class="regiment_name clearfix">
+										<img src="{$gr.avatar}" alt="" />
+										<p class="name">{$gr.user_name}</p>
+										<p class="poor">差{$gr.group_now}人成{$gr.group_num}人团</p>
+									</div>
+									<div class="open_time">
+										<p>结束时间:{$gr.end1_time}</span></p>
+									</div>
+								</div>
+								<div class="tuxedo">
+									<a onclick="can_open_group({$gr.group_id},{$gr.goods_id},{$gr.group_num},{$user_info.id},{$gr.end_time},2,{$gr.user_id},{$gr.price})">参团</a>
+								</div>
+							</div>
+						</div>
+					{/foreach}
+				{/if}
+				{if $data.item.description}
+				<div class="pillar"></div>
+				<!--推荐理由-->
+				
+					<div class="wid">
+						<div class="wid_small">
+							<div class="introduce">
+								<div class="introduce_title clearfix">
+									<h5>推荐理由</h5>
+									<a href="{$data.detail_url}">图文详情</a>
+								</div>
+								<div class="introduce_con">
+									{$data.item.description}
+								</div>
+							</div>
+						</div>
+					</div>
+				{/if}
+				{if $data.dp_list}
+					<div class="pillar"></div>
+					<!--评价-->
+					<div class="wid">
+						<div class="wid_small partition">
+							<div class="evaluate clearfix">
+								<p class="clearfix"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin8.png" alt="" />评价</p>
+								<!-- <ul class="star clearfix">
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul> -->
+							</div>
+						</div>
+					</div>
+					<!--图文评价-->
+					{foreach from="$data.dp_list" item="dp"}
+						<div class="wid">
+							<div class="wid_small partition">
+								<p class="evaluate_day">{$dp.user_name} {$dp.create_time}</p>
+								<div class="evaluate_txt clearfix">
+									<p>{$dp.content}</p>
+									<!-- <ul class="star_small clearfix">
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul> -->
+								</div>
+								{if $dp.images}
+									<div class="evaluate_img">
+										{foreach from="$dp.images" item="img"}
+											<img src="{$img}" alt="" />
+										{/foreach}
+									</div>
+								{/if}
+							</div>
+						</div>
+					{/foreach}
+					<div class="wid partition">
+						<a href="{$data.dp_url}"><p class="evaluate_more">查看全部评价 <img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin11.png" alt="" /></p></a>
+					</div>
+				{/if}
+				<!--页脚-->
+				<div class="footer">
+					{include file="inc/footer_new.html"}
+				</div>
+		</div>
+		</section>
+		<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+		<script type="text/javascript" src="{$TMPL}/html/js/loading.js"></script>
+		<script type="text/javascript">
+			$(".products_introduction").css("height",$(".img_commodity").height()+"px")
+		$(function(){
+			$('#hid').hide();
+		})
+             
+
+			$(".ka_city_right").click(function() {
+				if($(".hotshow_title_down").is(":hidden")) {
+					$(".hotshow_title_down").slideDown();
+				} else {
+					$(".hotshow_title_down").slideUp();
+				}
+			});
+			//			报名团选项
+			//$(".pin_mun a").eq(1).css("background", "#000");
+			$(".cheak a").eq(0).click(function() {
+				$(this).css("background", "#000");
+				$(".cheak a").eq(1).css("background", "#fff");
+				$(".cheak a").eq(2).css("background", "#fff");
+			})
+			$(".cheak a").eq(1).click(function() {
+				$(this).css("background", "#000");
+				$(".cheak a").eq(0).css("background", "#fff");
+				$(".cheak a").eq(2).css("background", "#fff");
+			})
+			$(".cheak a").eq(2).click(function() {
+				$(this).css("background", "#000");
+				$(".cheak a").eq(0).css("background", "#fff");
+				$(".cheak a").eq(1).css("background", "#fff");
+			})
+			function WapTosinaweibo(_rt,_ru) {
+			    _rt = encodeURI(_rt);
+			    _ru = encodeURIComponent(_ru);
+			    var _u = 'http://v.t.sina.com.cn/share/share.php?title='+_rt+'&url='+_ru;
+			    window.location.href = _u;
+			}
+			// function add_collect(id,obj){
+			// 	var query = new Object();
+			// 	query.id = id;
+			// 	query.act = "add_collect";
+			// 	$.ajax({
+			// 		url: '{url r="index" p="deal#add_collect"}',
+			// 		data: query,
+			// 		dataType: "json",
+			// 		type: "post",
+			// 		success: function(obj){
+			// 			if(obj.status == 1){
+			// 				$.showSuccess(obj.info);								
+			// 			}else if(obj.status==-1)
+			// 			{
+			// 				ajax_login();
+			// 			}else{
+			// 				$.showErr(obj.info);
+			// 			}
+			// 		},
+			// 		error:function(ajaxobj){
+			// 		}
+			// 	});
+			// }
+			function open_group(num,id,deal_id,end_time,user_id,price){
+				$('#open_num').empty().val(num);
+				$('#open_id').empty().val(id);
+				$('#open_deal_id').empty().val(deal_id);
+				$('#end_time').empty().val(end_time);
+				$('#user_id').empty().val(user_id);
+				$('#price').empty().val(price);
+			}
+
+			// $(document).ready(function(){
+			// 	$(".buy-btn").bind("click",function(){
+			    	
+			//     });  
+			    
+			// });
+			function dan_open_group(status){
+				var open_num = $('#open_num').val();
+				var open_id = $('#open_id').val();
+				var open_deal_id = $('#open_deal_id').val();
+				var end_time = $('#end_time').val();
+				var user_id = $('#user_id').val();
+				var price = $('#price').val();
+				if(!open_num||!open_id||!open_deal_id||!end_time||!user_id){
+					alert('参数不足，请稍后重试');
+					return false;
+				}
+				$.ajax({
+					url:'{url r="index" p="pintuangoodsdetail#add_group"}',
+					data: {open_num:open_num,open_id:open_id,open_deal_id:open_deal_id,end_time:end_time,user_id:user_id,status:status,is_user_id:user_id,price:price},
+					dataType: "json",
+					type: "post",
+					success: function(obj){
+						if(obj.status == 1){
+							// console.log(obj.data);
+							$("#group_id").val(obj.data);
+							$(".buy-btn").trigger("click");					
+						}else if(obj.status==-1){
+							ajax_login();
+						}else{
+							alert(obj.info);
+						}
+					}
+				});
+				
+			}
+
+
+			$(document).ready(function(){
+				$(".buy-btnn").bind("click",function(){
+			    	$("#goods-form").submit();
+			    });  
+			    $(".buy-btn").bind("click",function(){
+			    	$("#goods-form").submit();
+			    });
+			    init_addcart();	  
+			});
+			function zhixing_function(){
+				$("#goods-form").submit();
+			}
+
+			function init_addcart()
+			{
+				$("#goods-form").bind("submit",function(){
+					
+					var query = $(this).serialize();
+					var action = $(this).attr("action");
+					$.ajax({
+						url:action,
+						data:query,
+						type:"POST",
+						dataType:"json",
+						success:function(obj){
+							if(obj.status==-1)
+							{
+								location.href = obj.jump;
+							}
+							else if(obj.status)
+							{
+								if(obj.jump!="")
+								location.href = obj.jump;
+							}
+							else
+							{
+								alert(obj.info);
+							}
+						}			
+					});
+					
+					
+					return false;
+				});
+			}
+			function can_open_group(group_id,goods_id,group_num,user_id,end_time,status,is_user_id,price){
+				if(!group_id||!goods_id||!group_num||!user_id||!end_time||!status||!is_user_id||!price){
+					alert('参数不足，请稍后重试');
+					return false;
+				}else{
+					$('#price').empty().val(price);
+					$.ajax({
+						url:'{url r="index" p="pintuangoodsdetail#add_group"}',
+						data: {open_num:group_num,open_id:group_id,open_deal_id:goods_id,end_time:end_time,user_id:user_id,status:status,is_user_id:is_user_id,price:price},
+						dataType: "json",
+						type: "post",
+						success: function(obj){
+							if(obj.status == 1){
+								$("#group_id").val(obj.data);
+								$(".buy-btn").trigger("click");								
+							}else if(obj.status==-1){
+								ajax_login();
+							}else{
+								alert(obj.info);
+							}
+						}
+					});
+				}
+			}
+			//收藏活动
+			function add_collect(){
+				var id = {$data.pintuan_id};//活动的id
+				if(!id){
+					alert('参数不足，请稍后重试');
+					return false;
+				}
+				$.ajax({
+					url:'{url a="index" r="pintuangoodsdetail#addcollect"}',
+					data: {activity_id:id},
+					dataType:"json",
+					type: "post",
+					success: function(obj){
+					//console.log(obj);
+						// alert(obj);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,208 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/weebox.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/fanweUI.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/color.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/uc_order.css";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a>积分商城</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+				<div class="c_integral_updown">
+					<img src="{$TMPL}/html/img/integral/ji_icon.png" alt="" />
+				</div>
+			</div>
+				<div class="zhanwei"></div>
+			<!--头部下拉-->
+			<div class="hotshow_title_down">
+				<ul>
+					<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+					<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+					<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+				</ul>
+			</div>
+			<!--头部下拉2-->
+			<div class="integral_updown">
+				<ul>
+					<li onClick="save_sort('deal_asc')">
+						<p><a href="{url a="index" r="scores" p="order_type=deal_asc"}">积分从低到高</a><img src="{$TMPL}/html/img/integral/mingmingjifenshang.png" alt="" /></p>
+					</li>
+					<li onClick="save_sort('deal_desc')">
+						<p><a href="{url a="index" r="scores" p="order_type=deal_desc"}">积分从高到低</a><img src="{$TMPL}/html/img/integral/mingmingjifenxia.png" alt="" /></p>
+					</li>
+
+				</ul>
+			</div>
+
+		</header>
+		<!--内容-->
+		<section>
+			<!--积分选项开始-->
+			<div class="collect_address_wallet">
+				<ul class="clear">
+					<li>
+						<a href="{url a="index" r="user_center#point"}">
+							<img src="{$TMPL}/html/img/integral/xingxing.png" alt="" />
+							<p>积分数量</p>
+						</a>
+					</li>
+					<li>
+						<a href="{url a="index" r="user_center#score"}">
+							<img src="{$TMPL}/html/img/integral/duihao.png" alt="" />
+							<p>兑换记录</p>
+						</a>
+					</li>
+					<li>
+						<a href="{url a="index" r="user_center#integral_rule"}">
+							<img src="{$TMPL}/html/img/integral/benzi.png" alt=""/>
+							<p>积分规则</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--积分选项结束-->
+			<div class="halving_line"></div>
+			<!--分割线-->
+			<!--积分兑换开始-->
+			<div class="integral_politeness">
+				<div class="new_hot_title">
+					<span class="nofloat">积分有礼</span>
+					<span class="exchange_text">商品兑换</span>
+				</div>
+				{if $data.item}
+					<div class="gift">
+						{foreach from=$data.item item=tuanlist name=tuanlist}
+							{if $smarty.foreach.tuanlist.index%2 eq 0}
+								<div class="gift_left">
+									<a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}">
+										<img class="lazy" src="{$tuanlist.icon_v2}" alt="" />
+										<h5>{$tuanlist.sub_name}</h5>
+										<p class="gift_price">{$tuanlist.deal_score}积分<span></span></p>
+									</a>
+								</div>
+							{/if}
+							{if $smarty.foreach.tuanlist.index%2 eq 1}
+								<div class="gift_right">
+									<a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}">
+										<img class="lazy" src="{$tuanlist.icon_v2}" alt="" />
+										<h5>{$tuanlist.sub_name}</h5>
+										<p class="gift_price">{$tuanlist.deal_score}积分<span></span></p>
+									</a>
+								</div>
+							{/if}
+						{/foreach}
+					</div>
+				{/if}
+
+
+			</div>
+			<div class="parting_pillar">
+				
+			</div>
+			<!--积分兑换结束-->
+			<!--分割线-->
+			<div class="parting_line"></div>
+			<!--分割线-->
+			<!--分页-->
+			{if $pages}
+				<div class="fy">
+					{$pages}
+				</div>
+			{/if}
+			<!-- <div class="paging">
+				<div class="paging_btn clear">
+					<button class="paging_previous">上一页</button>
+					<ul class="num_paging clear">
+						<li class="paging_now">1</li>
+						<li>2</li>
+					</ul>
+					<button class="paging_next">下一页</button>
+				</div>
+			</div> -->
+
+		</section>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+	</body>
+	<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$(".c_integral_updown").click(function() {
+				if($(".integral_updown").is(":hidden")) {
+					$(".integral_updown").slideDown();
+				} else {
+					$(".integral_updown").slideUp();
+				}
+			})
+			var a=$(".gift_right").length
+			$(".gift_right").eq(a-1).css("border","none");
+			var a=$(".gift_left").length
+			$(".gift_left").eq(a-1).css("border","none");
+		})
+		function save_sort(status){
+			$.ajax({
+				type:"POST",
+				url:"{url a="index" r="scores#ajax_return_data"}",
+				dataType:"json",
+				data:{deal_score:status},
+				success:function(msg){
+					var html = '';
+					console.log(msg);
+					console.log(msg.item);
+					for (var i = 0; i <msg.item.length; i++) {
+						if(i%2 == 0){
+							html +='<div class="gift_left"><a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}"><img class="lazy" src="{$tuanlist.icon_v2}" alt="" /><h5>{$tuanlist.sub_name}</h5><p class="gift_price">{$tuanlist.deal_score}积分<span></span></p></a></div>';
+						}else{
+							html +='<div class="gift_right"><a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}"><img class="lazy" src="{$tuanlist.icon_v2}" alt="" /><h5>{$tuanlist.sub_name}</h5><p class="gift_price">{$tuanlist.deal_score}积分<span></span></p></a></div>';
+						}
+					}
+				}
+			});
+		}
+	</script>
+
+</html>

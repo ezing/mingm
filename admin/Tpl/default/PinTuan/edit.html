@@ -1,0 +1,155 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<include file="Public:header" />
+<!--以下三行为引入时间插件-->
+<script type="text/javascript" src="__TMPL__Common/js/calendar/calendar.php?lang=zh-cn" ></script>
+<load href='__TMPL__Common/js/calendar/calendar.css' />
+<load href='__TMPL__Common/js/calendar/calendar.js' />
+<script type="text/javascript">
+	window.onload = function()
+	{
+		$("select[name='pid']").bind("change",function(){
+			init_article();
+		});
+		init_article();
+		$("select[name='type_id']").bind("change",function(){
+			init_type();
+		});
+		init_type();
+	}
+	function init_article()
+	{
+		var pid = $("select[name='pid']").val();
+		var type_id = $("select[name='type_id']").val();
+		if(pid == 0)
+		{
+			$("#article_type").show();
+			if(type_id==1){
+				$("#iconfont_row").show();$("#iconfont_row").show();
+			}
+		}
+		else
+		{
+			$("#article_type").hide();
+			$("#iconfont_row").hide();
+		}
+	}
+	
+	function init_type()
+	{
+		var type_id = $("select[name='type_id']").val();
+		if(type_id==1)
+		{
+			$("#iconfont_row").show();
+		}
+		else
+		{
+			$("#iconfont_row").hide();
+		}
+	}
+</script>
+<div class="main">
+<div class="main_title">{$vo.title}{%EDIT} <a href="{:u("PinTuan/index")}" class="back_list">{%BACK_LIST}</a></div>
+<div class="blank5"></div>
+<form name="edit" action="__APP__" method="post" enctype="multipart/form-data">
+<table class="form" cellpadding=0 cellspacing=0>
+	<tr>
+		<td colspan=2 class="topTd"></td>
+	</tr>
+	<tr>
+		<td class="item_title">团购活动标题:</td>
+		<td class="item_input"><input type="text" class="textbox require" name="title" size="40"  value="{$vo.title}"/></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%CATE_TREE}:</td>
+		<td class="item_input">
+		<select name="cate_id" class="require">
+			<option value="0" <if condition="$vo['cate_id'] eq 0">selected="selected"</if>>=={%NO_SELECT_CATE}==</option>
+			<foreach name="cate_tree" item="cate_item">
+				<option value="{$cate_item.id}" <if condition="$vo['cate_id'] eq $cate_item['id']">selected="selected"</if>>{$cate_item.title_show}</option>
+			</foreach>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">{%DEAL_CITY}:</td>
+		<td class="item_input">
+		<select name="city_id" class="require">
+			<option value='0'>=={%NO_SELECT_CITY}==</option>
+			<foreach name="city_list" item="city_item">
+				<option value="{$city_item.id}" <if condition="$city_item['pid'] eq 0">disabled="disabled"</if> <if condition="$city_item['id'] eq $vo['city_id']">selected="selected"</if>>{$city_item.title_show}</option>
+			</foreach>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">参团商品:</td>
+		<td class="item_input">
+			<select class="textbox require" name="deal_id">
+				<option value='0'>请选择商品</option>
+				<foreach name="list" item="list_item">
+					<option value="{$list_item.id}" <if condition="$list_item['id'] eq $vo['deal_id']">selected="selected"</if>>{$list_item.sub_name}</option>
+				</foreach>
+			</select>		</td>
+	</tr>	
+	<tr>
+		<td class="item_title">参团信息:</td>
+		<td class="item_input">1、参团人数：<input type="text" class="textbox require" name="one_num" size="30"  value="{$vo.one_num}"/>&nbsp;&nbsp;&nbsp;参团价格：<input type="text" class="textbox require" name="one_price" size="30"  value="{$vo.one_price}"/><br />
+			2、参团人数：<input type="text"  name="two_num" size="30"  value="{$vo.two_num}"/>&nbsp;&nbsp;&nbsp;参团价格：<input type="text"  name="two_price" size="30"  value="{$vo.two_price}"/><br/>
+			3、参团人数：<input type="text"  name="three_num" size="30"  value="{$vo.three_num}"/>&nbsp;&nbsp;&nbsp;参团价格：<input type="text"  name="three_price" size="30"  value="{$vo.three_price}"/>
+
+		</td>
+	</tr>
+	<tr class="buy_type_0">
+		<td class="item_title">{%DEAL_BEGIN_TIME}:</td>
+		<td class="item_input">
+			<input type="text" class="textbox" name="begin_time" id="begin_time" value="{$vo.begin_time}" onfocus="this.blur(); return showCalendar('begin_time', '%Y-%m-%d %H:%M:%S', false, false, 'btn_begin_time');" />
+			<input type="button" class="button" id="btn_begin_time" value="{%SELECT_TIME}" onclick="return showCalendar('begin_time', '%Y-%m-%d %H:%M:%S', false, false, 'btn_begin_time');" />
+			<input type="button" class="button" value="{%CLEAR_TIME}" onclick="$('#begin_time').val('');" />
+			<span class='tip_span'>[{%DEAL_BEGIN_TIME_TIP}]</span>
+
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">{%DEAL_END_TIME}:</td>
+		<td class="item_input">
+			<input type="text" class="textbox" name="end_time" id="end_time" value="{$vo.end_time}" onfocus="this.blur(); return showCalendar('end_time', '%Y-%m-%d %H:%M:%S', false, false, 'btn_end_time');" />
+			<input type="button" class="button" id="btn_end_time" value="{%SELECT_TIME}" onclick="return showCalendar('end_time', '%Y-%m-%d %H:%M:%S', false, false, 'btn_end_time');" />
+			<input type="button" class="button" value="{%CLEAR_TIME}" onclick="$('#end_time').val('');" />
+			<span class='tip_span'>[{%DEAL_END_TIME_TIP}]</span>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="item_title">{%IS_EFFECT}:</td>
+		<td class="item_input">
+			<lable>{%IS_EFFECT_1}<input type="radio" name="is_effect" value="1" <if condition="$vo['is_effect'] eq 1">checked="checked"</if> /></lable>
+			<lable>{%IS_EFFECT_0}<input type="radio" name="is_effect" value="0" <if condition="$vo['is_effect'] eq 0">checked="checked"</if> /></lable>
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">推荐:</td>
+		<td class="item_input">
+			<lable>是<input type="radio" name="is_recommend" value="1" <if condition="$vo['is_recommend'] eq 1">checked="checked"</if> /></lable>
+			<lable>否<input type="radio" name="is_recommend" value="0" <if condition="$vo['is_recommend'] eq 0">checked="checked"</if>/></lable>
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title"></td>
+		<td class="item_input">
+			<!--隐藏元素-->
+			<input type="hidden" name="id" value="{$vo.id}" />
+			<input type="hidden" name="{:conf("VAR_MODULE")}" value="PinTuan" />
+			<input type="hidden" name="{:conf("VAR_ACTION")}" value="update" />
+			<!--隐藏元素-->
+			<input type="submit" class="button" value="{%EDIT}" />
+			<input type="reset" class="button" value="{%RESET}" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="bottomTd"></td>
+	</tr>
+</table>	 
+</form>
+</div>
+<include file="Public:footer" />

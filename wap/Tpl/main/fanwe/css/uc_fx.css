@@ -1,0 +1,116 @@
+/*列表样式*/
+.list_box{background-color: #F2F2F2;}
+.list_box .item{
+    min-height:4.4rem;
+  background-color: #fff;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items:center;
+  align-items:center;
+}
+.list_box .item .item_box{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items:center;
+  align-items:center;
+}
+.item_box .item_icon a{
+  display: block;
+	  width:3.4rem;
+  height: 3.4rem;
+  margin:0 .4rem;
+}
+.item_box .item_icon img{
+	width:100%;
+	display: block;
+	border-radius: 4px;
+}
+.item_box .item_icon .gray_icon img{
+  -webkit-filter: grayscale(1);
+}
+.item_box .item_icon .i-filter{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 85px;
+  height: 30px;
+  background-color: rgba(44, 44, 44, 0.56);
+  text-align: center;
+  line-height: 30px;
+  color: #FFF;
+}
+.item_box .item_info{
+  -webkit-flex:1;
+  -webkit-box-flex:1;  
+  flex:1;
+}
+.item_info .i_name{
+  line-height:
+  .64rem;
+  height:1.28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right:.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #444;
+}
+.item_info .i_price{
+  line-height:1.22rem;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display: flex;
+}
+.item_info .i_price span{
+	display: inline-block;
+}
+
+.item_info .i_price .i_salary{
+	  color: #D20404;
+    -webkit-flex:1;
+    -webkit-box-flex:1;  
+    flex:1;
+}
+.item_info .i_price .i_curr_price{
+	  color: #999;
+  text-decoration: line-through;
+  text-align: right;
+  padding-right: .4rem;
+}
+.item_info .i_price .i_grey{
+	  color: #999;
+    text-align: right;
+    padding-right:.4rem; 
+}
+.item_info .i_btn{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display: flex;
+}
+.i_btn .btn_box{
+  display:block;
+  -webkit-flex:1;
+  -webkit-box-flex:1;  
+  flex:1;
+  text-align: center;
+  padding:.2rem .6rem;
+  margin-right: .4rem;
+  border-radius: 4px;
+}
+.i_btn .grey_btn{
+	background-color: #DAD9D9;
+  	color: #fff;
+}
+.i_btn .red_btn{
+	  background-color: #E04646;
+	  color: #fff;
+}
+.i_btn .blue_btn{
+  background-color: #78A7FF;
+  color: #FFF;
+}

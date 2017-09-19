@@ -1,0 +1,153 @@
+<?php
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<!--<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">-->
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">全部商品</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+			</div>
+			<!--头部下拉-->
+			<div class="hotshow_title_down">
+				<ul>
+					<li><a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></a></li>
+					<li><a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></a></li>
+					<li><a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></a></li>
+				</ul>
+
+
+			</div>
+		</header>
+		<!--内容-->
+		<section>
+			<!--分类-->
+			<div class="classify_region clear">
+				<div class="all_classify">
+					<p> {if $request.catename}{$request.catename}{else}全部分类<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> {/if}</p>
+				</div>
+				<div class="allcity_classify">
+					<p>{if $request.brandname}{$request.brandname}{else}全城<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> {/if}</p>
+				</div>
+				<div class="synthesis_classify">
+					<p>{if $request.ordername}{$request.ordername}{else}综合<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> {/if}</p>
+				</div>
+			</div>
+
+			
+			<div class="pull down">
+			{include file="pull_down.html"}
+			</div>
+			<!--综合分类结束-->
+
+			<!--分类商品-->
+			{foreach from=$data.item item=tuanlist}
+			<div class="classify_commodity clear">
+				<div class="img_commodity">
+					<a href="{url a="index" r="deal"  p="data_id=$tuanlist.id"}">
+						<img src="{$tuanlist.icon}" alt="" />
+					</a>
+				</div>
+				<div class="products_introduction">
+					<a href="{url a="index" r="deal"  p="data_id=$tuanlist.id"}">
+						<p>{$tuanlist.sub_name}</p>
+					</a>
+					
+					<div class="location clear">
+						<a href="#script">
+							<img src="{$TMPL}/html/img/hotshow/icon/mmshangjiashowweizhitubiao.png" alt="" />
+							<span>{$tuanlist.supplier_location}</span>
+						</a>
+					</div>
+					<div class="commodity_prices clear">
+						<div class="prices clear">
+							<p>{$tuanlist.current_price}元<span>{$tuanlist.origin_price}元</span></p>
+							<!-- <span>{$tuanlist.origin_price}元</span> -->
+						</div>
+						<div class="sold_out clear">
+							<p>已售{$tuanlist.buy_count}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--分割线-->
+			<div class="parting_line"></div>
+			<!--分割线-->
+			{/foreach}
+			
+			
+			
+			<!--分页-->
+			
+			<!-- <div class="paging">
+				<div class="paging_btn clear">
+					<button class="paging_previous">上一页</button>
+					<ul class="num_paging clear">
+						<li class="paging_now">1</li>
+						<li>2</li>
+					</ul>
+					<button class="paging_next">下一页</button>
+				</div>
+			</div> -->
+			
+		</section>
+
+		
+		
+		<!--本页底部-->
+		<div class="footer">
+		{include file="inc/footer_new.html"}
+		</div>
+		<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	    <script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+		<script type="text/javascript" src="{$TMPL}/html/js/list.js"></script>
+	<!--	<script type="text/javascript">
+			$(".ka_city_right").click(function() {
+			)
+		if($(".hotshow_title_down").is(":hidden")) {
+			$(".hotshow_title_down").slideDown(200,function(){
+			alert(1
+			});
+		} 
+	});
+		</script>-->
+		
+
+	</body>
+
+</html>

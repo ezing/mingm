@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>我的卡券</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+
+		<script type="text/javascript" src="{$TMPL}/html/js/public.js"></script>
+		<link rel="stylesheet" type="text/css" href="{$TMPL}/html/css/default.css" />
+		<!--指定sari的样式-->
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/myCard.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--loading-->
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+		<!--loading结束-->
+		<div class="box">
+			<!--整个页面的盒子-->
+			<!--头部开始-->
+			<div class="head">
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a href="#script" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">我的卡券</p>
+						<img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="hotshow_title_down">
+					<ul>
+						<li>
+							<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/icon/imgshou3.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/icon/imgshou1.png" alt="" /></a>
+						</li>
+						<li>
+							<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/icon/imgshou2.png" alt="" /></a>
+						</li>
+					</ul>
+				</div>
+				<div class="head_stance"></div>
+			</div>
+			<!--头部结束-->
+			<!--页面主体-->
+			<section>
+				<!--顶部筛选开始-->
+				<div class="top_screening">
+					<p class="all_classify border-bg">红包<img src="{$TMPL}/html/img/icon/down.png" alt="" class="down" /><img src="{$TMPL}/html/img/icon/fenlei3.png" alt="" class="up" /></p>
+					<p class="allcity_classify">优惠券<img src="{$TMPL}/html/img/icon/down.png" alt="" class="down" /><img src="{$TMPL}/html/img/icon/fenlei3.png" alt="" class="up" /></p>
+					<p class="synthesis_classify">会员卡<img src="{$TMPL}/html/img/icon/down.png" alt="" class="down" /><img src="{$TMPL}/html/img/icon/fenlei3.png" alt="" class="up" /></p>
+				</div>
+				<div class="stance"></div>
+				<!--顶部筛选结束-->
+				<div class="container">
+					<div class="clearfix my-search">
+						<input type="text" value="兑换红包" /><span>兑换</span>
+					</div>
+					<ul class="my-list">
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>10</i>元</span>
+								<span class="left-s2">满100元可用</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>20</i>元</span>
+								<span class="left-s2">满200元可用</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>30</i>元</span>
+								<span class="left-s2">满300元可用</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>5</i>元</span>
+								<span class="left-s2">无门槛</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+					</ul>
+					<ul class="my-lose">
+						<li class="lose-title">已失效</li>
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>20</i>元</span>
+								<span class="left-s2">满200元可用</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+						<li class="list-common clearfix">
+							<div class="list-left">
+								<span class="left-s1"><i>30</i>元</span>
+								<span class="left-s2">满300元可用</span>
+							</div>
+							<div class="list-right">
+								<span class="right-s1">全场通用红包</span>
+								<span class="right-s2">限2017-10-07</span>
+								<span class="right-s2">限手机号<i>18844705116</i>使用</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="container1">
+					<ul class="yh-list">
+						{if $data.item}
+							{foreach from=$data.item item=row key=k1}
+								<li class="clearfix yh-common">
+									<div class="yh-left">
+										<span class="yh-title">{function name="msubstr" v=$row.name b=0 e=17}</span>
+										<span class="xl-number">序列号：<i>{$row.id}</i></span>
+										<span class="yh-pre">限{$row.expire_time}前使用</span>
+									</div>
+									<div class="yh-center">
+										<span class="center-price">¥<i>{$row.youhui_money}</i></span>
+										<span class="center-name">{if $row.youhui_type eq 1}折扣券{else}减免券{/if}</span>
+									</div>
+									<div class="yh-right">
+										<img src="{$row.qrcode}" alt="" />
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<ul class="yh-losed">
+						<li class="lose-title">已失效</li>
+						{if $data.item}
+							{foreach from=$data1.item item=row key=k1}						
+								<li class="clearfix yh-common">
+									<div class="yh-left">
+										<span class="yh-title">{function name="msubstr" v=$row.name b=0 e=17}</span>
+										<span class="xl-number">序列号：<i>91723490</i></span>
+										<span class="yh-pre">限{$row.expire_time}前使用</span>
+									</div>
+									<div class="yh-center">
+										<span class="center-price">¥<i>{$row.youhui_money}</i></span>
+										<span class="center-name">{if $row.youhui_type eq 1}折扣券{else}减免券{/if}</span>
+									</div>
+									<div class="yh-right">
+										<img src="{$TMPL}/html/img/mycard/ewm-1.jpg" alt="" />
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+				</div>
+				<div class="container2">
+					<ul class="vip-box vipBox1">
+						<li class="clearfix vip-common"><a href="#">
+							<img src="{$TMPL}/html/img/mycard/touxiang.jpg" alt="" class="vip-left" />
+							<div class="vip-center">
+								<span class="vip-title">禾禾日式寿司</span>
+								<span class="vip-card">会员卡</span>
+							</div>
+							<a href="#" class="vip-right">买单</a>
+						</a></li>
+						<li class="clearfix vip-common"><a href="#">
+							<img src="{$TMPL}/html/img/mycard/touxiang.jpg" alt="" class="vip-left" />
+							<div class="vip-center">
+								<span class="vip-title">多喝快餐店</span>
+								<span class="vip-card">会员卡</span>
+							</div>
+							<a href="#" class="vip-right">买单</a>
+						</a></li>
+						<li class="clearfix vip-common"><a href="#">
+							<img src="{$TMPL}/html/img/mycard/touxiang.jpg" alt="" class="vip-left" />
+							<div class="vip-center">
+								<span class="vip-title">绿格西餐店</span>
+								<span class="vip-card">会员卡</span>
+							</div>
+							<a href="#script" class="vip-right">买单</a>
+						</a></li>
+					</ul>
+					<ul class="vip-box vipBox2">
+						<li class="clearfix vip-common">
+							<div class="clearfix">
+								<img src="{$TMPL}/html/img/mycard/touxiang.jpg" alt="" class="vip-left" />
+								<div class="vip-center">
+									<span class="vip-title">禾禾日式寿司</span>
+									<span class="vip-card">会员卡</span>
+								</div>
+							</div>
+							<div class="clearfix vip-yh">
+								<span class="vip-1">享7折优惠</span>
+								<span class="vip-pre">优惠限2017-10-07</span>
+							</div>
+							<div class="vip-number">2017 0724 3483 5</div>
+						</li>
+
+						<li class="vip-details">
+							<p class="details-title">会员卡详情</p>
+							<div class="detail-explain1">
+								<span class="jife-title"><i>积分</i>积累</span>
+								<span>每消费100元可获赠10积分</span>
+								<span>会员卡内的积分可用于兑换积分商城。每月积分使用上限20000分。到店消费时直接出示本会员卡，即享会员折扣;
+								</span>
+							</div>
+							<div class="detail-explain2">
+								<span class="jife-title"><i>会员</i>卡使用</span>
+								<span>会员于店铺购物时需出示该电子会员卡，仅限会员本人使用，会员卡及卡内积分不可转让或出借，截屏无效；
+								</span>
+								<span>会员注册时提供的相关信息如有变动，请拨打客服电话400-920-9238进行修改。
+								</span>
+							</div>
+							<div class="rn-btn">立即买单</div>
+						</li>
+					</ul>
+				</div>
+
+			<!--页面主体结束-->
+			<!--页脚-->
+			<div class="footer ">
+				{include file="inc/footer_new.html"}
+			</div>
+		</div>
+
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js "></script>
+		<script type="text/javascript ">
+
+			//				头部下拉
+			$(".ka_city_right").click(function() {
+				if($(".hotshow_title_down ").is(":hidden")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+			//			顶部筛选下拉
+			$(".all_classify").click(function() {
+				if($(".list_classify").is(":hidden")) {
+					$(".list_classify").fadeIn();
+					$(".city_classify").fadeOut();
+					$(".synthesis_classify .down").show();
+					$(".allcity_classify .down").show();
+					$(".synthesis_classify .up").hide();
+					$(".allcity_classify .up").hide();
+					$(".all_classify .down").hide();
+					$(".all_classify .up").show();
+				} else{
+					$(".list_classify").fadeOut();
+					$(".all_classify .down").show();
+					$(".all_classify .up").hide();
+					
+				}
+			})
+
+			$(".allcity_classify").click(function() {
+				if($(".city_classify").is(":hidden")) {
+					$(".list_classify").fadeOut();
+					$(".city_classify").fadeIn();
+					$(".synthesis_subnav").fadeOut();
+					$(".allcity_classify .down").hide();
+					$(".allcity_classify .up").show();
+					$(".synthesis_classify .down").show();
+					$(".synthesis_classify .up").hide();
+					$(".all_classify .down").show();
+					$(".all_classify .up").hide();
+				} else {
+					$(".city_classify").fadeOut();
+					$(".allcity_classify .down").show();
+					$(".allcity_classify .up").hide();
+					
+
+				}
+			})
+			$(".synthesis_classify").click(function() {
+				if($(".synthesis_subnav").is(":hidden")) {
+					$(".list_classify").fadeOut();
+					$(".city_classify").fadeOut();
+					$(".synthesis_subnav").fadeIn();
+					$(".allcity_classify .down").show();
+					$(".allcity_classify .up").hide();
+					$(".synthesis_classify .down").hide();
+					$(".synthesis_classify .up").show();
+					$(".all_classify .down").show();
+					$(".all_classify .up").hide();
+				} else {
+					$(".synthesis_subnav").fadeOut();
+					$(".synthesis_classify .down").show();
+					$(".synthesis_classify .up").hide();
+					
+
+				}
+			});
+			//			右侧与左侧内容高度相等
+			$(".list_right").css("height", $(".right_h").height() + "px")
+			//			点击跳转
+			$(".block").click(function() {
+				return false;
+			})
+			$(".price_btn .btn").click(function() {
+				window.location.href = 'bargain.html';
+			})
+
+			$('.top_screening p').click(function(){
+				$(this).addClass('border-bg').siblings().removeClass('border-bg');
+			})
+			$('.all_classify').click(function(){
+				$('.container').show();
+				$('.container1').hide();
+				$('.container2').hide();
+			})
+
+			$('.allcity_classify').click(function(){
+				$('.container').hide();
+				$('.container1').show();
+				$('.container2').hide();
+			})
+
+			$('.synthesis_classify').click(function(){
+				$('.container').hide();
+				$('.container1').hide();
+				$('.container2').show();
+				$('.container2 .vipBox1').show();
+				$('.container2 .vipBox2').hide();
+			})
+			$(".vipBox1 .vip-center").click(function(){
+				$(".vipBox1").hide();
+				$(".vipBox2").show();
+			})
+		</script>
+	</body>
+
+</html>

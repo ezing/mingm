@@ -1,0 +1,70 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/weebox.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/fanweUI.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/color.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/user_login1.css";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/biz/user_login.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/sms_verify.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/sms_verify.js";
+
+?>
+
+{include file="inc/header_loginShang.html"}
+<div class="wrap">
+
+	<div class="content">
+		<div class="comment_list_txt1">
+			<div id="Tab1">
+				
+					<div id="con_one_1" class="hover">
+						<form action="{url x="biz" r="user#dologin"}" name="user_login_form" method="post" id="com_login_box">
+						<div class="inputtxt">
+							
+							<div class="input_sr"><input type="text" placeholder="输入用户名" value="" name="account_name" ></div>
+							
+						</div>
+
+						<div class="inputtxt">
+							
+							<div class="input_sr"><input type="password" placeholder="输入密码" name="account_password"></div>
+							
+						</div>
+						<div class="btn_login">
+							<input type="submit" value="登录" style="background: none; ">
+						</div>
+						</form>
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+		<!-- <div class="zhuce_zhaohui">
+			<a href="#script">注册账号</a>
+			<a href="{url x="index" r="user#getpassword"}">找回密码</a>
+
+		</div> -->
+	</div>
+
+
+<div class="third-login1">
+	<div class="third-login-info1">
+		<img src="{$TMPL}/images/icon/1.png" alt="" class="LJN_img" />
+		<span>提示</span>
+		<p>商家入驻鸣鸣，请前往pc端进行申请。</p>
+	</div>
+</div>
+{include file="inc/no_footer.html"}

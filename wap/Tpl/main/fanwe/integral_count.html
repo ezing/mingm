@@ -1,0 +1,259 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/weebox.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/fanweUI.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/color.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/uc_order.css";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{$data.page_title}</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+
+		<link rel="stylesheet" href="{$TMPL}/html/css/integral_count.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">{$data.page_title}</p>
+						<img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+							<ul>
+					<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+					<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+					<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+				</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+                   <div class="zhanwei"></div>
+			</header>
+			<section>
+				<!--内容开始-->
+				<!--顶部积分数量-->
+				<div class="wid">
+					<div class="wid_small ">
+						<div class="integral_rule clearfix">
+							<a href={url a="index" r="user_center#integral_rule"}>积分规则说明<img src="{$TMPL}/html/img/integral_count/shuliang_03.png" alt="" /></a>
+						</div>
+						<div class="integral_count">
+							<p>当前积分</p>
+							<h5>{$data.score}</h5>
+							<span>分</span>
+						</div>
+					</div>
+				</div>
+				<div class="banner"></div>
+				<div class="wid">
+					<div class="integral_option">
+						<ul>
+							<li class="gold_line ">收入明细<img src="{$TMPL}/html/img/integral_count/shuliang_07.png" alt="" /></li>
+							<li>支出明细<img src="{$TMPL}/html/img/integral_count/shuliang_07.png" alt="" /></li>
+						</ul>
+					</div>
+				</div>
+				<div class="wid">
+					<div class="integral_income_expend">
+						<!--收入明细-->
+						<div class="integral_count_income">
+							<ul>
+							   {foreach from=$data.shouru item=val}
+								<li>
+									<div class="left">
+										<p>{$val.log_time}</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+{$val.score}</p>
+									</div>
+								</li>
+								{/foreach}
+							</ul>
+							<div class="partition" style="padding: 0"></div>
+							<div class="income_more more_income">
+								<p><span>展开更多</span><img src="{$TMPL}/html/img/integral_count/shuliang_07.png" alt="" /></p>
+							</div>
+							<div class="partition" style="padding: 0"></div>
+							<!-- <div class="banner"></div> -->
+						</div>
+						<!--收入明细结束-->
+						<!--支出明细-->
+						<div class="integral_count_expend">
+							<ul>
+							  {foreach from=$data.zhichu item=val}
+								<li>
+									<div class="left">
+										<p>{$val.log_time}</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>{$val.score}</p>
+									</div>
+								</li>
+							  {/foreach}
+							</ul>
+							<div class="partition" style="padding:0px"></div>
+							<div class="income_more more_expend">
+								<p><span>展开更多</span><img src="{$TMPL}/html/img/integral_count/shuliang_07.png" alt="" /></p>
+							</div>
+							<div class="partition" style="padding:0px"></div>
+					<!-- <div class="banner"></div> -->
+						</div>
+						<!--支出明细结束-->
+					</div>
+				</div>
+				<!--内容结束-->
+				<!--页脚-->
+<!-- 				<div class="partition"></div> -->
+				<div class="footer ">
+					{include file="inc/footer_new.html"}
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js "></script>
+		<script type="text/javascript ">
+			// alert($(".integral_count").width())
+			// alert(parseInt($(".integral_count").css("padding-top")))
+			$(".integral_count").css("width",$(".integral_count").height())
+			$(".integral_option ul li").click(function() {
+				$(this).addClass("gold_line").siblings().removeClass("gold_line");
+			})
+			//			选项卡
+			$(".integral_option ul li").eq(0).click(function() {
+				$(".integral_count_income").css("display", "block");
+				$(".integral_count_expend").css("display", "none");
+			})
+			$(".integral_option ul li").eq(1).click(function() {
+				$(".integral_count_income").css("display", "none");
+				$(".integral_count_expend").css("display", "block");
+			})
+			$(".integral_count_income ul").css("height",(parseInt($(".integral_count_income ul li").css("padding-top"))+parseInt($(".integral_count_income ul li").css("padding-bottom"))+$(".integral_count_income ul li").height())*4+"px");
+			$(".integral_count_expend ul").css("height",(parseInt($(".integral_count_income ul li").css("padding-top"))+parseInt($(".integral_count_income ul li").css("padding-bottom"))+$(".integral_count_income ul li").height())*4+"px");
+			// //			下拉加载更多
+           	var a_leng=$(".integral_count_income ul li").length;
+			var a = $(".integral_count_income ul li").height();
+            var a_padd=parseInt($(".integral_count_income ul li").css("padding-top"))+parseInt($(".integral_count_income ul li").css("padding-bottom"));
+			$(".more_income").click(function() {
+				if($(".more_income p span").html()=="展开更多"){
+					$(".integral_count_income ul").animate({
+					"height": (a+a_padd)*a_leng+ "px",
+				},500,function(){
+					$(".more_income p span").html("收起");
+					$(".more_income p img").css("transform","rotate(180deg)")
+				});
+				}else{
+					$(".integral_count_income ul").animate({
+					"height": (a+a_padd)*4+ "px",
+				},500,function(){
+					$(".more_income p span").html("展开更多");
+					$(".more_income p img").css("transform","rotate(0deg)")
+				});
+				}
+			})
+
+			$(".more_expend").click(function() {
+			var b=$(".integral_count_expend ul li").height();
+            var b_leng=$(".integral_count_expend ul li").length;
+            var b_padd=parseInt($(".integral_count_expend ul li").css("padding-top"))+parseInt($(".integral_count_expend ul li").css("padding-bottom"));
+				if($(".more_expend p span").html()=="展开更多"){
+					$(".integral_count_expend ul").animate({
+					"height": (b+b_padd)*b_leng+ "px",
+				},500,function(){
+					$(".more_expend p span").html("收起");
+					$(".more_expend p img").css("transform","rotate(180deg)")
+				});
+				}else{
+					$(".integral_count_expend ul").animate({
+					"height": (b+b_padd)*4+ "px",
+				},500,function(){
+					$(".more_expend p span").html("展开更多");
+					$(".more_expend p img").css("transform","rotate(0deg)")
+				});
+				}
+			})
+
+
+			//			头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

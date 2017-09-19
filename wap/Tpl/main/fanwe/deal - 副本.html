@@ -1,0 +1,417 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/public.css"; 
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/store.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/deal.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/relate_goods.css";
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/layer.css";		
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/deal.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/deal.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/swipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/relate_goods.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/relate_goods.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/layer.m/layer.m.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/layer.m/layer.m.js";
+
+
+if(defined("FX_LEVEL"))
+{
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/uc_fx.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/uc_fx.js";
+
+
+}
+
+?>
+{include file="inc/no_header.html"}
+<script type="text/javascript">
+	var ajax_url = '{url r="index" p="deal#add_collect"}';
+</script>
+
+{if $hasRelateGoods eq 1}
+<script>
+	//当前产品id
+	var main_id  		= parseInt({$data.id});
+    var jsonDeal  		= {$jsonDeal};
+	var jsonAttr  		= {$jsonAttr};
+	var jsonStock 		= {$jsonStock};
+	//初始化
+	$(function(){
+		init_set();
+	});
+</script>
+{/if}
+
+<?php if(defined("FX_LEVEL")){ ?>
+<script>
+    var fx_ajax_url = '{url r="index" p="uc_fx"}';
+</script>
+<?php }?>
+<header class="infopage-header deal-header">
+    <div class="btn-box return"><a onclick="window.history.go(-1);"><i class="iconfont">&#xe6dc;</i></a></div>
+    <div class="btn-box share"><a href="#" onclick="WapTosinaweibo('{$data.name}', '{$data.share_url}');"><i class="iconfont">&#xe6d7;</i></a></div>
+    <div class="btn-box collect" {if $data.is_collect eq 1}style="display:none;"{/if} ><a onclick="add_collect({$data.id},this);"><i class="iconfont">&#xe6d8;</i></a></div>
+    <div class="btn-box collected" {if $data.is_collect eq 1}style="display:block;"{/if}><a onclick="add_collect({$data.id},this);"><i class="iconfont">&#xe6dd;</i></a></div>
+    <h1>{$data.sub_name}</h1>
+    <div class="header-bg"></div>
+</header>
+<script>
+
+</script>
+<div class="wrap">
+    <form id="goods-form" action="{url a="index" r="cart#addcart" }"  method="post">
+        <div class="content">
+                <div class="content">   
+                    <div class="banner">
+                        <img src="{$data.icon}" alt="">
+                        <div class="banner-info">
+                            <h4>{$data.sub_name}</h4>
+                            <p>{$data.name}</p>
+                        </div>
+                    </div>
+                    <!-- 头部图片 -->
+                    <section class="tuan-price split-line">
+                        <div class="tuan-price-info">
+                        {if $data.buy_type eq 1}
+                        <span class="tuan-sum cost">{$data.return_score_show}</span><p class="tuan-sum">积分</p>
+                        {else}
+                         <p class="tuan-sum">&yen;</p><span class="tuan-sum cost" id="current_price" rel="{$data.current_price}">{$data.current_price}</span>
+                            <p class="shop-sum">门店价:&yen;{$data.origin_price}</p>
+                        {/if}
+                           
+                            <a href="#" class="buy-btn">{if $data.buy_type eq 1}立即兑换{else}立即抢购{/if}</a>
+                            <input type="hidden" name="id" value="{$data.id}">
+                        </div>
+                    </section>
+                    <!-- 团购价格 -->
+                    {if $data.allow_promote eq 1 && $data.promotes_list}
+                    <ul class="act-list split-line">
+                        <li class="split-line">
+                            <div class="act-menu cut">
+                               	 减
+                            </div>
+                            <h2 class="act-title">{$data.promotes_list}</h2>
+                        </li>
+                    </ul>
+                    {/if}
+                    <!-- 优惠信息 -->
+                    <div class="service-info split-line">
+                        <ul class="service-list">
+                        	{if $data.auto_order}
+                           	<li><i class="iconfont">&#xe6df;</i> 免预约</li>
+                           	{/if}
+                           	
+                           	{if $data.expire_refund}
+                           	<li><i class="iconfont">&#xe6df;</i>过期退</li>
+                           	{/if}
+                           	
+                           	{if $data.any_refund}
+                        	<li><i class="iconfont">&#xe6df;</i> 随时退</li>
+                            {/if}
+                           
+			 
+                        </ul>
+                        <div class="sale-info">
+                            <i class="iconfont">&#xe64e;</i>
+                            <span>已售{$data.buy_count}</span>
+                        </div>
+                    </div>
+                    <!-- 服务信息 -->
+                    
+                    
+                    {if $goodsList}
+			<!--关联商品-->
+            <div class="list-view" id="relate-box">
+                <div class="evaluate_title">
+                	<i class="iconfont">&#xe62e;</i> 最佳组合
+				</div>
+                <div class="main-good-box">
+                	<div class="main-good">
+                    	<div class="checkdiv" id="checkdiv_{$data.id}" deal_id="{$data.id}"></div>
+                        <a href="javascript:void(0);" deal_id="{$data.id}">
+                        <img src="{$data.icon}" alt="" border="0" style="width:100%;" lazy="true">
+                        <div class="h">{function name="msubstr" v=$data.name b=0 e=5}</div>
+                        </a>
+                    </div>
+                </div>
+                <div id="relate-slider" class="relate-swipe">
+                    <div class='relate-swipe-wrap'>
+                    	{foreach name="goodsList" from="$goodsList" item=deal}
+                        <div>
+                            <div class="content" style="visibility: visible;">
+                                <ul class="sp_ul" style="list-style: none; transition: 500ms; -webkit-transition: 500ms;">
+                                	{foreach name="goodsListItem" from="$deal" item=dealItem}
+                                    <li class="sp_li" style="vertical-align: top; width: 32%; display: table-cell;">
+                                    	<div class="checkdiv" id="checkdiv_{$dealItem.id}" deal_id="{$dealItem.id}"></div>
+                                        <a href="javascript:void(0);" deal_id="{$dealItem.id}">
+                                        <div class="outter" style="width:{$dealItem.widthP}">
+                                        <img src="{$dealItem.icon}" alt="" border="0"  lazy="true" style="width:100%;" />
+                                        <div class="h">{function name="msubstr" v=$dealItem.name b=0 e=5}</div>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+						{/foreach}
+                    </div>
+                </div>
+            </div>
+            <div class="relate-price-box">
+             已选择  <span id="relateCheckNum">0</span>  个配件<br />
+             搭 配 价：<span id="relateCheckCurrPrice" style="color:#F00;">￥0.00</span><br />
+             <span style="text-decoration: line-through;">参 考 价：<span id="relateCheckOrigPrice">￥0.00</span></span><br />            
+            </div>
+			<div class="relate-price-box"><button id="relateBuyBtn" type="submit" name="Submit" class="plank" onclick="return false;">合并购买</button></div>
+            
+			<!--关联商品-->
+			{/if}
+                    
+                    
+                    <div class="comment split-line-top split-line">
+                        <div class="comment-point">
+                            <span class="pull-right">
+                                    <div class="score_left">
+                                        <span class="stars" data="{$data.avg_point}">
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                        </span>
+                                    </div>
+                                    <span class="star-text">{$data.avg_point}分</span>
+                                    <div class="address_right">
+                                        <span class="shop-add">{$data.dp_count}条评价</span>
+                                    </div>
+                            </span>
+                        </div>
+                         <!-- 
+                        <ul class="comment-sum split-line">
+                        
+                            <li><a href="#">种类很齐全 625</a></li>
+                            <li><a href="#">味道很不错 515</a></li>
+                            <li><a href="#">原料品质不错 515</a></li>
+                            <li><a href="#">性价比 222</a></li>
+                            <li><a href="#">环境不错 998</a></li>
+                            <li><a href="#">很新鲜 542</a></li>
+                            <li><a href="#">服务态度很好 632</a></li>
+                            <li><a href="#">交通很方便 289</a></li>
+                            <div class="clear"></div>
+                        </ul>
+                         -->
+                    </div>
+                    <!-- 点评列表 -->
+                    {if $data.supplier_location_count > 0}
+                    <div class="split-line-top shop-info-wrap">
+                    {foreach from="$data.supplier_location_list" item="sl" key=sl_count}
+                    <div  {if $sl_count >0 }style="display:none"{/if} class="deal-locationo-list">
+                    <div class=" split-line">
+	                        <a href="{$sl.location_url}" class="shop-title">
+	                            <h5>{$sl.name}</h5>
+	                            <span>{$sl.distance}</span>
+	                        </a>
+                    </div>
+	                    </section>
+	                    {if $sl.address neq '' || $sl.tel neq ''}
+	                    <section class="split-line">
+	                        <div class="shop-info">
+	                        	{if $sl.address}
+	                            <i class="place-ico iconfont">&#xe6de;</i>
+	                            <p class="shop-add">{$sl.address}</p>
+	                            {/if}
+	                            {if $sl.tel}
+	                            <a href="tel:{$sl.tel}" class="shop-phone"><i class="iconfont">&#xe6da;</i></a>
+	                            {/if}
+	                        </div>
+                        {/if}
+                    </div>
+                    {/foreach}
+                    </div>
+                    <!-- 门店信息 -->
+                    {if $data.supplier_location_count > 1}
+                    <dl class="other-info split-line toggle-deal-location-list">
+                        <dt class="split-line check-other-shop">
+                            <span class="deal-location-show" href="javascript:;">查看其他分店（{$sl_count}）</span>
+                            <span class="deal-location-hide" style="display:none;" href="javascript:;">收起</span>
+                            <i class="iconfont close-span-location">&#xe601;</i>
+                        </dt>
+                    </dl>
+                    {/if}
+                    </div>
+                    {/if}
+                    <!-- 其他信息 -->
+                    <!-- 活动列表 -->
+                    
+                    <div class="suit-info split-line-top">
+                    	{if $data.set_meal}
+                        <h5 class="split-line">套餐内容</h5>
+                        {$data.set_meal}
+                        {/if}
+                        <div class="split-line check-pictxt-info">
+                            <a href="{$data.detail_url}">
+                            <span>查看图文详情</span>
+                            <i class="iconfont">&#xe6d0;</i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <!-- 套餐内容 -->
+                    
+                    
+                    {if $data.notes}
+                    <dl class="should-know split-line split-line-top">
+                        <h5 class="split-line">购买须知</h5>
+                        <div class="notes-contents">{$data.notes}</div>
+                    </dl>
+                    {/if}
+                    <!-- 购买须知 -->
+                    
+                    {if $data.dp_list}  
+                    <div class="comment split-line-top split-line">
+						                  	
+                        <ul class="comment-info">
+                        	 {foreach from="$data.dp_list" item="dp"}
+                            <li class="user-info split-line">
+                                <a>
+                                    <span class="pull-right">
+                                    <h3>{$dp.user_name}</h3>
+                                    <div class="score_left">
+                                        <span class="stars" data="{$dp.point}">
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                            <i class="text-icon icon-star">&#xe67f;</i>
+                                        </span>
+                                    </div>
+                                    <div class="address_right">
+                                        <span class="shop-add">{$dp.create_time}</span>
+                                    </div>
+                                    </span>
+                                    <div class="user-com">
+                                        <p>{$dp.content}</p>
+                                    </div>
+                                    {if $dp.images}
+                                    <ul class="com-pic">
+                                    	 {foreach from="$dp.images" item="img"}
+                                        <li>
+                                            <img src="{$img}" alt="">
+                                        </li>
+                                        {/foreach}
+                                        <div class="clear"></div>
+                                    </ul>
+									{/if}
+                                </a>
+                            </li>
+                            {/foreach}
+                            <li class="check-pictxt-info">
+                            <a href="{$data.dp_url}">
+                            <span>点击查看全部评价</span> 
+                            <i class="iconfont">&#xe6d0;</i>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                     {/if}
+                    <!-- 点评列表 -->
+                    
+                    
+                    {if $data.other_location_deal}
+                    <div class="other-tuan split-line-top">
+                        <h5 class="split-line">商家其他团购</h5>
+                        <ul class="other-tuan-list">
+                        	{foreach from="$data.other_location_deal" item="old"}
+                            <li class="split-line">
+                            <a href="{$old.old_url}">
+	                                <div class="other-tuan-info">
+	                                    <p>{$old.sub_name}</p>
+	                                    <div class="price-info">
+	                                        <span class="n-price">&yen;{$old.current_price}</span>
+	                                        <del class="p-price">{$old.origin_price}</del>
+	                                    </div>
+	                                </div>
+	                                <i class="iconfont">&#xe6d0;</i>
+                            </a>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                    {/if}
+                    
+                    {if $data.recommend_data}
+                    <dl class="act-info-list split-line split-line-top">
+                    	<h5 class="split-line tuan-h5">团购推荐</h5>
+                    	{foreach from="$data.recommend_data" item="rd"}
+                        <dd class="split-line">
+                        <a class="info-list-info" href="{$rd.rd_url}">
+                            <div class="img-box">
+                                <img src="{$rd.icon}" alt="">
+                            </div>
+                            <div class="info-txt">
+                                <h1>{$rd.sub_name}</h1>
+                                <p>{$rd.name}</p>
+                                <div class="price-info">
+                                    <span class="n-price">&yen;{$rd.current_price}</span>
+                                    <del class="p-price">{$rd.origin_price}</del>
+                                    <span class="sale-info">已售{$rd.buy_count}</span>
+                                </div>
+                            </div>
+                        </a>
+                        </dd>
+                        {/foreach}
+                    </dl>
+                    {/if}
+                </div>
+                
+                <!--商品规格选择-->
+				 <div class="choosetype z-close">
+				 <div class="chooselist">
+				     {foreach from=$data.deal_attr item=deal_attr_type}              
+				    {if $deal_attr_type.attr_list}
+				    <div class="package_choose" rel="{$deal_attr_type.id}">     
+				        <div data="1" id="have-choosetit-list" class="choosetit">{$deal_attr_type.name}</div>     
+				        <span class="choose active_parent">
+				            <input type="hidden" class="deal_attr_ipt" name="deal_attr[{$deal_attr_type.id}]" value="0" />
+				            {foreach from=$deal_attr_type.attr_list item=attr_item}
+				            <a href="javascript:void(0);" rel="{$attr_item.id}" price="{$attr_item.price}" data_value="{$attr_item.name}">
+				                {$attr_item.name}
+				                <!-- <i class="iconfont">&#xe62d;</i> -->
+				            </a>                        
+				            {/foreach}
+				        </span>
+				    </div>
+				    {/if}
+				    {/foreach}
+				     <div class="blank8"></div>
+				</div>
+				   <div class="surechoose submit-buy-btn">确认</div>
+				   <div class="close"><i class="iconfont">&#xe6af;</i></div>
+				 </div>
+				  
+				<div class="maskall"></div>                   
+        </div>
+    </form>
+</div>
+
+{include file="inc/no_footer.html"}	

@@ -1,0 +1,163 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height: 63px;
+}
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+}
+
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.banner {
+	height: 7px;
+	width: 100%;
+	background: #f8f8f8;
+}
+.line{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	
+}
+/*通用部分结束*/
+.recharge_title{
+	margin-top: 0.25rem;
+	padding-bottom: 0.2rem;
+}
+.recharge_title p{
+	font-size: 20px;
+	color: #000;
+	font-family: "fzhjt";
+}
+
+/*弹窗*/
+
+.bank_cpm_con{
+	background: #fff;
+	width: 100%;
+	padding-bottom:0.4rem;
+}
+.bank_cpm_con ul{
+	overflow: auto;
+	background: #fff;
+}
+.bank_cpm_con ul li{
+	padding: 0.16rem 0;
+	padding-left: 5.333%;
+	padding-right: 5.333%;
+	border-bottom: 7px solid #f8f8f8;
+}
+.bank_cpm_con ul li img{
+	display: block;
+	float: left;
+	width: 0.4rem;
+	margin-right: 0.28rem;
+}
+.bank_cpm_con ul li .bank_num_name{
+	float: left;
+}
+.bank_num_name .bank_name{
+	font-size: 16px;
+	color: #000;
+	font-family:"fzhjt";
+}
+.bank_num_name .bank_num{
+	font-size: 12px;
+	color: #969696;
+	margin-top: 0.1rem;
+	font-family:"fzhjt";
+}
+.bank_cpm_con ul li span{
+	float: right;
+  color: #ff0000;
+	margin-top: 0.1rem;
+}
+.bank_cpm_con ul li .xuanze{
+	display: block;
+}
+.add_bank {
+	width: 71.33333%;
+	margin:0 auto;
+	margin-top: 0.375rem;
+}
+.add_bank a{
+	display: block;
+	color: #fff;
+	background: #000;
+	font-size: 16px;
+	text-align: center;
+	height: 0.59rem;
+	line-height: 0.59rem;
+}
+.bank_cpm_con ul li:after{
+	content: " ";
+	display: block;
+	clear: both;
+}

@@ -1,0 +1,211 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.pngfix.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.animateToClass.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/plupload.full.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/login_panel.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/login_panel.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_order.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_order.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_money_incharge.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/page_js/uc/uc_money_incharge.js";
+
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>钱包</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+
+		<link rel="stylesheet" href="{$TMPL}/html/css/recharge.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">钱包</p>
+						<img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+							<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+							<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--内容开始-->
+				<div class="wid">
+					<div class="wid_small">
+						<div class="recharge_title">
+							<p>余额充值</p>
+						</div>
+					</div>
+					<div class="banner"></div>
+					<form action="{url r="index" p="uc_money#do_withdraw"}" method="post" name="withdraw">
+					<div class="wid_small">
+						<div class="bank_card_choice">
+							<ul>
+								<li>
+									<img src="{$TMPL}/html/img/recharge/bank_18.png" alt="" class="left" />
+									<div class="bank_n">
+										<p>招商银行</p>
+										<p>尾号4277</p>
+									</div>
+									<img src="{$TMPL}/html/img/icon/fx_06.png" alt="" class="right" />
+								</li>
+							</ul>
+
+						</div>
+					</div>
+					<div class="banner"></div>
+					<div class="wid_small">
+						<div class="amount clearfix">
+							<p>金额</p>
+							<input type="text" placeholder="请输入充值金额" />
+						</div>
+					</div>
+					
+					<div class="banner"></div>
+					<div class="wid_small">
+						<div class="affirm">
+							<input type="submit"  value="确认"/>
+
+						</div>
+					</div>
+				</div>
+				</form>
+				<!--弹窗-->
+				<div class="bank_cpm">
+					<div class="bank_cpm_con">
+						<div class="bank_cpm_title clearfix">
+							<p>选择付款方式</p>
+							<span class="colse">×</span>
+						</div>
+						<ul>
+						<!--
+							{if $bank_paylist}
+								{foreach from=$bank_paylist item=payment_item}	
+									{$payment_item.display_code}											
+								{/foreach}	
+								{/if}
+								{if $bank_paylist && $icon_paylist}<div class="blank"></div>{/if}
+								{if $icon_paylist}
+								{foreach from=$icon_paylist item=payment_item}	
+									{$payment_item.display_code}											
+								{/foreach}
+								{/if}
+								-->
+							<li>
+								<img src="{$TMPL}/html/img/recharge/bank_03.png" alt="" class="bank_img" />
+								<div class="bank_num_name">
+									<p class="bank_name">工商银行储蓄卡</p>
+									<p class="bank_num">尾号4277</p>
+								</div>
+								<span>√</span>
+							</li>
+					
+						</ul>
+						<div class="add_bank">
+							<a href="#script">+ 添加银行卡付款</a>
+						</div>
+					</div>
+
+				</div>
+				<!--内容结束-->
+				<!--页脚-->
+				<div class="line"></div>
+				<div class="footer">{include file="inc/footer_new.html"}</div>
+			</section>
+		</div>
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js "></script>
+		<script type="text/javascript ">
+		$(".bank_card_choice").click(function(){
+			$(".bank_cpm").fadeIn();
+		})
+			$(".bank_cpm ul li").click(function() {
+				$(this).find("span").addClass("xuanze");
+				$(this).siblings().find("span").removeClass("xuanze");
+				var bank_src=$(this).find(".bank_img")[0].src;
+				var bank_name=$(this).find(".bank_name").html();
+				var bank_num=$(this).find(".bank_num").html();
+				$(".bank_card_choice ul li img").eq(0).attr("src",bank_src);
+				$(".bank_card_choice ul li .bank_n p").eq(0).html(bank_name);
+				$(".bank_card_choice ul li .bank_n p").eq(1).html(bank_num);
+				$(".bank_cpm").fadeOut();
+			});
+			$(".colse").click(function(){
+				$(".bank_cpm").fadeOut();
+			})
+			$(".ka_city_right ").click(function() { //头部下拉
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

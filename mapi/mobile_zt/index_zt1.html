@@ -1,0 +1,131 @@
+<!--index_zt1_p1-->
+<!--index_zt1_p2-->
+<!--index_zt1_p3-->
+<!--index_zt1_p4-->
+<!--index_zt1_p5-->
+<style type="text/css">
+.index_zt1_title{ 
+	width:100%; 
+	background: #fff;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items:center;
+	align-items:center;
+	height: 1.64rem;
+}
+
+.index_zt1_title .title{
+	-webkit-flex:1;
+	-webkit-box-flex:1;  
+	flex:1;
+	padding-left: .46rem;   
+	font-size: .6rem;
+}
+.index_zt1_title  .more{
+	padding-right: .2rem;
+	font-size: .4rem;
+}
+.index_zt1_title .more a{
+	display:-webkit-box !important;
+	display:-webkit-flex !important;
+	display: flex !important;
+	-webkit-box-align: center;
+	-webkit-align-items:center;
+	align-items:center;
+font-size: .5rem;
+height: 1.64rem;
+}  
+.index_zt1{ width:100%;}
+.index_zt1_p1_p2_p3_box,.zt1_p4_p5{
+	display:-webkit-box;
+	display:-webkit-flex;
+	display: flex;
+}
+.index_zt1_p1_p2_p3_box::after{
+	z-index: 3;
+}
+.zt_item{
+-webkit-flex:1;
+-webkit-box-flex:1;  
+flex:1;
+position: relative;
+}
+.zt1_p1,.zt1_p2_p3,.zt1_p4,.zt1_p5{
+    width: 50%;
+}
+.zt_item img,.zt1_p4 img,.zt1_p5 img{
+	width:100%; border:none;
+}
+.index_zt1{width:50%;}
+.zt1_p1{
+	width:50%;
+	position: relative;
+}
+.zt1_p1::after{
+	content: '';
+	height: 100%;
+	border-left: 1px solid #e1e1e1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	-webkit-transform:scaleX(.5) translateX(50%);
+	        transform:scaleX(.5) translateX(50%);
+	-webkit-transform-origin:50% 0;
+	        transform-origin:50% 0;	
+    z-index: 3;
+}
+.zt1_p2{position: relative;width:100%;}
+.zt1_p3{position: relative;width:100%;}
+.zt1_p4{
+	position: relative;width:50%;
+}
+.zt1_p4::after{
+	content: '';
+	height: 100%;
+	border-left: 1px solid #e1e1e1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	-webkit-transform:scaleX(.5) translateX(50%);
+	        transform:scaleX(.5) translateX(50%);
+	-webkit-transform-origin:50% 0;
+	        transform-origin:50% 0;	
+    z-index: 3;
+}
+</style>
+{if $url neq '' or $title neq ''}
+<div class="index_zt1_title split-line-top">
+{if $title}
+	<div class="title">{$title}</div>
+{/if}
+{if $url}
+	<div class="more">
+	<a href="{$url}">
+	<span>更多主题 </span>
+	<i class="iconfont">&#xe685;</i>
+	</a>
+	</div>
+{/if}
+<div class="clear"></div>
+</div>
+{/if}
+<div class="index_zt1_p1_p2_p3_box lazyimg split-line">
+    <div class="zt1_p1 zt_item split-line-top">
+    	<a href="{$index_zt1_p1_a}"><img src="{$index_zt1_p1_img}" /></a>
+    </div>
+    <div class="zt1_p2_p3 zt_item">
+        <div class="zt1_p2 split-line split-line-top">
+        	<a href="{$index_zt1_p2_a}"><img src="{$index_zt1_p2_img}" /></a>
+        </div>
+        <div class="zt1_p3">
+        	<a href="{$index_zt1_p3_a}"><img src="{$index_zt1_p3_img}" /></a>
+        </div>
+    </div>
+   
+</div>
+ <div class="zt1_p4_p5 split-line">
+        <div class="zt1_p4"><a href="{$index_zt1_p4_a}"><img src="{$index_zt1_p4_img}" /></a></div>
+        <div class="zt1_p5"><a href="{$index_zt1_p5_a}"><img src="{$index_zt1_p5_img}" /></a></div>
+</div>

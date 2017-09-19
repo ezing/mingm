@@ -1,0 +1,32 @@
+			<div class="hotshow_foot">
+				<div class="hotshow_foot_top">
+					<div class="hotshow_foot_top_left">
+						{if $is_login eq 0}
+							<p class="hotshow_username"><a href="{url a="index" r="user#login"}">登录</a></p>
+							<p class="hotshow_partition">|</p>
+							<p class="hotshow_exit"><a href="{url a="index" r="user#register"}">注册</a></p>
+							{if $is_weixin}
+								<div class="f_login"><a href="javascript:void(0);" onclick="weixin_login();">微信</a></div>
+							{/if}
+						{else}
+							<p class="hotshow_username"><a href="{url a="index" r="user_center#index"}">{$user_info.user_name}</a></p>
+							<p class="hotshow_partition">|</p>
+							<p class="hotshow_exit"><a href="{url a="index" r="user#loginout"}">退出</a></p>
+						{/if}
+					</div>
+					<div class="hotshow_foot_top_right">
+						<p class="hotshow_foot_city">{$data.city_name}</p>
+						<img class="hotshow_change_img" src="{$TMPL}/html/img/hotshow/icon/lanew36.png" alt="" />
+						<p class="hotshow_change_city"><a href="{url a="index" r="city"}">切换城市</a></p>
+					</div>
+				</div>
+				<div class="hotshow_foot_selection">
+					<ul>
+						<li class="color"><a href="{url a="index" r="index#index"}">&#160;&#160;&#160;&#160;首页</a></li>
+						<!-- <li>|</li> -->
+						<!-- <li class="color"><a href="{$pc_url}">电脑版</a></li> -->
+						<li>|</li>
+						<li class="color"><a href="{url a="biz" r="index""}">商家登录</a></li>
+					</ul>
+				</div>
+			</div>

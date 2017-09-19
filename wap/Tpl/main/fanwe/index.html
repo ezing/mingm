@@ -1,0 +1,299 @@
+<?php
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/hammer.min.js";
+
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/swiper.js";
+	$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/utils/swiper.js";
+
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+	$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+	$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/onload.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/swipe.js";
+
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/swipe.js";
+	$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/index.js";
+	$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/index.js";
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{$data.page_title}</title>
+		<link rel="stylesheet" href="{$TMPL}/html/css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+	<script type="text/javascript">
+		var has_location = {$has_location};
+		var geo_url = '{url a="index" r="userxypoint"}';
+		var city_url = '{url x="index" r="city#city_change"}';
+	</script>
+	<body>
+		<div class="header">{include file="inc/header_new.html"}</div>
+		<section>
+		<div  class="index_sec"></div>
+			<!--今日精选-->
+			<div class="today_selection">
+				<div class="today_selection_title">
+					<p class="tody">今日精选</p>
+					<p>每日换新 天天大不同</p>
+				</div>
+				<!--今日精选 滑动图-->
+				{if $data.advs}
+				<div class="today_selection_slideshow">
+					<div class="swiper-container slideshow">
+						<div class="swiper-wrapper slideshow_con">
+							{foreach from="$data.advs" item="adv"}
+								<div class="swiper-slide slideshow_con_con">
+									<a href="{$adv.url}"><img src="{$adv.img}" alt="" /></a>
+								</div>
+							{/foreach}
+						</div>
+					</div>
+				</div>
+				{/if}
+				<!--导航图标-->
+				{if $data.indexs}
+				<div class="icon_nav">
+					<div class="swiper-container1 icon_nav_swiper">
+						<div class="swiper-wrapper slideshow_icon_nav">
+						
+							<div class="swiper-slide icon_nav_con">
+								<ul class="icon_nav_top">
+									{foreach name="index_nav" from=$data.indexs item=item key=key}
+										{if $smarty.foreach.index_nav.index lt 4}
+											<li>
+												<a href="{$item.url}"><img src="{$item.img}" alt="" />
+													<p>{$item.name}</p>
+												</a>
+											</li>
+										{/if}
+									{/foreach}
+								</ul>
+								<ul class="icon_nav_top clk_two">
+									{foreach name="index_nav" from=$data.indexs item=item key=k}
+										{if $smarty.foreach.index_nav.index gt 3 && $smarty.foreach.index_nav.index lt 8}
+											<li>
+												<a href="{$item.url}"><img src="{$item.img}" alt="" />
+													<p>{$item.name}</p>
+												</a>
+											</li>
+										{/if}
+									{/foreach}
+								</ul>
+							</div>
+							<div class="swiper-slide icon_nav_con">
+								<ul class="icon_nav_top">
+									{foreach name="index_nav" from=$data.indexs item=item key=k}
+										{if $smarty.foreach.index_nav.index gt 7}
+											<li>
+												<a href="{$item.url}"><img src="{$item.img}" alt="" />
+													<p>{$item.name}</p>
+												</a>
+											</li>
+										{/if}
+									{/foreach}
+								</ul>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				{/if}
+			</div>
+			<!--热辣新店-->
+			{if $data.supplier_list}
+			<div class="new_hot">
+				<div class="new_hot_title">
+					<p>热辣新店</p>
+					<a href="{url a="index" r="stores"}">查看全部</a>
+				</div>
+				<div class="new_hot_img">
+					<div class="swiper-container2 slideshow">
+						<div class="swiper-wrapper slideshow_con">
+							<div class="swiper-slide slideshow_con_con">
+								{foreach from="$data.supplier_list" item="sl" key=key name="supplier_list"}
+									{if $smarty.foreach.supplier_list.index lt 2}
+										<ul>
+											<li>
+												<a href="{$sl.url}"><img class="lazy" src="{$sl.preview_v3}" alt="" />
+												<h5 class="new_hot_img_title">{$sl.name}</h5>
+												<p class="food_name">{$sl.address}</p>
+												<!-- <p class="price"></p></a> -->
+												{if $sl.price}
+													<p class="price">{$sl.price}元/位</p>
+												{/if}
+												<!-- <span>{$sl.address}</span> -->
+											</li>
+										</ul>
+									{/if}
+								{/foreach}
+							</div>
+							<div class="swiper-slide slideshow_con_con">
+								{foreach from="$data.supplier_list" item="sl" key=key name="supplier_list"}
+									{if $smarty.foreach.supplier_list.index gt 1&&$smarty.foreach.supplier_list.index lt 4}
+										<ul>
+											<li>
+												<img class="lazy" src="{$sl.preview_v3}" alt="" />
+												<a href="{$sl.url}"><h5 class="new_hot_img_title">{$sl.name}</h5></a>
+												<p class="food_name">{$sl.address}</p>
+												{if $sl.price}
+													<p class="price">{$sl.price}元/位</p>
+												{/if}
+												<!-- <p class="price"></p> -->
+												<!-- <span>{$sl.address}</span> -->
+											</li>
+										</ul>
+									{/if}
+								{/foreach}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/if}
+			<!--商品热卖-->
+			{if $data.supplier_deal_list}
+			<div class="new_hot">
+				<div class="new_hot_title">
+					<p>商品热卖</p>
+					<a href="{url a="index" r="goods"}">查看全部</a>
+				</div>
+				<div class="new_hot_img">
+					<div class="swiper-container2 slideshow">
+						<div class="swiper-wrapper slideshow_con">
+							<div class="swiper-slide slideshow_con_con">
+								{foreach from=$data.supplier_deal_list item=supplier_deal_item name=supplier_deal_item key=key}
+									{if $smarty.foreach.supplier_deal_item.index lt 2}
+										<ul>
+											<li>
+												<a href="{url a="index" r="deal"  p="data_id=$supplier_deal_item.id"}">
+													<img src="{$supplier_deal_item.icon_v2}" alt="" />
+													<a href="{url a="index" r="deal"  p="data_id=$supplier_deal_item.id"}"><h5 class="new_hot_img_title">{if $supplier_deal_item.sub_name}{$supplier_deal_item.sub_name}{else}{$supplier_deal_item.name}{/if}</h5></a>
+													<p class="food_name">{$supplier_deal_item.brief}</p>
+													<p class="price">{$supplier_deal_item.current_price}元</p>
+													<span>{$supplier_deal_item.origin_price}元</span></a>
+											</li>
+										</ul>
+									{/if}
+								{/foreach}
+							</div>
+							<div class="swiper-slide slideshow_con_con">
+								{foreach from=$data.supplier_deal_list item=supplier_deal_item name=supplier_deal_item key=key}
+									{if $smarty.foreach.supplier_deal_item.index gt 1&&$smarty.foreach.supplier_deal_item.index lt 4}
+										<ul>
+											<li>
+												<a href="{url a="index" r="deal"  p="data_id=$supplier_deal_item.id"}">
+													<img src="{$supplier_deal_item.icon_v2}" alt="" />
+													<a href="{url a="index" r="deal"  p="data_id=$supplier_deal_item.id"}"><h5 class="new_hot_img_title">{if $supplier_deal_item.sub_name}{$supplier_deal_item.sub_name}{else}{$supplier_deal_item.name}{/if}</h5></a>
+													<p class="food_name">{$supplier_deal_item.brief}</p>
+													<p class="price">{$supplier_deal_item.current_price}元</p>
+													<span>{$supplier_deal_item.origin_price}元</span></a>
+											</li>
+										</ul>
+									{/if}
+								{/foreach}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/if}
+			<!--活动推荐-->
+			{if $data.huodong_info}
+			<div class="guidelines">
+				<div class="new_hot_title">
+					<p>活动推荐</p>
+					<a href="{url a="index" r="events"}">查看全部</a>
+				</div>
+				<div class="guidelines_con">
+					<ul>
+						{foreach from=$data.huodong_info item=event_item name=event_item}
+							<li>
+								{if $event_item.status eq 1}
+									<a href="{url a="index" r="kanjiaDetail#index" p="data_id=$event_item.id"}">
+								{/if}
+								{if $event_item.status eq 2}
+									<a href="{url a="index" r="pintuangoodsdetail#index" p="data_id=$event_item.goods_id"}">
+								{/if}
+								{if $event_item.status eq 3}
+									<a href="{url a="index" r="event" p="data_id=$event_item.id"}">
+								{/if}
+									<img class="lazy" src="{$event_item.img}" alt="" />
+									<div>
+										<p class="guidelines_con_title"><span>{$event_item.sub_name}</span>
+										{if $event_item.status eq 1}
+											<img src="{$TMPL}/html/img/icon/kan.png" alt="" />
+										{/if}
+										{if $event_item.status eq 2}
+											<img src="{$TMPL}/html/img/icon/pin.png" alt="" />
+										{/if}										
+										</p>
+										<p>{$event_item.brief}</p>
+									</div>
+								</a>
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="line"></div>
+			</div>
+			{/if}
+			<!--积分有礼-->
+			{if $data1.item}
+			<div class="integral_politeness">
+				<div class="new_hot_title">
+					<p>积分有礼</p>
+					<a href="{url a="index" r="scores"}">查看全部</a>
+				</div>
+				<div class="gift">
+					{foreach from=$data1.item item=tuanlist name=tuanlist}
+						{if $smarty.foreach.tuanlist.index%2 eq 0}
+							<div class="gift_left">
+								<a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}">
+									<img class="lazy" src="{$tuanlist.icon_v2}" alt="" />
+									<h5>{$tuanlist.sub_name}</h5>
+									<p class="gift_price">{$tuanlist.deal_score}积分<span></span></p>
+								</a>
+							</div>
+						{/if}
+						{if $smarty.foreach.tuanlist.index%2 eq 1}
+							<div class="gift_right">
+								<a href="{url a="index" r="deal#index" p="data_id=$tuanlist.id"}">
+									<img class="lazy" src="{$tuanlist.icon_v2}" alt="" />
+									<h5>{$tuanlist.sub_name}</h5>
+									<p class="gift_price">{$tuanlist.deal_score}积分<span></span></p>
+								</a>
+							</div>
+						{/if}
+					{/foreach}
+				</div>
+			</div>
+			{/if}
+			<div class="line"></div>
+		</section>
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+		
+	</body>
+
+	<script type="text/javascript" src="{$TMPL}/html/js/index.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript">
+	  $(".guidelines_con ul li a .lazy").css("height",$(".guidelines_con ul li a .lazy").width()+"px");
+	  $(".gift_right").eq($(".gift_right").length-1).css("border","none");
+	   $(".gift_left").eq($(".gift_left").length-1).css("border","none");
+	 </script>
+</html>

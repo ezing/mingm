@@ -1,0 +1,39 @@
+<!--index_zt2_p1-->
+<!--index_zt2_p2-->
+<style type="text/css">
+.index_zt2_table{ width:100%;  margin:0px; padding:0px; position: relative;}
+.index_zt2_table:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.index_zt2_p1::before {
+    content: '';
+    height: 100%;
+    border-left: 1px solid #e1e1e1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform:scaleX(.5) translateX(50%);
+            transform:scaleX(.5) translateX(50%);
+    -webkit-transform-origin:50% 0;
+            transform-origin:50% 0; 
+    z-index: 3;    
+}
+.index_zt2_p1,.index_zt2_p2{    
+	position: relative;
+    width: 50%;
+    border-left: none;
+    float: left;
+}
+.index_zt2_table img{ width:100%; border:0px;}
+</style>
+<body style="margin:0px;">
+
+<div class="index_zt2_table">
+	<div class="index_zt2_p1 split-line"><a href="{$index_zt2_p1_a}"><img src="{$index_zt2_p1_img}" /></a></div>
+	<div class="index_zt2_p2 split-line"><a href="{$index_zt2_p2_a}"><img src="{$index_zt2_p2_img}" /></a></div>
+</div>
+</body>

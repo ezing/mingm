@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>修改地址</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="js/jquery.min.js "></script>
+
+		<link rel="stylesheet" href="css/modify_add.css" />
+		<link rel="stylesheet" href="css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a href="#script" class="back"><img src="img/icon/back.png" alt="" /></a>
+						<p class="details_details">修改地址</p>
+						<button class="head_btn">保存</button>
+						<!--<img src="img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />-->
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--内容开始-->
+				<div class="wid">
+					<div class="wid_small">
+						<form name="my_address" method="post" action="">
+							<div class="mod_sty clearfix">
+								<p>收货人姓名：</p>
+								<input type="text" placeholder="Username1" />
+							</div>
+							<!--下拉选择城市-->
+							<div class="add_select">
+								<!--点击的地方--> 
+								<div class="select">
+									<ul>
+										<li class="province">
+											<input type="text" placeholder="北京市"><img src="img/icon/shuliang_07.png" alt="" />
+										</li>
+										<li class="city">
+											<input type="text" placeholder="北京市"><img src="img/icon/shuliang_07.png" alt="" />
+										</li>
+										<li class="region">
+											<input type="text" placeholder="东城区"><img src="img/icon/shuliang_07.png" alt="" />
+										</li>
+									</ul>
+								</div>
+								<!--点击出现所对应的东西-->
+								<div class="sub_style province_sub"><!--省市选择列表-->
+									<ul>
+										<li>北京市</li>
+										<li>上海市</li>
+										<li>天津市</li>
+										<li>吉林省</li>
+										<li>河北省</li>
+										<li>辽宁省</li>
+										<li>山东省</li>
+										<li>河南省</li>
+										<li>四川省</li>
+										<li>黑龙江省</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+									</ul>
+								</div>
+								<div class="sub_style city_sub"><!--市选择列表-->
+									<ul>
+										<li>北京市</li>
+										<li>上海市</li>
+										<li>天津市</li>
+										<li>吉林省</li>
+										<li>河北省</li>
+										<li>辽宁省</li>
+										<li>山东省</li>
+										<li>河南省</li>
+										<li>四川省</li>
+										<li>黑龙江省</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+										<li>北京市</li>
+									</ul>
+								</div>
+								<div class="sub_style region_sub"><!--市区选择列表-->
+									<ul>
+										<li>东城区</li>
+										<li>西城区</li>
+										<li>海淀区</li>
+										<li>朝阳区</li>
+										<li>密云区</li>
+										<li>顺义区</li>
+										<li>丰台区</li>
+										<li>房山区</li>
+										<li>怀柔区</li>
+										<li>大兴区</li>
+									</ul>
+								</div>
+							</div>
+							<div class="mod_sty clearfix">
+								<p>详细地址：</p>
+								<input type="text" placeholder="安定门外大街788号" />
+							</div>
+							<div class="mod_sty clearfix">
+								<p>邮编：</p>
+								<input type="text" placeholder="100010" />
+							</div>
+							<div class="mod_sty clearfix">
+								<p>手机号：</p>
+								<input type="text" placeholder="18844709898" />
+							</div>
+						</form>
+						<button class="btn">删除地址</button>
+					</div>
+				</div>
+
+				<!--内容结束-->
+				<!--页脚-->
+			<div class="footer"></div>
+			</section>
+		</div>
+		<script type="text/javascript " src="js/loading.js "></script>
+		<script type="text/javascript ">
+//		仿select
+			$(".select ul li").click(function() {
+				$(".sub_style").eq($(this).index()).css("display", "block").siblings().css("display", "none");//点击出现对应的列表
+				$(".select").css("display", "block");//自己不会消失
+				var m = $(".sub_style").eq($(this).index()).find("li").length;//m为当前对应下拉列表的长度
+				for(var i = 0; i < m; i++){//循环列表内容
+					$(".sub_style").eq($(this).index()).find("li").eq(i).click(function(){//点击列表内容
+						var thet_Txt=$(this).html();//获取点击的内容
+						$(this).css("border-right","1px solid #595757").siblings().css("border","none")
+						var r=$(this).parent().parent().index();//找到子元素所在列表的父级
+						$(".select ul li").eq(r-1).find("input").val(thet_Txt);//吧点击的内容赋值给所对应位置
+						$(this).parent().parent().css("display","none");//下拉列表消失
+					})
+				}
+			})
+			//			头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

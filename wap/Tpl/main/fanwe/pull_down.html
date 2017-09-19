@@ -1,0 +1,78 @@
+			<!--全部分类列表-->
+
+						<!--全部分类列表-->
+			<!--综合-->
+			<div class="list_classify clear">
+				<!--左侧列表-->
+				<div class="list_classify_nav clear">
+					<ul>
+		                {foreach from=$data['bcate_list'] item=cate}
+						  <li><a href="{$cate.url}">{$cate.name}</a></li>
+						{/foreach}
+					</ul>
+				</div>
+                <!--右侧子菜单-->
+
+					{foreach from=$data.bcate_list item=cate}
+							<div class="list_classify_subnav">
+								<ul>
+								   {foreach from=$cate.bcate_type item=blist}
+										<li class="two_directory"><a href="{$blist.url}">{$blist.name}</a></li>
+									{/foreach}
+								</ul>
+							</div>
+						
+				    {/foreach}
+				    <div class="hold_back"></div>
+              </div>
+			<!--综合结束-->
+             
+			 
+			 
+			 <!--城市分类开始-->
+            <div class="city_classify clear">
+				<!--左侧列表-->
+				<div class="city_classify_nav clear">
+					<ul>
+					    {foreach from=$data['quan_list'] item=city key=key}
+						
+							<li><a href="{$city.url}">{$city.name}</a></li>
+					
+						{/foreach}
+					</ul>
+				</div>
+                <!--右侧子菜单-->
+				{foreach from=$data['quan_list'] item=city key=key}
+					<div class="city_classify_subnav">
+						<ul>
+						    {foreach from=$city.quan_sub item=ccity key=key}
+								<li><a href="{$ccity.url}">{$ccity.name}</a></li>
+							{/foreach}
+						</ul>
+					</div>
+				{/foreach}
+				    <div class="hold_back"></div>
+			</div>
+             <!--城市分类结束-->
+			 
+             <!--综合分类开始-->
+             <div class="synthesis_subnav">
+                	<ul>
+						<li><a href="{$data.navs.0.url}">距离最近</a></li>
+						<!-- <li><a href="">距离最近</a></li>-->
+						<li> <a href="{$data.navs.3.url}">最高销量</a></li>
+						<li><a href="{$data.navs.4.url}">价格最低</a></li>
+
+					</ul>
+             </div>
+             <script type="text/javascript">
+             	$(".city_classify_nav ul li").click(function(){
+             		$(".allcity_classify span").html($(this).find("a").html())
+             	})
+             	$(".list_classify_subnav").eq(0).addClass('show');
+             	$(".list_classify_nav ul li").eq(0).css("background","#eee")
+             	$(".city_classify_subnav").eq(0).addClass('show');
+               $(".city_classify_nav ul li").eq(0).css("background","#eee")
+             </script>
+             
+             <!--综合分类结束->

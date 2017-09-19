@@ -1,0 +1,306 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/deal.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/deal.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/store.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/store.js";
+
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/Font-Awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">{$data.store_info.name}</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+			</div>
+			<!--头部下拉-->
+			<div class="hotshow_title_down">
+				<ul>
+					<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+					<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+					<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+				</ul>
+			</div>
+		</header>
+		<!--内容-->
+		<section>
+			<div class="commodity_img_show">
+				<img src="{$data.store_info.preview_v1}" alt="" />
+			</div>
+			<div class="merchant_details_name clear">
+				<p>{$data.store_info.name}</p>
+				<div class="share_collect">
+
+				{if $data.is_collect eq 1}
+					<a onclick="del_collect({$store_info.id},this);" style="padding-right:0.14rem; "><img src="{$TMPL}/html/img/icon/hongxin.png" alt=" " /></a>
+				{else}
+					<a onclick="add_collect({$store_info.id},this);" style="padding-right:0.14rem; "><img src="{$TMPL}/html/img/icon/kanjia1.png" alt=" " /></a>
+					
+				{/if}
+					<a onclick="WapTosinaweibo('{$data.store_info.name}', '{$event.share_url}');"   ><img src="{$TMPL}/html/img/icon/mmshopdetail.png" alt="" /></a>
+				</div>
+			</div>
+			<!--小星星-->
+			<div class="merchant_details_star">
+			
+				<!-- <img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin10.png" alt="" /> -->
+			</div>
+
+            <!--地址电话-->
+            <div class="merchant_details_add_tell clear">
+            	<div class="merchant_details_add_tell_con">
+            		<div class="merchant_details_add">
+            		<p>{$data.store_info.address}</p>
+            	</div>
+            	<div class="merchant_details_tell">
+            		<a href="tel:{$data.store_info.tel}" class="shop-phone"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin7.png" alt="" /></a>
+            	</div>
+            	</div>
+            	
+            </div>
+
+            <!--商品列表-->
+			{if $data.deal_list}
+            <div class="merchant_details_list">
+            	<div class="merchant_details_list_title">
+            		<p>店铺商品</p>
+            	</div>
+            </div>
+            <!--商品内容-->
+			
+			{foreach from=$data.deal_list item=dl key=dl_key}
+			<a href="{$dl.deal_url}">
+	            <div class="merchant_details_details">
+	            	<div class="merchant_details_details_wid clear">
+	            	  <div class="merchant_details_details_left">
+	            	  	<img src="{$dl.icon_v1}" alt="" />
+	            	  </div>
+	            	  <div class="merchant_details_details_right">
+	            	  	<div class="merchant_title">
+	            	  		<h5>{if $dl.sub_name}{$dl.sub_name}{else}{$dl.name}{/if}</h5>
+	            	  		<p>{$dl.brief}</p>
+	            	  	</div>
+	            	  	<div class="jiage clear">
+	            	  		<p>{$dl.current_price}元</p><span>{$dl.origin_price}元</span><p>已售{$dl.buy_count}</p>
+	            	  	</div>
+	            	  </div>
+	            	</div>
+	            </div>
+            </a>
+			{/foreach}
+			{/if}
+
+            <!--团购列表-->
+			{if $data.tuan_list}
+            <div class="merchant_details_list">
+            	<div class="merchant_details_list_title">
+            		<p>团购列表</p>
+            	</div>
+            </div>
+            <!--商品内容-->
+			
+			{foreach from=$data.tuan_list item=tl key=tl_key}
+			<a href="{url a="index" r="deal"}">
+	            <div class="merchant_details_details">
+	            	<div class="merchant_details_details_wid clear">
+	            	  <div class="merchant_details_details_left">
+	            	  	<img src="{$tl.icon}" alt="" />
+	            	  </div>
+	            	  <div class="merchant_details_details_right">
+	            	  	<div class="merchant_title">
+	            	  		<h5>{if $tl.sub_name}{$tl.sub_name}{else}{$tl.name}{/if}</h5>
+	            	  		<p>{$tl.brief}</p>
+	            	  	</div>
+	            	  	<div class="jiage clear">
+	            	  		<p>{$tl.current_price}元</p><span>{$tl.origin_price}元</span><p>已售{$tl.buy_count}</p>
+	            	  	</div>
+	            	  </div>
+	            	</div>
+	            </div>
+            </a>
+			{/foreach}
+			{/if}
+            <!--优惠券-->
+			{if $data.youhui_list}
+            <div class="merchant_details_list">
+            	<div class="merchant_details_list_title">
+            		<p>优惠券</p>
+            	</div>
+            </div>
+			{foreach from=$data.youhui_list item=yl}
+				<div class="merchant_details_details">
+					<div class="merchant_details_details_wid clear">
+					  <div class="merchant_details_details_left">
+						<img src="{$data.store_info.preview_v1}" alt="" />
+					  </div>
+					  <div class="merchant_details_details_right">
+						<div class="merchant_title">
+							<h5>{$data.store_info.name}</h5>
+							<p class="vouchers"><a href="{$yl.youhui_url}" class="act-title">{$yl.name}</a></p>
+						</div>
+						<div class="tim_out">
+							<p>{$yl.begin_time}</p>
+						</div>
+					  </div>
+					</div>
+				</div>
+			{/foreach}
+			{/if}
+          
+            <!--评价-->
+			  {if $data.store_info.dp_count > 0}
+            <div class="merchant_details_evaluate">
+            	<div class="merchant_details_evaluate_title">
+            		<p><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin8.png" alt="" />评价</p>
+            		
+            	</div>
+            </div>
+            
+          
+            {foreach from=$data.dp_list item=dpl}
+			<div class="user_evaluate">
+				<div class="user_evaluate_data">
+					<p>{$dpl.user_name} {$dpl.create_time}</p>
+				</div>
+				<div class="user_evaluate_text clear">
+					<p>{$dpl.content}</p>
+					<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin10.png" alt="" />
+				</div>
+				{if $dpl.images_v1}
+				
+				<div class="user_evaluate_img">
+						{foreach from=$dpl.images_v1 item=dpl_img}
+							<img src="{$dpl_img}" alt="">
+						{/foreach}
+				</div>
+				
+				{/if}
+			</div>
+			{/foreach}
+			
+			<div class="load_more">
+				<a href="{$data.dp_url}" class="click-to-check-all"><p>查看全部评价<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin11.png" alt="" /></p></a>
+
+			</div>
+			{/if}
+			<!--附近商家-->
+			{if $data.location_list}
+            <div class="merchant_details_list">
+            	<div class="merchant_details_list_title">
+            		<p>附近商家</p>
+            	</div>
+            </div>
+            <!--商品内容-->
+			
+			{foreach from=$data.location_list item=ll}
+			<a href="{$ll.location_url}">
+	            <div class="merchant_details_details">
+	            	<div class="merchant_details_details_wid clear">
+	            	  <div class="merchant_details_details_left">
+	            	  	<img src="{$ll.preview}" alt="" />
+	            	  </div>
+	            	  <div class="merchant_details_details_right">
+	            	  	<div class="merchant_title">
+	            	  		<h5>{$ll.name}</h5>
+	            	  		<p></p>
+	            	  	</div>
+	            	  	<div class="jiage clear">
+	            	  		<p>{$ll.dealcate_name}</p><span></span><p>{$ll.area_name}{$ll.distance}</p>
+	            	  	</div>
+	            	  </div>
+	            	</div>
+	            </div>
+            </a>
+			{/foreach}
+			{/if}
+		</section>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+	</body>
+	<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+	<script>
+	function WapTosinaweibo(_rt,_ru) {
+			    _rt = encodeURI(_rt);
+			    _ru = encodeURIComponent(_ru);
+			    var _u = 'http://v.t.sina.com.cn/share/share.php?title='+_rt+'&url='+_ru;
+			    window.location.href = _u;
+			}
+	//收藏活动
+	function add_collect(){
+		var id = {$data.id};//活动的id
+		if(!id){
+			alert('参数不足，请稍后重试');
+			return false;
+		}
+		$.ajax({
+			url:'{url a="index" r="store#addcollect"}',
+			data: {activity_id:id},
+			dataType:"json",
+			type: "post",
+			success: function(obj){
+				//console.log(obj);
+				// alert(obj);
+				location.reload();
+
+			}
+		});
+	}
+	//取消收藏
+	function del_collect(){
+
+		var id = {$data.id};//活动的id
+
+		if(!id){
+			alert('参数不足，请稍后重试');
+			return false;
+		}
+		$.ajax({
+			url:'{url a="index" r="store#delcollect"}',
+			data: {activity_id:id},
+			dataType:"json",
+			type: "post",
+			success: function(obj){
+				//console.log(obj);
+				// alert(obj);
+				location.reload();
+			}
+		});
+	}
+	</script>
+</html>

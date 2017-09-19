@@ -1,0 +1,271 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height: 63px;
+}
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+	margin-top: 0.15rem;
+}
+
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 20px;
+}
+
+.banner {
+	height: 7px;
+	width: 100%;
+	background: #f8f8f8;
+}
+.line{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+/*通用部分结束*/
+.integral_rule a{
+	display: block;
+	font-size: 14px;
+	color: #8d8d8d;
+	font-family: "fzhjt";
+	float: right;
+}
+.integral_rule a img{
+	width: 0.05rem;
+	position: relative;
+	top:-0.02rem;
+	padding-left: 0.1rem;
+}
+.integral_count{
+	margin: 0 auto;
+	margin-top:0.18rem;
+	margin-bottom: 0.34rem;
+	padding:13px;
+	border-radius: 100%;
+	border:8px solid #c2b49c;
+	text-align: center;
+}
+.integral_count p{
+	font-size: 14px;
+	color: #595757;
+	font-weight: 600;
+	margin-top:0.08rem;
+	font-family: "fzzh";
+}
+.integral_count h5{
+	font-size: 35px;
+	color: #a48d64;
+	font-family: "fzzh";
+	margin-top: 0.2rem;
+}
+.integral_count span{
+	display: block;
+	font-size: 14px;
+	color: #a48d64;
+	margin-top: 0.2rem;
+	font-family: "fzhjt";
+}
+.integral_option {
+	width: 100%;
+}
+.integral_option ul{
+	width: 100%;
+}
+.integral_option ul li{
+	width: 50%;
+	float: left;
+	font-size: 16px;
+	padding: 0.17rem 0;
+	border-bottom: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	color: #000;
+	font-family: "fzzh";
+	text-align: center;
+}
+.integral_option ul .gold_line{
+	border-bottom: 2px solid #c6b8a2;
+	box-sizing: border-box;
+	
+}
+.integral_option ul li img{
+		width: 0.06rem;
+	position: relative;
+	top:-0.02rem;
+	padding-left: 0.1rem;
+}
+.integral_option ul:after{
+	content: " ";
+	display: block;
+	clear:both;
+}
+.integral_count_income ul{
+	height: 3.2rem;
+	overflow: hidden;
+}
+.integral_count_income ul li{
+border-bottom: 1px solid #e5e5e5;
+padding: 0.14rem 0.21rem;
+}
+.integral_count_income ul li .left{
+	float: left;
+	padding-left: 0.1rem;
+}
+.integral_count_income ul li .left p{
+	line-height: 24px;
+}
+.integral_count_income ul li .right{
+	float: right;
+	padding-right: 0.3rem;
+}
+.integral_count_income ul li .right p{
+	line-height: 48px;
+	color: #ff0000;
+}
+.integral_count_income p{
+	font-size: 16px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+.integral_count_income ul li:after{
+	content: " ";
+	display: block;
+	clear:both;
+}
+.income_more{
+	width: 100%;
+	background: #fff;
+	z-index: 99;
+	margin:0.12rem 0 ;
+	text-align: center;
+}
+.income_more p{
+	font-size: 16px;
+	color: #000;
+	font-family: "fzjht";
+}
+.income_more p img{
+	width: 0.06rem;
+	position: relative;
+	top:-0.02rem;
+	padding-left: 0.1rem;
+	padding-right: 0.1rem;
+}
+
+.integral_count_expend{
+	display: none;
+}
+.integral_count_expend ul{
+	height: 3.2rem;
+	overflow: hidden;
+}
+.integral_count_expend ul li{
+border-bottom: 1px solid #e5e5e5;
+padding: 0.14rem 0.21rem;
+}
+.integral_count_expend ul li .left{
+	float: left;
+	padding-left: 0.1rem;
+}
+.integral_count_expend ul li .left p{
+	line-height: 24px;
+}
+.integral_count_expend ul li .right{
+	float: right;
+	padding-right: 0.3rem;
+}
+.integral_count_expend ul li .right p{
+	line-height: 48px;
+}
+.integral_count_expend p{
+	font-size: 16px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+.integral_count_expend ul li:after{
+	content: " ";
+	display: block;
+	clear:both;
+}
+.integral_count_expend .income_more{
+	width: 100%;
+	background: #fff;
+	z-index: 99;
+	margin:0.12rem 0 ;
+	text-align: center;
+}
+.integral_count_expend .income_more p{
+	font-size: 16px;
+	color: #000;
+	font-family: "fzjht";
+}
+.integral_count_expend .income_more p img{
+	width: 0.06rem;
+	position: relative;
+	top:-0.02rem;
+	padding-left: 0.1rem;
+}

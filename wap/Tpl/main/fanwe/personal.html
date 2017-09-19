@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{$page_title}</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+
+		<link href="{$TMPL}/html/css/mobiscroll_002.css" rel="stylesheet" type="text/css">
+		<link href="{$TMPL}/html/css/mobiscroll.css" rel="stylesheet" type="text/css">
+
+		<link href="{$TMPL}/html/css/mobiscroll_003.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{$TMPL}/html/css/personal.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">个人信息</p>
+						<button type="submit" class="btn">保存</button>
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--顶部titlr-->
+				<div class="wid">
+					<div class="wid_small">
+						<div class="title">
+							<img src="{$TMPL}/html/img/personal/gerenxinxi3.png" alt="" />
+							<p>基本资料</p>
+							<div class="black_line1"></div>
+							<div class="black_line2"></div>
+						</div>
+					</div>
+				</div>
+				<!--表单-->
+				<div class="wid" style="margin-top:0px;">
+					<div class="wid_small">
+						<form action="{url a="index" r="uc_account#save"}" method="post" name="personal" id="personal">
+							<div class="head_portrait clearfix">
+								<p>头像</p>
+								<img src="{function name="get_user_avatar" uid=$user_info.id type="big"}" alt="" />
+								
+							</div>
+							<div class="user_con clearfix">
+								<p>昵称</p>
+								<input type="text" placeholder="{$user_info.user_name}" name="user_name" value="{$user_info.user_name}" />
+							</div>
+							<div class="user_con clearfix">
+								<p>称谓</p>
+								<div class="sex">
+									<label for="male"><img src="{$TMPL}/html/img/personal/gerenxinxi7.png" alt="" /></label>
+									<select name="industry" id="male">
+										<option value="-1" {if $user_info.sex eq -1}selected{/if}>先生</option>
+										<option value="1" {if $user_info.sex eq 1}selected{/if}>女士</option>
+									</select>
+								</div>
+							</div>
+							<div class="user_con clearfix">
+								<p>邮箱</p>
+								<input type="text" placeholder="{$user_info.email}" name="email" value="{$user_info.email}" />
+							</div>
+							<div class="user_con clearfix">
+								<p>生日</p>
+								<div class="birthday">
+									<label for="appDate"><img src="{$TMPL}/html/img/personal/gerenxinxi7.png" alt="" /></label>
+									<input class="" readonly="readonly" name="appDate" id="appDate" type="text" placeholder="1988-06-06">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!--账号安全-->
+				<div class="wid">
+					<div class="wid_small">
+						<div class="account">
+							<img src="{$TMPL}/html/img/personal/gerenxinxi4.png" alt="" />
+							<p>账号安全</p>
+							<div class="black_line1"></div>
+							<div class="black_line2"></div>
+							<a href="{url x="index" r="uc_account#phone"}">
+								<div class="phone">
+									<p>手机号</p>
+									<img src="{$TMPL}/html/img/personal/gerenxinxi2.png" alt="" />
+									<input type="text" placeholder="{$mobile}" />
+								</div>
+							</a>
+							<a href="{url x="index" r="user#getpassword"}">
+								<div class="phone">
+									
+										<p>修改密码</p><img src="{$TMPL}/html/img/personal/gerenxinxi2.png" alt="" />
+									
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!--其他登录-->
+				<!-- <div class="wid">
+					<div class="wid_small">
+						<div class="account">
+							<img src="{$TMPL}/html/img/gerenxinxi5.png" alt="" />
+							<p>其他登录方式</p>
+							<div class="black_line1"></div>
+							<div class="black_line2"></div>
+							<div class="phone">
+								<a href="#script">
+									<p>新浪微博</p><img src="{$TMPL}/html/img/gerenxinxi2.png" alt="" /></a>
+							</div>
+							<div class="phone">
+								<a href="#script">
+									<p>微信</p><img src="{$TMPL}/html/img/gerenxinxi2.png" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<!--退出登录-->
+				<div class="wid">
+					<div class="wid_small exit_a">
+						<a href="{url a="index" r="user#loginout"}"><button class="exit">退出登录</button></a>
+					</div>
+				</div>
+
+			</section>
+		</div>
+
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js "></script>
+		<script src="{$TMPL}/html/js/mobiscroll_002.js" type="text/javascript"></script>
+		<script src="{$TMPL}/html/js/mobiscroll_004.js" type="text/javascript"></script>
+		<script src="{$TMPL}/html/js/mobiscroll.js" type="text/javascript"></script>
+		<script src="{$TMPL}/html/js/mobiscroll_003.js" type="text/javascript"></script>
+		<script src="{$TMPL}/html/js/mobiscroll_005.js" type="text/javascript"></script>
+		<script type="text/javascript ">
+			$(".ka_city_right ").click(function() {
+				//				头部下拉
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+			document.addEventListener("touchmove", function(event) {
+
+				if(alertIsShow) {
+					event.preventDefault();
+				}
+			}, false);
+			$(function() {
+				var currYear = (new Date()).getFullYear();
+				var opt = {};
+				opt.date = {
+					preset: 'date'
+				};
+				opt.datetime = {
+					preset: 'datetime'
+				};
+				opt.time = {
+					preset: 'time'
+				};
+				opt.default = {
+					theme: 'android-ics light', //皮肤样式
+					display: 'modal', //显示方式 
+					mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy-mm-dd',
+					lang: 'zh',
+					showNow: true,
+					nowText: "今天",
+					startYear: currYear - 100, //开始年份
+					endYear: currYear + 100 //结束年份
+				};
+
+				$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
+				var optDateTime = $.extend(opt['datetime'], opt['default']);
+
+				var optTime = $.extend(opt['time'], opt['default']);
+
+				$("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+				$("#appTime").mobiscroll(optTime).time(optTime);
+
+			});
+			$(".btn").click(function(){
+				$("#personal").submit();
+			})
+		</script>
+
+	</body>
+
+</html>

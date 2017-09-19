@@ -1,0 +1,274 @@
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+a {
+	text-indent: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+
+/*common*/
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+#box {
+	width: 100%;
+	max-width: 640px;
+	min-width: 320px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin: auto;
+}
+.jiudian{
+font-size: 18px;
+    color: #fff;
+    display: inline-block;
+    margin-left: 28px;
+    margin-top: 2px;
+}
+/*tab*/
+.top_stop{
+	width: 100%;
+	height:63px;
+}
+.top-stop1{
+width: 100%;
+height: 43px;
+}
+#tab {
+	position:fixed;
+	width: 100%;
+	max-width: 640px;
+	margin: auto;
+	box-sizing: border-box;
+	background-color: #000;
+	padding: 1.656rem 6.333%;
+	z-index: 10;
+}
+
+.back,
+.list {
+	display: inline-block;
+}
+
+.back img {
+	width: 18px;
+	vertical-align: middle;
+}
+
+.list img {
+	width: 21px;
+	vertical-align: middle;
+}
+.contentRight .title{
+	    color: #000;
+    font-size:14px;
+    font-family: "fzzh", cursive
+}
+
+/*down*/
+
+#slideDown {
+	width: 100px;
+	position: absolute;
+	right: 16px;
+	display: none;
+	z-index: 999;
+	top:63px;
+}
+
+#slideDown img {
+	width: 100%;
+	margin-bottom: 2px;
+	display: block;
+}
+
+
+/*select*/
+
+#select {
+	padding-top: 40px;
+}
+
+#select img {
+	width: 100%;
+}
+
+.classify_region {
+	width: 100%;
+	padding: 13px 0px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative
+}
+
+.all_classify,
+.allcity_classify,
+.synthesis_classify {
+	float: left;
+	width: 33.33333%;
+	text-align: center;
+}
+
+.classify_region p img {
+	padding-left: 5px;
+}
+
+.classify_region p {
+	color: #595757;
+	font-size: 1.6rem;
+	font-family: "fzhjt";
+}
+
+
+/*time*/
+
+#time {
+	border-top: 1px solid #d2d2d2;
+	border-bottom: 1px solid #d2d2d2;
+	padding: 10px;
+	color: #595858;
+	text-align: center;
+}
+
+#time img {
+	width: 8px;
+	vertical-align: middle;
+}
+
+.allcity_classify span{
+	color: #595757;
+	font-size: 13px;
+	font-family: "fzhjt"
+}
+/*content*/
+
+#content {}
+
+#content>div {
+	width: 100%;
+	padding: 15px 0 15px 20px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+}
+
+#content div a .contentLeft{
+	display: inline-block;
+    width: 9.61rem;
+    height:82px;
+}
+
+.contentRight {
+	display: inline-block;
+	width: 58%;
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+.grade {
+	width: 62px;
+	margin-top: 10px;
+}
+.grade_f span{
+	font-size: 1.4rem;
+}
+.info {
+	font-family: "fzhjt";
+	color: #595858;
+	font-size: 12px;
+	padding-top: 11px;
+}
+
+.price {
+	font-family: "fzhjt";
+	
+	width: 100%;
+	color: #ff2424;
+	font-size: 12px;
+	/*margin-top: 6px;*/
+	position: absolute;
+	bottom: 14px;
+}
+
+.price span {
+	font-size: 1.4rem;
+	color: #3f3f3f;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	transform: scale(0.8);
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+/*page*/
+
+#page {
+	padding: 20px;
+	border-bottom: 1px solid #d2d2d2;
+}
+.ding{
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+}
+.last1,
+.next1 {
+	display: inline-block;
+	padding: 6px 12px;
+	border: 1px solid #a6a6a6;
+	color: #a6a6a6;
+	font-size: 14px;
+}
+
+ .next {
+	color: #000;
+	border-color: #000;
+}
+
+#pag span {
+	color: #a6a6a6;
+}
+
+.pageSlect {
+	color: #000;
+}

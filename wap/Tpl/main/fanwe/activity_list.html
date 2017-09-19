@@ -1,0 +1,127 @@
+<?php
+
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a onClick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">{$data.page_title}</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+			</div>
+			<!--头部下拉-->
+			<div class="hotshow_title_down">
+				<ul>
+					<a href="{url a="index" r="index#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li></a>
+					<a href="{url a="index" r="user_center#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li></a>
+					<a href="{url a="index" r="search#index"}"><li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li></a>
+				</ul>
+
+			</div>
+		</header>
+		<!--内容-->
+		<section>
+			<!--分类-->
+			<div class="classify_region clear">
+				<div class="all_classify">
+					<p> {if $request.catename}{$request.catename}{else}全部分类{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> </p>
+				</div>
+				<div class="allcity_classify">
+					<p>{if $request.brandname}{$request.brandname}{else}全城{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> </p>
+				</div>
+				<div class="synthesis_classify">
+					<p>{if $request.ordername}{$request.ordername}{else}综合{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /> </p>
+				</div>
+			</div>
+
+			<!--全部分类列表-->
+			<div class="pulldown">
+			{include file="pull_down.html"}
+			</div>
+             <!--城市分类结束-->
+			 
+             <!--综合分类开始-->
+             <div class="synthesis_subnav">
+                	<ul>
+						<li><a href="{$data.navs.0.url}">默认排序</a></li>
+						<!--<li><a href="">距离最近</a></li>-->
+						<li><a href="{$data.navs.3.url}">最高销量</a></li>
+						<li><a href="{$data.navs.4.url}">最大折扣</a></li>
+
+					</ul>
+             </div>
+
+
+			<!--分类详情-->
+			{foreach from=$data.item item=eventitem}
+			<div class="classify_commodity clear">
+				<div class="img_commodity">
+					<a href="{url a="index" r="event#index" p="data_id=$eventitem.id"}">
+						<img src="{$eventitem.icon}" alt="" />
+					</a>
+				</div>
+				<div class="products_introduction">
+					<a href="{url a="index" r="event#index" p="data_id=$eventitem.id"}">
+						<p>{$eventitem.name}</p>
+					</a>
+					<div class="location clear">
+						<a href="{url a="index" r="event#index" p="data_id=$eventitem.id"}">
+							<img src="{$TMPL}/html/img/hotshow/icon/mmshangjiashowweizhitubiao.png" alt="" />
+							<span>{$eventitem.distance}</span>
+						</a>
+					</div>
+					<div class="time_apply_num clear">
+						<p>{$eventitem.sheng_time_format}</p>
+						<p>报名量：{$eventitem.submit_count}</p>
+					</div>
+				</div>
+			</div>
+			{/foreach}
+			<!--分割线-->
+			<div class="parting_line"></div>
+
+		</section>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+	</body>
+	<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/list.js"></script>
+
+</html>

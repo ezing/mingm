@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>我的订单</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="js/jquery.min.js "></script>
+
+		<link rel="stylesheet" href="css/integral_count.css" />
+		<link rel="stylesheet" href="css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a href="#script" class="back"><img src="img/icon/back.png" alt="" /></a>
+						<p class="details_details">全部订单</p>
+						<img src="img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--内容开始-->
+				<!--顶部积分数量-->
+				<div class="wid">
+					<div class="wid_small ">
+						<div class="integral_rule clearfix">
+							<a href="#script">积分规则说明<img src="img/integral_count/shuliang_03.png" alt="" /></a>
+						</div>
+						<div class="integral_count">
+							<p>当前积分</p>
+							<h5>299</h5>
+							<span>分</span>
+						</div>
+					</div>
+				</div>
+				<div class="banner"></div>
+				<div class="wid">
+					<div class="integral_option">
+						<ul>
+							<li class="gold_line ">收入明细<img src="img/integral_count/shuliang_07.png" alt="" /></li>
+							<li>支出明细<img src="img/integral_count/shuliang_07.png" alt="" /></li>
+						</ul>
+					</div>
+				</div>
+				<div class="wid">
+					<div class="integral_income_expend">
+						<!--收入明细-->
+						<div class="integral_count_income">
+							<ul>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>+200</p>
+									</div>
+								</li>
+							</ul>
+							<div class="income_more more_income">
+								<p>展开更多<img src="img/integral_count/shuliang_07.png" alt="" /></p>
+							</div>
+							<div class="banner"></div>
+						</div>
+						<!--收入明细结束-->
+						<!--支出明细-->
+						<div class="integral_count_expend">
+							<ul>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>-200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>-200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>-200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>-200</p>
+									</div>
+								</li>
+								<li>
+									<div class="left">
+										<p>2017.8.9</p>
+										<p>积分支付</p>
+									</div>
+									<div class="right">
+										<p>-200</p>
+									</div>
+								</li>
+							</ul>
+							<div class="income_more more_expend">
+								<p>展开更多<img src="img/integral_count/shuliang_07.png" alt="" /></p>
+							</div>
+							<div class="banner"></div>
+						</div>
+						<!--支出明细结束-->
+					</div>
+				</div>
+				<!--内容结束-->
+				<!--页脚-->
+				<div class="partition"></div>
+				<div class="footer ">
+					<div class="hotshow_foot ">
+						<div class="hotshow_foot_top clearfix ">
+							<div class="hotshow_foot_top_left clearfix ">
+								<p class="hotshow_username ">Username</p>
+								<p class="hotshow_partition ">|</p>
+								<p class="hotshow_exit ">退出</p>
+							</div>
+							<div class="hotshow_foot_top_right clearfix ">
+								<p class="hotshow_foot_city ">石家庄</p>
+								<img class="hotshow_change_img " src="img/icon/zhuanhuan.png" alt=" " />
+								<p class="hotshow_change_city ">切换城市</p>
+							</div>
+						</div>
+						<div class="hotshow_foot_selection ">
+							<ul class="clearfix ">
+								<li class="color ">
+									<a href=" ">首页</a>
+								</li>
+								<li>|</li>
+								<li class="color ">
+									<a href=" ">电脑版</a>
+								</li>
+								<li>|</li>
+								<li class="color ">
+									<a href=" ">商家登录</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script type="text/javascript " src="js/loading.js "></script>
+		<script type="text/javascript ">
+			$(".integral_option ul li").click(function() {
+				$(this).addClass("gold_line").siblings().removeClass("gold_line");
+			})
+			//			选项卡
+			var b = $(".integral_count_expend ul").height();
+			var a = $(".integral_count_income ul").height();
+			$(".integral_option ul li").eq(0).click(function() {
+				$(".integral_count_income").css("display", "block");
+				$(".integral_count_expend").css("display", "none");
+				if($(".integral_count_expend").is(":hidden")) {
+					$(".integral_count_expend ul").css("height", b + "px")
+				}
+			})
+			$(".integral_option ul li").eq(1).click(function() {
+				$(".integral_count_income").css("display", "none");
+				$(".integral_count_expend").css("display", "block");
+				if($(".integral_count_income").is(":hidden")) {
+					$(".integral_count_income ul").css("height", a + "px")
+				}
+			})
+			//			下拉加载更多
+
+			$(".more_expend").click(function() {
+				$(".integral_count_expend ul").css("height", b + b + "px");
+
+			})
+
+			$(".more_income").click(function() {
+				$(".integral_count_income ul").animate({
+					"height": a + a + "px"
+				});
+
+			})
+
+			//			头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

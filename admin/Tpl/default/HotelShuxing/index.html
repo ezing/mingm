@@ -1,0 +1,57 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<include file="Public:header" />
+<php>
+
+
+	function get_deal_name($deal_id)
+	{
+
+	$array = M("Deal")->where("id=".$deal_id)->getField("id,sub_name,origin_price");
+	$str = $array[$deal_id];
+	return  $str;
+	}
+
+
+	
+</php>
+<script type="text/javascript">
+	function preview(id)
+	{
+		window.open("__ROOT__/index.php?ctl=preview&act=HotelShuxing&id="+id+"&type=0");
+	}
+</script>
+
+<div class="main">
+<div class="main_title">酒店属性列表</div>
+<div class="blank5"></div>
+<div class="button_row">
+	<input type="button" class="button" value="{%ADD}" onclick="add();" />
+	<input type="button" class="button" value="{%DEL}" onclick="foreverdel();" />
+</div>
+<div class="blank5"></div><!--
+<div class="search_row">
+	<form name="search" action="__APP__" method="get">	
+		名称：<input type="text" class="textbox" name="name" value="{:strim($_REQUEST['name'])}" />		
+		<input type="hidden" value="Youhui" name="m" />
+		<input type="hidden" value="index" name="a" />
+		<input type="submit" class="button" value="{%SEARCH}" />
+	</form>
+</div>-->
+<div class="blank5"></div>
+<html:list 
+	id="dataTable" 
+	style="dataTable" 
+	name="HotelShuxing"
+	checkbox="true" 
+	action="true" 
+	datasource="list" 
+	show="id:{%ID}|50px
+		 ,name:属性名字
+		 ,value:属性值" 
+	actionlist="edit:{%EDIT}, foreverdel:{%DEL},preview:预览" /> 
+
+<div class="blank5"></div>
+<div class="page">{$page}</div>
+</div>
+<include file="Public:footer" />

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>钱包</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="js/jquery.min.js "></script>
+
+		<link rel="stylesheet" href="css/walletpurse.css" />
+		<link rel="stylesheet" href="css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a href="#script" class="back"><img src="img/icon/back.png" alt="" /></a>
+						<p class="details_details">钱包</p>
+						<img src="img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--内容开始-->
+				<div class="wid">
+					<div class="wid_small">
+						<div class="balance">
+							<p>账户余额(元）</p>
+							<p>¥588.00</p>
+						</div>
+					</div>
+					<div class="banner"></div>
+					<div class="wid_small">
+						<div class="balance_option">
+							<ul>
+								<li>
+									<a href="#script">
+										<img src="img/walletpurse/balance_03.png" alt="" class="left" />
+										<p>余额充值</p>
+										<img src="img/icon/fx_06.png" alt="" class="right" />
+									</a>
+								</li>
+								<li>
+									<a href="#script">
+										<img src="img/walletpurse/balance_06.png" alt="" class="left" />
+										<p>余额提现</p>
+										<img src="img/icon/fx_06.png" alt="" class="right" />
+									</a>
+								</li>
+								<li>
+									<a href="#script">
+										<img src="img/walletpurse/balance_08.png" alt="" class="left" />
+										<p>我的银行卡</p>
+										<img src="img/icon/fx_06.png" alt="" class="right" />
+									</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+				<!--内容结束-->
+				<!--页脚-->
+				<div class="line"></div>
+				<div class="footer"></div>
+			</section>
+		</div>
+		<script type="text/javascript " src="js/loading.js "></script>
+		<script type="text/javascript ">
+			$(".ka_city_right ").click(function() { //头部下拉
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

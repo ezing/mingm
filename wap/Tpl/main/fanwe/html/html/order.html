@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>我的订单</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<link rel="stylesheet" href="css/order.css" />
+		<link rel="stylesheet" href="css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a href="#script" class="back"><img src="img/icon/back.png" alt="" /></a>
+						<p class="details_details">全部订单</p>
+						<img src="img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="#script"><img src="img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--内容开始-->
+				<!--顶部选择-->
+				<div class="handover ">
+					<ul class="clearfix">
+						<li class="black dai">
+							<a href=""></a>待付款订单</li>
+						<li class="wei">
+							<a href=""></a>已付款订单</li>
+					</ul>
+				</div>
+                <!--引入-->
+                <div class="weifu">123</div><!--未付款位置-->
+                <div class="yifu">abc</div><!--已付款位置-->
+				<!--内容结束-->
+				<!--页脚-->
+				<div class="footer ">
+					<div class="hotshow_foot ">
+						<div class="hotshow_foot_top clearfix ">
+							<div class="hotshow_foot_top_left clearfix ">
+								<p class="hotshow_username ">Username</p>
+								<p class="hotshow_partition ">|</p>
+								<p class="hotshow_exit ">退出</p>
+							</div>
+							<div class="hotshow_foot_top_right clearfix ">
+								<p class="hotshow_foot_city ">石家庄</p>
+								<img class="hotshow_change_img " src="img/icon/zhuanhuan.png" alt=" " />
+								<p class="hotshow_change_city ">切换城市</p>
+							</div>
+						</div>
+						<div class="hotshow_foot_selection ">
+							<ul class="clearfix ">
+								<li class="color ">
+									<a href=" ">首页</a>
+								</li>
+								<li>|</li>
+								<li class="color ">
+									<a href=" ">电脑版</a>
+								</li>
+								<li>|</li>
+								<li class="color ">
+									<a href=" ">商家登录</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script type="text/javascript " src="js/jquery.min.js "></script>
+		<script type="text/javascript " src="js/loading.js "></script>
+		<script type="text/javascript ">
+			$(".dai").click(function() {
+//				已付未付 选项卡
+				$(this).addClass("black");
+				$(".wei").removeClass("black")
+				$(".weifu").css("display", "block");
+				$(".yifu").css("display", "none");
+			})
+			$(".wei").click(function() {
+				$(this).addClass("black");
+				$(".dai").removeClass("black")
+				$(".yifu").css("display", "block");
+				$(".weifu").css("display", "none");
+			})
+//			头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

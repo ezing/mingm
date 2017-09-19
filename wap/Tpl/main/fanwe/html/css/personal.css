@@ -1,0 +1,283 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height: 0.63rem;
+}
+
+.wid {
+	width: 100%;
+	margin-top: 0.33rem;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+}
+
+.box {
+	transition: all 0.8s ease 0s;
+	animation: mymove 0.8s;
+	-webkit-animation: mymove 0.8s;
+}
+
+@keyframes mymove {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	10% {
+		transform: scale(0.1);
+		opacity: 0.1;
+	}
+	20% {
+		transform: scale(0.2);
+		opacity: 0.2;
+	}
+	30% {
+		transform: scale(0.3);
+		opacity: 0.3;
+	}
+	40% {
+		transform: scale(0.4);
+		opacity: 0.4;
+	}
+	50% {
+		transform: scale(0.5);
+		opacity: 0.5;
+	}
+	60% {
+		transform: scale(0.6);
+		opacity: 0.6;
+	}
+	70% {
+		transform: scale(0.7);
+		opacity: 0.7;
+	}
+	80% {
+		transform: scale(0.8);
+		opacity: 0.8;
+	}
+	90% {
+		transform: scale(0.9);
+		opacity: 0.9;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+
+/*以上为通用部分*/
+select::-ms-expand { display: none; }
+.title img {
+	width: 0.15rem;
+	padding-right: 0.14rem;
+}
+
+.title p {
+	display: inline-block;
+	color: #000;
+	font-size: 16px;
+	font-family: 'fzhjt';
+}
+
+.title .black_line1 {
+	width: 100%;
+	border-top: 2px solid #000;
+	margin-top: 0.2rem;
+}
+
+.title .black_line2 {
+	width: 100%;
+	border-top: 1px solid #000;
+	margin-top: 0.01rem;
+}
+
+.head_portrait {
+	padding: 0.13rem 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.head_portrait p {
+	font-size: 16px;
+	float: left;
+	font-family: 'fzhjt';
+	padding-top: 0.2rem;
+}
+
+.head_portrait img {
+	width: 50px;
+	float: right;
+	display: block;
+	margin-right: 0.1rem;
+}
+
+.user_con {
+	padding: 0.3rem 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.user_con p {
+	font-size: 16px;
+	float: left;
+	font-family: 'fzhjt';
+}
+
+.user_con input {
+	float: right;
+	font-family: 'fzhjt';
+	font-size: 16px;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+
+.user_con label {
+	float: right;
+	padding-left: 0.22rem;
+	margin-top: -0.02rem;
+	padding-right: 0.1rem;
+}
+
+.user_con label img {
+	width: 0.1rem;
+}
+.user_con select{
+float: right;
+border:none;
+	outline: none;
+text-align: right;
+font-size: 16px;
+font-family: "fzhjt";	
+appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none;
+
+}
+.account img {
+	width: 0.15rem;
+	padding-right: 0.14rem;
+}
+
+.account p {
+	display: inline-block;
+	color: #000;
+	font-size: 16px;
+	font-family: 'fzhjt';
+	padding-bottom: 0.1rem;
+}
+
+.account .black_line1 {
+	width: 100%;
+	border-top: 2px solid #000;
+	margin-top: 0.1rem;
+}
+
+.account .black_line2 {
+	width: 100%;
+	border-top: 1px solid #000;
+	margin-top: 0.01rem;
+}
+
+.phone {
+	padding: 0.3rem 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.phone p {
+	font-size: 16px;
+	float: left;
+	font-family: 'fzhjt';
+}
+
+.phone input {
+	float: right;
+	font-family: 'fzhjt';
+	font-size: 16px;
+	outline: none;
+	border: none;
+	text-align: right;
+}
+
+.phone img {
+	width: 0.1rem;
+	float: right;
+	padding-left: 0.22rem;
+	padding-right: 0.1rem;
+}
+
+.phone a {
+	display: block;
+}
+
+.exit_a a {
+	display: block;
+	text-align: center;
+}
+
+.exit {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	background: #000;
+	border: none;
+	line-height: 0.5rem;
+	font-size: 16px;
+	color: #fff;
+	font-family: "fzhjt";
+}
+
+.box {
+	padding-bottom: 1rem;
+}
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{$page_title}</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+		
+		<link rel="stylesheet" href="{$TMPL}/html/css/integral_record.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">兑换记录</p>
+						<img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+				<div class="zhanwei"></div>
+			</header>
+			<section>
+				<!--内容开始-->
+				<!--顶部积分数量-->
+				<div class="wid">
+					<div class="wid_small ">
+						<div class="intergral_count clearfix">
+							<h4>积分总数</h4>
+							<p>{$uc_query_data.cur_score}<span>积分</span></p>
+						</div>
+					</div>
+					<div class="banner"></div>
+					<!--<div class="wid_small">-->
+						<div class="intergral_record">
+							<div class="record_title">
+								<h5>兑换记录</h5>
+							</div>
+							<div class="record">
+								<ul>
+									{foreach from=$data.list item="list"}
+										<li>
+											<a href="{url a="index" r="deal#index" p="data_id=$list.deal_id"}">
+												<div class="left">
+													<img src="{$list.img}" alt="" />
+												</div>
+												<div class="right">
+													<h5>{$list.sub_name}</h5>
+													<div class="time clearfix"><p>下单时间：<span>{$list.flog_time}</span></p><img src="{$TMPL}/html/img/integral_record/gerenxinxi2.png" alt="" /></div>
+													<p class="jifen">{$list.score_new}积分</p>
+												</div>
+											</a>
+										</li>
+									{/foreach}
+									<div class="line"></div>
+								</ul>
+							</div>
+
+						<!--</div>-->
+					</div>
+				</div>
+
+				<!--内容结束-->
+				<!--页脚-->
+				<div class="footer ">
+					{include file="inc/footer_new.html"}
+				</div>
+			</section>
+		</div>
+
+
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js"></script>
+		<script type="text/javascript ">
+		$(".right").css("height",$(".left").height()+"px")
+			//			头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

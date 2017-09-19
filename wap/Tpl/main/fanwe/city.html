@@ -1,0 +1,102 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+	<script src="{$TMPL}/html/js/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".letter_index").find("a").bind("click",function(){
+				var cate_id = $(this).attr("data");
+				var cate_box = $(".city_table").find("p[data='"+cate_id+"']");
+				var top = $(cate_box).offset().top - 10;	
+				$("html,body").animate({scrollTop:top},"fast","swing");
+			});	
+		});
+	</script>
+	<body>
+		<header>
+			<div class="city">
+				<a href="javascript:;" onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">切换城市</a>
+				</div>
+			</div>
+		</header>
+		<section>
+			<!--当前城市-->
+			<div class="now_city">
+				<div class="now_city_title">
+					<p>当前城市</p>
+				</div>
+				<div class="now_city_con">
+					<p>{$data.city_name}</p>
+				</div>
+			</div>
+			<!--热门城市-->
+			{if $data.hot_city}
+				<div class="city_hot">
+					<div class="city_hot_title">
+						<p>热门城市</p>
+					</div>
+					<div class="city_hot_con">
+						{foreach from=$data.hot_city key=keys item=items}
+							<a href="{$items.url}">{$items.name}</a>
+						{/foreach}
+					</div>
+				</div>
+			{/if}
+			<!-- 序号 -->
+			<div class="city_hot_letter letter_index">
+				{foreach from=$data.city_list key=key item=item}
+					<p><a href="javascript:;" data="{$key}">{$key}</a></p>
+				{/foreach}
+			</div>
+
+			<!--全部城市-->
+			<div class="city_all">
+				<div class="city_hot_title">
+					<p>全部城市</p>
+				</div>
+				<div class="city_all_con">
+					<ul>
+						{foreach from=$data.city_list key=key item=item}
+							<li class="city_table">
+								<p class="city_all_letter" data="{$key}">{$key}</p>
+								<ul class="city_all_city">
+									{foreach from=$item key=keys item=items}
+										<li><a href="{$items.url}">{$items.name}</a></li>
+									{/foreach}								
+								</ul>
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</section>
+	</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a href="#script" class="back"><img src="../img/icon/鸣鸣搜索_03.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">注册</a>
+				</div>
+			</div>
+			<!--头部下拉-->
+		</header>
+		<!--头部结束-->
+		<!--内容开始-->
+		<section>
+			<div class="register">
+				<div class="danger"></div>
+				<form action="" method="post" name="register">
+					<input type="text" placeholder="输入用户名" name="username" class="username" />
+					<input type="password" placeholder="请输入6-12位数字或字母" name="newuserpsd" class="newuserpsd" />
+					<div class="verification clear">
+						<input type="text" placeholder="输入手机号" name="usertel" class="usertel" />
+                         <p class="send_num">发送验证码</p>
+					</div>
+					<input type="text" placeholder="输入验证码" name="four_num" class="four_num"/>
+					<button class="clicl_register">立即注册</button>
+				</form>
+			</div>
+		</section>
+		<!--内容结束-->
+		<!--页脚-->
+		<div class="footer"></div>
+	</body>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/businessshow.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.footer').load('introduce/footer.html');
+			$(".userphone").focus();
+		})
+	</script>
+
+</html>

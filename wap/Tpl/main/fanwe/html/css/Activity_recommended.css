@@ -1,0 +1,136 @@
+*{ margin: 0; padding: 0; border: 0; text-decoration: none;}
+a{ color: red; padding: 10px 0 10px 10px; }
+.LJN_main{
+    width: 100%;
+    height: 3.075rem;
+    background: #050505;
+}
+/*    header    */
+.LJN_header{
+    margin: 0 auto;
+    padding-top: 1rem;
+    width: 100%;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.LJN_header >.LJN_header_{
+    flex: 1;
+    margin-left: 1.5rem;
+}
+.LJN_header img{
+    width: 0.75rem;
+    height: 0.75rem;
+}
+.LJN_img{
+    width: 1rem;
+    height: 0.8rem;
+    float: right;
+    margin-left: 1rem;
+    margin-top: 0.2rem;
+}
+.LJN_header span{
+    color: white;
+    margin-left: 2rem
+}
+/*    header    */
+/*   content  */
+.LJN_header_top_Content{
+    width: 100%;
+    height: 61.25rem;
+    background: #f8f8f8;
+
+}
+.LJN_header_Content{
+    width: 100%;
+    height: 3.75rem;
+    background: white;
+    margin-bottom: 0.35rem;
+    display: flex;
+}
+.LJN_header_Content div{
+    width: 16.75rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    flex: 1;
+}
+.LJN_header_Content h3{
+    font-size: 1.15rem;
+    padding-top: 1rem;
+}
+.LJN_header_Content_two{
+    width: 100%;
+    height: 3.125rem;
+    background: white;
+    margin-bottom: 0.35rem;
+    display: flex;
+}
+.LJN_header_Content_two div{
+    width: 16.75rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    flex: 1;
+}
+.LJN_header_Content_two div img{
+    width: 1.25rem;
+    height: 1.25rem;
+    float: left;
+    margin-top: 1rem;
+    margin-right: 1.15rem;
+}
+.LJN_header_Content_two div h6{
+    float: left;
+    font-size: 0.825rem;
+    margin-top: 1rem;
+}
+.LJN_header_Content_two div span{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 0.625rem;
+    float: right;
+}
+/*  content   */
+/*<!-- ----------------  imgContent  ---------------------------- -->*/
+.LJN_header-content{
+    width: 100%;
+    height: 16.375rem;
+    background: white;
+    margin-bottom: 0.35rem;
+}
+.LJN_header-content div{
+    width: 16.75rem;
+    margin: 0 auto;
+}
+.LJN_header-content > div > img{
+    width: 100%;
+    margin-top: 1.575rem;
+    margin-bottom: 1rem;
+}
+.LJN_header-content > div > h5{
+    font-size: 0.75rem;
+    float: left;
+    margin-right: 0.7rem;
+}
+.LJN_header-content > div > .LJN_header-content_img{
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-top:0;
+    margin-bottom: 0;
+}
+.LJN_header-content > div > p{
+    font-size: 0.55rem;
+    color: #595757;
+    margin-top: -0.9px;
+}
+.LJN_header-content > div > p > span{
+    font-size: 0.7rem;
+    float: right;
+    color: red;
+}
+/*<!-- ----------------  imgContent  ---------------------------- -->*/
+/*footer*/
+.LJN_footer{
+    width: 100%;
+    height: 8.875rem;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+}

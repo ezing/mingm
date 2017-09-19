@@ -1,0 +1,583 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 1.2rem;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+	margin-top: 0.2rem;
+}
+
+.name_share h5 {
+	font-family: "fzzh";
+	font-size: 18px;
+	float: left;
+	text-transform: Uppercase;
+	​
+}
+
+.name_share .share {
+	float: right;
+}
+
+.name_share .share a {
+	display: block;
+	float: left;
+	width: 0.23rem;
+	padding-right: 0.05rem;
+}
+
+.name_share .share a img {
+	width: 100%;
+}
+
+.introduction {
+	margin-top: 0.1rem;
+}
+
+.introduction p {
+	font-size: 13px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+
+.original_yipin {
+	margin-top: 0.15rem;
+}
+
+.original_yipin .original {
+	float: left;
+	font-size: 16px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+
+.original_yipin .bargain_original {
+	float: left;
+	font-size: 18px;
+	margin-top: 0.08rem;
+	color: #000;
+	font-family: "fzhjt";
+}
+
+.original_yipin .original span {
+	display: inline-block;
+	padding-left: 0.05rem;
+	color: #ff0000;
+	font-size: 18px;
+}
+
+.original_yipin .yipin {
+	float: right;
+	margin-top: 0.03rem;
+	font-size: 16px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+
+.original_yipin .yipin img {
+	width: 0.16rem;
+	float: left;
+	padding-right: 0.14rem;
+}
+
+.bargain_btn {
+	text-align: center;
+	background: #fff;
+	line-height: 36px;
+	height: 34px;
+	float: right;
+	font-size: 15px;
+	color: #000;
+	font-family: "fzhjt";
+	width: 33.3333%;
+	border: 1px solid #000;
+	outline: none;
+}
+
+.original_price {
+	float: left;
+	margin-top: 0.1rem;
+}
+
+.original_price p {
+	font-size: 15px;
+	color: #ff0000;
+	float: left;
+}
+
+.original_price span {
+	display: block;
+	font-size: 12px;
+	color: #595757;
+	margin-top:0.03rem;
+	transition: scale(9.2);
+	float: left;
+	text-decoration: line-through;
+	margin-left: 0.08rem;
+	color: #575757;
+}
+
+.original_price .bargain_mun {
+	font-size: 16px;
+	color: #595757;
+	float: left;
+	padding-right: 0.08rem;
+}
+
+.pin_mun {
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 0.16rem 0 0.15rem 0;
+}
+
+.pin_mun p {
+	width: 33.33333%;
+	text-align: center;
+	font-family: "fzhjt";
+	float: left;
+}
+
+.pin_mun p:nth-child(1) {
+	color: #000;
+	font-size: 16px;
+}
+
+.pin_mun p:nth-child(2) {
+	color: #ff0000;
+	font-size: 16px;
+}
+
+.pin_mun a {
+	border: 1px solid #000;
+	width: 0.16rem;
+	float: right;
+	margin-right: 8%;
+	display: block;
+	border-radius: 0;
+	background: #FFF;
+	height: 0.16rem;
+}
+
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 0.2rem;
+}
+
+.pillar {
+	width: 100%;
+	margin-top: 0.15rem;
+	height: 7px;
+	background: #f8f8f8;
+}
+
+.cli_select {
+	padding-left: 0.1rem;
+}
+
+.cli_select a {
+	display: block;
+	font-size: 0.18rem;
+	color: #000;
+	font-family: "fzhjt";
+	text-align: center;
+	width: 1.07rem;
+	padding: 0.08rem;
+	box-sizing: border-box;
+	border: 1px solid #000000;
+}
+
+.cli_select a:first-child {
+	float: left;
+}
+
+.cli_select a:first-child {
+	float: right;
+	margin-right: 0.1rem;
+}
+
+.regiment_list {
+	float: left;
+}
+
+.regiment_list .regiment_name img {
+	width: 0.3rem;
+	display: block;
+	float: left;
+}
+
+.regiment_list .regiment_name .name {
+	float: left;
+	font-size: 18px;
+	padding-top: 0.03rem;
+	padding-left: 0.1rem;
+	color: #595757;
+	font-family: "fzhjt";
+}
+
+.regiment_list .regiment_name .poor {
+	float: left;
+	font-size: 18px;
+	padding-top: 0.03rem;
+	padding-left: 0.1rem;
+	color: #ff0000;
+	font-family: "fzhjt";
+}
+
+.regiment_list .open_time {
+	margin-left: 0.4rem;
+}
+
+.regiment_list .open_time p {
+	font-size: 16px;
+	color: #595757;
+	font-family: "fzhjt";
+}
+
+.tuxedo {
+	float: right;
+	margin-top: 0.1rem;
+	margin-right: 0.1rem;
+}
+
+.tuxedo a {
+	display: block;
+	font-size: 0.18rem;
+	color: #000;
+	font-family: "fzhjt";
+	text-align: center;
+	width: 0.74rem;
+	padding: 0.07rem;
+	box-sizing: border-box;
+	border: 1px solid #000000;
+}
+
+.introduce .introduce_title h5 {
+	font-family: "fzzh";
+	font-size: 16px;
+	float: left;
+}
+
+.introduce .introduce_title a {
+	color: #ff0000;
+	font-size: 16px;
+	font-family: "fzhjt";
+	float: right;
+}
+
+.introduce .introduce_con {
+	padding-top: 0.08rem;
+}
+
+.introduce .introduce_con ul li {
+	font-size: 16px;
+	padding-top: 0.12rem;
+	color: #595757;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.introduce_txt {
+	font-family: "fzhjt";
+	font-size: 16px;
+	padding-top: 0.2rem;
+	color: #595757;
+	line-height: 0.28rem;
+	text-transform: Uppercase;
+	padding-left: 0.15rem;
+}
+
+.introduce_con img {
+	padding-top: 0.2rem;
+	width: 100%;
+}
+
+.evaluate p {
+	float: left;
+	font-size: 17px;
+	color: 595757;
+}
+
+.evaluate p img {
+	float: left;
+	width: 0.14rem;
+	padding-right: 0.08rem;
+}
+
+.evaluate .star {
+	float: right;
+}
+
+.evaluate .star li {
+	float: left;
+	background: url(../img/icon/two_stars.png) no-repeat 0 0;
+	background-size: 200%;
+	width: 0.14rem;
+	height: 0.14rem;
+}
+.evaluate .star .kong{
+    background: url(../img/icon/two_stars.png) no-repeat -13px 0px;
+	background-size: 200%;
+    width: 0.14rem;
+	height: 0.14rem;
+}
+
+.evaluate_day {
+	font-size: 14px;
+	color: #000;
+	font-family: "fzzh";
+	margin-bottom: 0.1rem;
+}
+
+.evaluate_txt p {
+	float: left;
+	font-size: 14px;
+	color: 595757;
+}
+
+.evaluate_txt p img {
+	float: left;
+	width: 0.14rem;
+	padding-right: 0.08rem;
+}
+
+.evaluate_txt .star_small {
+	float: right;
+}
+
+.evaluate_txt .star_small li {
+	float: right;
+	background: url(../img/icon/two_stars.png) no-repeat 0 0;
+	background-size: 200%;
+	width: 0.12rem;
+	height: 0.12rem;
+}
+
+.evaluate_img {
+	margin-top: 0.12rem;
+}
+
+.evaluate_img img {
+	width: 0.77rem;
+	margin-right: 0.05rem;
+}
+
+.evaluate_more {
+	text-align: center;
+	color: #595757;
+	font-size: 16px;
+	margin-top: 0.2rem;
+}
+
+.evaluate_more img {
+	width: 0.05rem;
+	position: relative;
+	top: -0.035rem;
+	margin-left: 0.06rem;
+}
+
+
+
+/*砍一刀弹窗*/
+
+.quire-CPM {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 77;
+	top: 0;
+	background: rgba(255, 255, 255, .0);
+}
+
+.quire-CPM-con {
+	width: 80%;
+	height: 2rem;
+	margin: 0 auto;
+	margin-top: 1.8rem;
+	border: 0.05rem solid #000000;
+	background: #fff;
+}
+
+.quire-CPM-con .inside {
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	margin-top: 2%;
+	border: 0.01rem solid #000000;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.quire-CPM-con .inside .prompt {
+	text-align: center;
+	width: 80%;
+	height: 50%;
+	margin: 0 auto;
+	margin-top: 25%;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.quire-CPM-con .inside .prompt p {
+	text-align: center;
+	font-size: 22px;
+	font-family: "fzhjt";
+	margin-top: 0.2rem;
+	color: #000000;
+}
+#youhuiprice{
+
+	text-align: center;
+	font-size: 22px;
+	font-family: "fzhjt";
+	margin-top: 0.2rem;
+	color: #000000;}
+
+.quire-CPM-con .inside .close_this {
+	font-size: 16px;
+	color: #000;
+	float: right;
+	padding-top: 0.02rem;
+	padding-right: 0.02rem;
+}
+
+.quire-CPM-con .inside .prompt p img {
+	width: 0.2rem;
+	padding-right: 0.14rem;
+}
+
+.quire-CPM-con .inside .prompt .bargaining {
+	margin-top: 0.15rem;
+}
+
+
+/*好友砍价弹窗*/
+
+.f_quire-CPM {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 77;
+	top: 0;
+	background: rgba(255, 255, 255, .0);
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt {
+	text-align: center;
+	width: 97%;
+	height: 70%;
+	margin: 0 auto;
+	margin-top: 13%;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt p {
+	text-align: center;
+	font-size: 18px;
+	font-family: "fzhjt";
+	margin-top: 0.2rem;
+	color: #000000;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .f_close_this {
+	font-size: 16px;
+	color: #000;
+	float: right;
+	padding-top: 0.02rem;
+	padding-right: 0.02rem;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt p img {
+	width: 0.2rem;
+	padding-right: 0.14rem;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt .bargaining {
+	margin-top: 0.15rem;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt .quire_share {
+	position: relative;
+	margin-top: 10%;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt .quire_share a {
+	display: block;
+	float: left;
+	width: 33.333333%;
+	text-align: center;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt .quire_share a:nth-child(2) img {
+	width: 0.24rem;
+}
+
+.f_quire-CPM .quire-CPM-con .inside .prompt .quire_share a img {
+	text-align: center;
+	width: 0.31rem;
+}

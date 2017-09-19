@@ -1,0 +1,120 @@
+2016-12-06 21:21:46 ERR: Array
+(
+    [status] => 0
+    [result] => Array
+        (
+            [location] => Array
+                (
+                    [lng] => 119.53787294009
+                    [lat] => 35.464712138354
+                )
+
+            [formatted_address] => 山东省日照市东港区聊城路
+            [business] => 
+            [addressComponent] => Array
+                (
+                    [country] => 中国
+                    [country_code] => 0
+                    [province] => 山东省
+                    [city] => 日照市
+                    [district] => 东港区
+                    [adcode] => 371102
+                    [street] => 聊城路
+                    [street_number] => 
+                    [direction] => 
+                    [distance] => 
+                )
+
+            [pois] => Array
+                (
+                )
+
+            [poiRegions] => Array
+                (
+                )
+
+            [sematic_description] => 日照市东港实验学校东南129米
+            [cityCode] => 173
+        )
+
+)
+
+2016-12-06 21:21:46 ERR: Array
+(
+    [1a1437bf9b128b674d3943b1b74c1df9] => Array
+        (
+            [dc_xpoint] => 119.526018
+            [dc_ypoint] => 35.458664
+            [dc_title] => 东港区聊城路
+            [dc_content] => 
+            [dc_num] => 
+            [city_name] => 
+        )
+
+)
+
+2016-12-06 21:31:49 ERR: Array
+(
+    [status] => 0
+    [result] => Array
+        (
+            [location] => Array
+                (
+                    [lng] => 119.54124392103
+                    [lat] => 35.458201379948
+                )
+
+            [formatted_address] => 山东省日照市东港区学苑路
+            [business] => 
+            [addressComponent] => Array
+                (
+                    [country] => 中国
+                    [country_code] => 0
+                    [province] => 山东省
+                    [city] => 日照市
+                    [district] => 东港区
+                    [adcode] => 371102
+                    [street] => 学苑路
+                    [street_number] => 
+                    [direction] => 
+                    [distance] => 
+                )
+
+            [pois] => Array
+                (
+                )
+
+            [poiRegions] => Array
+                (
+                )
+
+            [sematic_description] => 儒风海韵北206米
+            [cityCode] => 173
+        )
+
+)
+
+2016-12-06 21:31:49 ERR: Array
+(
+    [68a3f6d7ac4607bf97f507c47ba2567e] => Array
+        (
+            [dc_xpoint] => 119.529384
+            [dc_ypoint] => 35.452205
+            [dc_title] => 东港区学苑路
+            [dc_content] => 
+            [dc_num] => 
+            [city_name] => 
+        )
+
+    [1a1437bf9b128b674d3943b1b74c1df9] => Array
+        (
+            [dc_xpoint] => 119.526018
+            [dc_ypoint] => 35.458664
+            [dc_title] => 东港区聊城路
+            [dc_content] => 
+            [dc_num] => 
+            [city_name] => 
+        )
+
+)
+

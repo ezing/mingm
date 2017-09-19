@@ -1,0 +1,41 @@
+2016-11-27 17:20:17 ERR: Array
+(
+    [status] => 0
+    [result] => Array
+        (
+            [location] => Array
+                (
+                    [lng] => 107.99182707145
+                    [lat] => 26.583110443322
+                )
+
+            [formatted_address] => 贵州省黔东南苗族侗族自治州凯里市军民路
+            [business] => 
+            [addressComponent] => Array
+                (
+                    [country] => 中国
+                    [country_code] => 0
+                    [province] => 贵州省
+                    [city] => 黔东南苗族侗族自治州
+                    [district] => 凯里市
+                    [adcode] => 522601
+                    [street] => 军民路
+                    [street_number] => 
+                    [direction] => 
+                    [distance] => 
+                )
+
+            [pois] => Array
+                (
+                )
+
+            [poiRegions] => Array
+                (
+                )
+
+            [sematic_description] => 黔东南苗山苗族药物医院东189米
+            [cityCode] => 342
+        )
+
+)
+

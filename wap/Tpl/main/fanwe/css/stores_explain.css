@@ -1,0 +1,43 @@
+h1{
+	font-size: .6rem;
+	line-height: 1.9rem;
+	height: 1.9rem;
+	color: #333;
+}
+.rule-explain{
+	background: #fff;
+	margin-top: .4rem;
+	padding-left: .4rem;
+	padding-top: .4rem;
+	padding-bottom: .6rem;
+}
+.rule-explain .main-border{
+	margin: 0 .4rem .6rem;
+	border-bottom: 1px solid @main_color;
+
+}
+.rule-explain p{
+	padding:0 .4rem;
+	line-height:.96rem; 
+	color: #333;
+}
+.count-info{
+	margin-top: .4rem;
+	background: #fff;
+	padding-bottom: 1.2rem;
+}
+.count-info h1{
+	padding:0 .4rem
+}
+
+.count-info .time-box{
+	padding:0 .4rem;
+	line-height: .84rem;
+	margin-top: .7rem;
+}
+.count-info .time-box h2{
+	color: #666;
+}
+.count-info .time-box p{
+	color: #333;
+}

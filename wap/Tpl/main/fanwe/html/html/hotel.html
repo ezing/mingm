@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+		<title>酒店</title>
+		<link rel="stylesheet" href="../css/hotel.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/dateRange.css"/>
+		
+	</head>
+
+	<body>
+		<div id="box">
+			<!--tab-->
+			<div class="ding">
+			<div id="tab" class="clearfix">
+				<span class="back left"><img src="../img/icon/back.png" alt=""/></span>
+				<span style="color: #fff;margin-left: 28px;">酒店</span>
+				<span class="list right"><img src="../img/icon/tuangoushangpin2.png" alt=""/></span>
+				<div id="slideDown">
+					<img src="../img/icon/imgshou3.png" alt="" />
+					<img src="../img/icon/imgshou2.png" alt="" />
+					<img src="../img/icon/imgshou1.png" alt="" />
+				</div>
+			</div>
+			<!--selected-->
+			<div class="classify_region clearfix">
+				<div class="all_classify">
+					<p>全部分类<img src="../img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="allcity_classify">
+					<p>全城<img src="../img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="synthesis_classify">
+					<p>综合<img src="../img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+			</div>
+			<!--全部分类列表-->
+			<div class="pulldown"></div>
+			<!--综合分类结束-->
+			<!--time-->
+			<div class="ta_date" id="div_date1">
+				<span class="date_title" id="date1"></span>
+			</div>
+			</div>
+			<div class="mer_top"></div>
+			<!--content-->
+			<div id="content">
+				<div>
+					<img src="../img/hah/one.png" class="contentLeft" />
+
+					<div class="contentRight">
+						<p class="title">七天酒店（航站楼站）</p>
+						<img src="../img/bulk_goods/icon/tuangoushangpin10.png" class="grade" />
+
+						<p class="info">海淀区宝胜利小区</p>
+
+						<p class="price">188元 <span>起</span> <span class="right">23分钟前有人预定</span></p>
+					</div>
+				</div>
+				<div>
+					<img src="../img/hah/three.png" class="contentLeft" />
+
+					<div class="contentRight">
+						<p class="title">七天酒店（航站楼站）</p>
+						<img src="../img/bulk_goods/icon/tuangoushangpin10.png" class="grade" />
+
+						<p class="info">海淀区宝胜利小区</p>
+
+						<p class="price">188元 <span>起</span> <span class="right">23分钟前有人预定</span></p>
+					</div>
+				</div>
+				<div>
+					<img src="../img/hah/two.png" class="contentLeft" />
+
+					<div class="contentRight">
+						<p class="title">七天酒店（航站楼站）</p>
+						<div class="grade_f">
+							<img src="../img/bulk_goods/icon/tuangoushangpin10.png" class="grade" />
+							<span>4.2分</span>
+						</div>
+
+						<p class="info">海淀区宝胜利小区</p>
+
+						<p class="price">188元 <span>起</span> <span class="right">23分钟前有人预定</span></p>
+					</div>
+				</div>
+				<div>
+					<img src="../img/hah/three.png" class="contentLeft" />
+
+					<div class="contentRight">
+						<p class="title">七天酒店（航站楼站）</p>
+						<img src="../img/bulk_goods/icon/tuangoushangpin10.png" class="grade" />
+
+						<p class="info">海淀区宝胜利小区</p>
+
+						<p class="price">188元 <span>起</span> <span class="right">23分钟前有人预定</span></p>
+					</div>
+				</div>
+			</div>
+			<!--page-->
+			<div id="page">
+				<span class="last1">上一页</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="pageSlect">1</span>
+				<span>2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="next1">下一页</span>
+			</div>
+
+		</div>
+		<!--本页底部-->
+		<div class="footer"></div>
+		<script src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/businessshow.js"></script>
+		<script type="text/javascript" src="../js/dateRange.js"></script>
+		
+		<script type="text/javascript">
+			var a=$(".ding").height()
+			$(".mer_top").css("height",a+"px");
+
+			var time = new Date();
+			var yy = time.getFullYear();
+			var mm = time.getMonth();
+			var dd = time.getDate();
+			var nowTime = yy + '-' + (mm + 1) + '-' + (dd);
+			var endTime=yy + '-' + (mm + 1) + '-' + (dd+7);
+
+			var dateRange1 = new pickerDateRange('date1', {
+				stopToday: false,
+				isTodayValid: true,
+				startDate: endTime,
+				endDate:nowTime,
+				needCompare: false,
+				defaultText: '&#160|&#160 离 ',
+				autoSubmit: false,
+				noCalendar : false,
+				inputTrigger: 'input_trigger1',
+				theme: 'ta',
+				autoSubmit: false,
+			});
+			$(".ta_calendar").css("top",a+"px");
+			
+			var a=document.getElementsByClassName("ta_calendar")[0];
+			a.style.left="0px";
+			
+			$('.pulldown').load('introduce/pull_down.html');
+			$('.footer').load('introduce/footer.html');
+			/*内容与图片高度一下*/
+			$('.contentRight').css({
+				'height': $('.contentLeft').height() + 'px'
+			});
+
+			/*点击菜单，下滑菜单栏*/
+			$('.list').click(function() {
+				$('#slideDown').slideToggle();
+			})
+
+		</script>
+	</body>
+
+</html>

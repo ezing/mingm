@@ -1,0 +1,210 @@
+#sub_address {
+	width: 100%;
+	border-radius: .6rem;
+	height: 1.4rem;
+	text-align: center;
+	color: #fff;
+	font-size: .6rem;
+	font-weight: bolder;
+	border: none;
+	background: @main_color;
+}
+
+.banner {
+	height: 7px;
+	width: 100%;
+	background: #f8f8f8;
+}
+
+.line {
+	border-top: 1px solid #e5e5e5;
+	width: 100%;
+}
+
+
+/*列表*/
+
+.add {
+	padding: .8rem .4rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	text-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-align: center;
+}
+
+a.add_address {
+	width: 100%;
+	height: 17px;
+	color: #ff0000;
+	line-height: 17px;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	border: none;
+}
+
+.address_list ul {
+	width: 89.33333%;
+	margin: 0 auto;
+	padding: 0.86rem 0;
+}
+
+.address_list ul li {
+	line-height: .8rem;
+	min-height: .8rem;
+	font-size: 16px;
+	color: #000;
+}
+
+.address_list ul li:first-child {
+	float: left;
+}
+
+.address_list ul li:last-child {
+	float: right;
+}
+
+.detailed_add {
+	width: 89.33333%;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #595757;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.detailed_add span{
+	color:#ff0000;
+}
+.address_list ul:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+.address_list a {
+	display: block;
+}
+
+a.operate {
+	-webkit-flex: 1;
+	-webkit-box-flex: 1;
+	flex: 1;
+	line-height: 1.32rem;
+	text-align: center;
+	color: #fff;
+	font-size: .56rem;
+	border-radius: .8rem;
+	background: @main_color;
+	display: block;
+	border: none;
+	font-weight: bolder;
+	float: left;
+}
+
+a.del {
+	margin: 0 .4rem;
+}
+
+a.defaulted {
+	background: #ccc;
+}
+
+
+/*添加*/
+
+.address_input {
+	padding: .4rem;
+}
+
+.address_input dt {
+	float: left;
+	line-height: 1.4rem;
+	clear: both;
+	padding-right: .4rem;
+}
+
+.address_input dt em {
+	width: .5em;
+	display: inline-block;
+}
+
+.address_input dd {
+	position: relative;
+	overflow: hidden;
+	height: 1.4rem;
+	margin-bottom: .4rem;
+}
+
+.address_input dd input {
+	width: 100%;
+	height: 1.4rem;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.address_input dd .ui-textbox {
+	text-indent: .4rem;
+}
+
+.select-box {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.p_c_r {
+	-webkit-flex: 1;
+	-webkit-box-flex: 1;
+	flex: 1;
+	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.p_c_r_m {
+	margin: 0 .4rem
+}
+
+.p_c_r::after {
+	content: '';
+	width: 200%;
+	height: 200%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: scale(.5);
+	transform: scale(.5);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: 2px solid #ccc;
+	pointer-events: none;
+}
+
+.region_select {
+	-webkit-appearance: none;
+	text-align: center;
+	width: 100%;
+	height: 1.4rem;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.display-none {
+	display: none;
+}

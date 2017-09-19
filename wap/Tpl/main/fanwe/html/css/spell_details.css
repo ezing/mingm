@@ -1,0 +1,368 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+@font-face {
+  font-family: "fzhjt";
+  src: url(../font/FZLTHJW.TTF);
+}
+@font-face {
+  font-family: "fzzh";
+  src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+html {
+  font-size: 625%;
+}
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "fzhjt";
+}
+body {
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.spell_details {
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  padding: 0.21rem 0rem;
+  background: #000;
+}
+.spell_details .spell_details_wid {
+  width: 89.66666%;
+  margin: 0 auto;
+}
+.spell_details .spell_details_wid .back {
+  width: 0.2rem;
+  display: block;
+  float: left;
+  font-size: 0rem;
+}
+.spell_details .spell_details_wid .back img {
+  width: 100%;
+}
+.spell_details .spell_details_wid .details_details {
+  color: #fff;
+  font-family: "fzhjt";
+  float: left;
+  font-size: 18px;
+  margin-left: 0.4rem;
+}
+.spell_details .spell_details_wid .ka_city_right {
+  display: block;
+  float: right;
+  width: 0.23rem;
+}
+.hotshow_title_down {
+  position: absolute;
+  display: none;
+  right: 3%;
+  top: 0.63rem;
+  z-index: 999;
+  width: 25.6%;
+}
+.hotshow_title_down ul {
+  width: 100%;
+}
+.hotshow_title_down ul li {
+  width: 100%;
+  padding-top: 2px;
+}
+.hotshow_title_down ul li img {
+  width: 100%;
+}
+.head_stance {
+  width: 100%;
+  height: 0.63rem;
+}
+.spell_img {
+  width: 100%;
+  position: relative;
+}
+.spell_img img {
+  width: 100%;
+}
+
+.wid_small {
+  width: 89.66666%;
+  margin: 0 auto;
+  margin-top: 0.2rem;
+}
+.name_share{
+	margin-top:0.27rem;
+}
+.name_share h5 {
+  font-family: "fzzh";
+  font-size: 18px;
+  float: left;
+}
+.name_share .share {
+  float: right;
+}
+.name_share .share a {
+  display: block;
+  float: left;
+  width: 0.23rem;
+  padding-right: 0.05rem;
+}
+.name_share .share a img {
+  width: 100%;
+}
+.introduction {
+  margin-top: 0.06rem;
+}
+.introduction p {
+  font-size: 13px;
+  color: #595757;
+  font-family: "fzhjt";
+}
+.original_yipin {
+  margin-top: 0.2rem;
+}
+.original_yipin .original {
+  float: left;
+  font-size: 13px;
+  color: #595757;
+  font-family: "fzhjt";
+}
+.original_yipin .original span {
+  display: inline-block;
+  padding-left: 0.05rem;
+  color: #ff0000;
+  font-size: 18px;
+}
+.original_yipin .yipin {
+  float: right;
+  margin-top: 0.03rem;
+  font-size: 12px;
+  color: #595757;
+  font-family: "fzhjt";
+}
+.original_yipin .yipin img {
+  width: 0.135rem;
+  float: left;
+  padding-right: 0.14rem;
+}
+.pin_mun {
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0.165rem 0 0.165rem;
+}
+.pin_mun p {
+  width: 33.33333%;
+  text-align: center;
+  font-family: "fzhjt";
+  float: left;
+}
+.pin_mun p:nth-child(1) {
+  color: #000;
+  font-size: 15px;
+}
+.pin_mun p:nth-child(2) {
+  color: #ff0000;
+  font-size: 15px;
+}
+.pin_mun a {
+  border: 1px solid #000;
+  width: 0.14rem;
+  float: right;
+  margin-right: 8%;
+  display: block;
+  border-radius: 0;
+  background: #FFF;
+  height: 0.14rem;
+}
+.partition {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.18rem;
+}
+.pillar {
+  width: 100%;
+  margin-top: 0.25rem;
+  height: 7px;
+  background: #f8f8f8;
+}
+.gai{
+	padding: 0.16rem;
+}
+.cli_select {
+  padding-left: 0.1rem;
+  margin-top:0.18rem;
+}
+.cli_select a {
+  display: block;
+  font-size: 0.14rem;
+  color: #000;
+  font-family: "fzhjt";
+  text-align: center;
+  width: 1.07rem;
+  padding: 0.08rem;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+.cli_select a:first-child {
+  float: left;
+}
+.cli_select a:first-child {
+  float: right;
+  margin-right: 0.1rem;
+}
+.regiment_list {
+  float: left;
+}
+.regiment_list .regiment_name img {
+  width: 0.3rem;
+  display: none;
+/*  display: block;*/
+  float: left;
+  border-radius: 100%;
+}
+.regiment_list .regiment_name .name {
+  float: left;
+  font-size: 13px;
+  padding-top: 0.03rem;
+  padding-left: 0.175rem;
+  color: #595757;
+  font-family: "fzhjt";
+}
+.regiment_list .regiment_name .poor {
+  float: left;
+  font-size: 13px;
+  padding-top: 0.03rem;
+  padding-left: 0.15rem;
+  color: #ff0000;
+  font-family: "fzhjt";
+}
+.regiment_list .open_time {
+  margin-left: 0.17rem;
+  margin-top: 0.1rem;
+}
+.regiment_list .open_time p {
+  font-size: 12px;
+  transition: scale(8.3);
+  color: #595757;
+  font-family: "fzhjt";
+}
+.tuxedo {
+  float: right;
+  margin-top: 0.1rem;
+  margin-right: 0.1rem;
+}
+.tuxedo a {
+  display: block;
+  font-size: 0.12rem;
+  color: #000;
+  font-family: "fzhjt";
+  text-align: center;
+  width: 0.74rem;
+  padding: 0.05rem;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+.introduce .introduce_title h5 {
+  font-family: "fzzh";
+  font-size: 16px;
+  float: left;
+}
+.introduce .introduce_title a {
+  color: #ff0000;
+  font-size: 16px;
+  font-family: "fzhjt";
+  float: right;
+}
+.introduce .introduce_con {
+  padding-top: 0.08rem;
+}
+.introduce .introduce_con ul li {
+  font-size: 16px;
+  padding-top: 0.12rem;
+  color: #595757;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.evaluate p {
+  float: left;
+  font-size: 17px;
+  color: 595757;
+}
+.evaluate p img {
+  float: left;
+  width: 0.14rem;
+  padding-right: 0.08rem;
+}
+.evaluate .star {
+  float: right;
+}
+.evaluate .star li {
+  float: right;
+  background: url(../img/icon/two_stars.png) no-repeat 0 0;
+  background-size: 200%;
+  width: 0.14rem;
+  height: 0.14rem;
+}
+.evaluate_day {
+  font-size: 14px;
+  color: #000;
+  font-family: "fzzh";
+  margin-bottom: 0.1rem;
+}
+.evaluate_txt p {
+  float: left;
+  font-size: 14px;
+  color: 595757;
+}
+.evaluate_txt p img {
+  float: left;
+  width: 0.14rem;
+  padding-right: 0.08rem;
+}
+.evaluate_txt .star_small {
+  float: right;
+}
+.evaluate_txt .star_small li {
+  float: right;
+  background: url(../img/icon/two_stars.png) no-repeat 0 0;
+  background-size: 200%;
+  width: 0.12rem;
+  height: 0.12rem;
+}
+.evaluate_img {
+  margin-top: 0.12rem;
+}
+.evaluate_img img {
+  width: 0.77rem;
+  margin-right: 0.05rem;
+}
+.evaluate_more {
+  text-align: center;
+  color: #595757;
+  font-size: 16px;
+  margin-top: 0.2rem;
+}
+.evaluate_more img {
+  width: 0.035rem;
+  position: relative;
+  top: -0.035rem;
+  margin-left: 0.06rem;
+}

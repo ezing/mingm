@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<header>
+			<div class="earch_head">
+				<a onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="earch_box">
+					<img src="{$TMPL}/html/img/icon/sousuo_06.png" alt="" />
+					<form id="myform" name="search_form" action="{url r="index" p="search#do_search"}" method="post">
+						<input type="search" name = "keyword" id = "keyword" placeholder="" id="tex" name="textfield" />
+						<input type="hidden" name="search_type" value="1"/>
+					</form>
+				</div>
+				<div class="btn_earch">
+					 
+					 <a href="#script" onclick ="search_submit()">搜索</a>
+				</div>
+			</div>
+		</header>
+		<div class="earch_con">
+			<ul>
+				<li data="1">团购</li>
+				<li data="2">商品</li>
+				<li data="3">优惠</li>
+				<li data="4">商家</li>
+				<li data="5">活动</li>
+			</ul>
+		</div>
+		<!--历史搜索-->
+		<div class="each_history">
+			<div class="history_del">
+				<p>热门搜索</p>
+				 <img src="{$TMPL}/html/img/icon/laji.png" alt="" /> 
+			</div>
+			{if $hot_kw}
+				
+				<div class="earch_record">
+					{foreach from=$hot_kw item=row name="hot_kw" key=key}
+						{if $smarty.foreach.hot_kw.index%3 eq 0}
+							<a href="javascript:void(0);" class="hot-link">{$row}</a>
+						{/if}
+					{/foreach}
+				</div>
+					
+			{/if}
+		</div>
+		<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+		<script type="text/javascript">
+		     if($(".hot-link").html()==""){
+                $(".hot-link").css("display","none");
+		     }else{
+		     	$(".hot-link").css("display","block");
+		     }
+			$(document).ready(function () { 
+				$(".earch_con ul li").eq(0).addClass("against");
+			    $(".earch_con ul li").click(function(){
+				   	  $(".earch_con ul li").removeClass("against");
+					  $(this).addClass("against");  
+					  $("input[name='search_type']").val($(this).attr("data"));
+				});
+			    
+			    $(".earch_record .hot-link").bind("click",function(){
+			    	$("#keyword").val($(this).html());
+			    	search_submit();
+			    });
+				
+			 });  
+
+			function search_submit(){
+				$("form[name='search_form']").submit();
+
+			}	
+		</script>
+		
+	</body>
+
+</html>

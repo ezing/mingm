@@ -1,0 +1,283 @@
+
+.spell_details {
+	z-index: 99;
+	position: fixed;
+	width: 100%;
+	padding: 0.21rem 0rem;
+	background: #000;
+}
+
+.spell_details .spell_details_wid {
+	width: 89.66666%;
+	margin: 0 auto;
+}
+
+.spell_details .spell_details_wid .back {
+	width: 0.2rem;
+	display: block;
+	float: left;
+	font-size: 0rem;
+}
+
+.spell_details .spell_details_wid .back img {
+	width: 100%;
+}
+
+.spell_details .spell_details_wid .details_details {
+	color: #fff;
+	font-family: "fzhjt";
+	float: left;
+	font-size: 18px;
+	text-transform: Uppercase;
+	​ font-size: 18px;
+	margin-left: 0.2rem;
+}
+
+.spell_details .spell_details_wid .ka_city_right {
+	display: block;
+	float: right;
+	width: 0.23rem;
+}
+
+.hotshow_title_down {
+	position: absolute;
+	display: none;
+	right: 5%;
+	top: 0.63rem;
+	z-index: 999;
+	width: 25.6%;
+}
+
+.hotshow_title_down ul {
+	width: 100%;
+}
+
+.hotshow_title_down ul li {
+	width: 100%;
+	padding-top: 2px;
+}
+
+.hotshow_title_down ul li img {
+	width: 100%;
+}
+
+.head_stance {
+	width: 100%;
+	height: 0.63rem;
+}
+.wid {
+	width: 100%;
+}
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+	margin-top: 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.box {
+	transition: all 0.8s ease 0s;
+	animation: mymove 0.8s;
+	-webkit-animation: mymove 0.8s;
+}
+
+@keyframes mymove {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	10% {
+		transform: scale(0.1);
+		opacity: 0.1;
+	}
+	20% {
+		transform: scale(0.2);
+		opacity: 0.2;
+	}
+	30% {
+		transform: scale(0.3);
+		opacity: 0.3;
+	}
+	40% {
+		transform: scale(0.4);
+		opacity: 0.4;
+	}
+	50% {
+		transform: scale(0.5);
+		opacity: 0.5;
+	}
+	60% {
+		transform: scale(0.6);
+		opacity: 0.6;
+	}
+	70% {
+		transform: scale(0.7);
+		opacity: 0.7;
+	}
+	80% {
+		transform: scale(0.8);
+		opacity: 0.8;
+	}
+	90% {
+		transform: scale(0.9);
+		opacity: 0.9;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hotshow_foot {
+	width: 100%;
+	padding: 0.33rem 0 0;
+}
+
+.hotshow_foot .hotshow_foot_top {
+	width: 89%;
+	margin: 0 auto;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_left {
+	float: left;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_left .hotshow_username {
+	float: left;
+	font-size: 14px;
+	font-family: "fzhjt", cursive;
+	color: #595757;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_left .hotshow_partition {
+	float: left;
+	color: #000;
+	font-size: 14px;
+	padding: 0 0.11rem;
+	font-family: "fzhjt", cursive;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_left .hotshow_exit {
+	float: left;
+	font-size: 14px;
+	color: #595757;
+	font-family: "fzhjt", cursive;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_right {
+	float: right;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_right .hotshow_foot_city {
+	float: left;
+	font-size: 14px;
+	color: #595757;
+	font-family: "fzhjt", cursive;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_right .hotshow_change_img {
+	display: block;
+	float: left;
+	width: 10%;
+	font-family: "fzhjt", cursive;
+	padding: 0.02rem 0.11rem;
+}
+
+.hotshow_foot .hotshow_foot_top .hotshow_foot_top_right .hotshow_change_city {
+	float: left;
+	font-size: 14px;
+	font-family: "fzhjt", cursive;
+	color: #1270b3;
+}
+
+.hotshow_foot .hotshow_foot_selection {
+	width: 100%;
+	padding: 0.2rem 0;
+}
+
+.hotshow_foot .hotshow_foot_selection ul {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li {
+	float: left;
+	text-align: center;
+	color: #000;
+	font-size: 14px;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li:nth-child(1) {
+	width: 15%;
+	margin-left: 15%;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li:nth-child(2) {
+	width: 5%;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li:nth-child(3) {
+	width: 15%;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li:nth-child(4) {
+	width: 5%;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li:nth-child(5) {
+	width: 24%;
+}
+
+.hotshow_foot .hotshow_foot_selection ul li a {
+	font-size: 14px;
+	font-family: "fzhjt", cursive;
+	color: #000;
+	text-align: center;
+}
+
+.hotshow_foot .hotshow_foot_selection ul .color {
+	color: #595757;
+	display: block;
+}
+
+.hotshow_foot .hotshow_foot_selection ul .color a {
+	color: #595757;
+}

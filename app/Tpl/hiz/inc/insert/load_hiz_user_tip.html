@@ -1,0 +1,10 @@
+	{if $hiz_account_info}
+	<li class="option"><a href="{url r="hiz"}">【{$hiz_account_info.name}】 {$hiz_account_info.account_name}<i class="vertical-bar"></i></a></li>
+	<li class="option"><a href="{url x="hiz" r="user#logout"}">退出<i class="vertical-bar"></i></a></li>
+	<li class="option"><a href="{url x="hiz" r="user#edit_password"}">修改密码<i class="vertical-bar"></i></a></li>
+	{else}
+
+
+	{/if}
+	
+	<li class="option"><a href="{url r="index"}">回到首页<i class="vertical-bar"></i></a></li>

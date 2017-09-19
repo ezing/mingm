@@ -1,0 +1,143 @@
+h1{
+	padding: 0 .4rem;
+	line-height: 1.7rem;
+	font-size: .6rem;
+	background: #fff;
+}
+h4{
+	padding: 0 .4rem;
+	line-height: 1.9rem;
+	font-size: .6rem;
+	background: #fff;
+}
+h4 .iconfont{
+	font-size: .76rem;
+	vertical-align: top;
+    margin-right: .4rem;
+    color: #4794fe;
+}
+h5{
+	padding: 0 .4rem;
+	line-height: 1.9rem;
+	background: #fff;
+}
+.items-common{
+	border:none;
+	-webkit-box-shadow:none;
+	box-shadow: none;
+	background: #fff;
+	padding: 0 .4rem;
+}
+.money_div{
+	background: #eee;
+	border-radius: 10px;
+	margin: 0 .4rem .4rem;
+}
+input[name='money']{
+	display: block;
+	background: none;
+	height:1.4rem;
+	color: #bababa;
+	width: 100%;
+	text-indent:.4rem;
+}
+.other_money{
+	display: block;
+	background: none;
+	height:1.4rem;
+	color: #bababa;
+	width: 100%;
+	text-indent:.4rem;
+}
+#submit_dp .rule-info{
+	padding: 0 .4rem;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items:center;
+	align-items:center;
+	height: .9rem;
+	background: #fff;
+ }
+#submit_dp .rule-info .iconfont{
+	display: block;
+	color: #efefef;
+	font-size: .8rem;
+	margin-right: .4rem;
+}
+#submit_dp .rule-info p{
+	font-size: .52rem;
+	color: #a6a6a6;
+}
+.buy_money{
+	padding-bottom: .4rem;
+}
+.discount_money,.pay_amount span,.common-radio-box label>span{
+	display: block;
+	color: @main_color;
+	line-height: 2rem;
+	vertical-align: top;
+}
+.common-radio-box label{
+	height:1.9rem;
+	display:-webkit-box;
+	display:-webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items:center;
+	align-items:center;
+	font-size: .6rem;
+}
+.common-radio-box label .iconfont{
+	font-size: .76rem;
+	    vertical-align: top;
+	    margin-right: .4rem;
+	    color:@main_color;
+}
+.common-radio-box label .rest-count{
+	padding-right:1.72rem;
+}
+.payment_logo{
+	width: .76rem;
+	height: .76rem;
+	margin-right: .4rem;
+}
+.common-radio-box label p{
+	-webkit-flex:1;
+	-webkit-box-flex:1;  
+	flex:1;
+}
+/* 选择 */
+.common-radio-box label {position: relative;width: 100%;}
+
+.common-radio-box input {
+	position: absolute;
+	right:.4rem;
+	-webkit-appearance: none;
+	width:.72rem;
+	height:.72rem;
+	border-radius:.72rem;
+	border: 1px solid #ddd8ce;
+	text-align: center;
+	vertical-align: middle;
+	line-height:.72rem;
+	outline: 0;
+	top:50%;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+.common-radio-box input:checked{
+	background-color: @main_color;
+	border: 0;
+	color: #fff;
+}
+.common-radio-box input:checked:after{
+	content: "✓";
+	font-size: 16px;
+	font-family: base_icon;
+}
+/* 选择end */

@@ -1,0 +1,536 @@
+<?php
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/nav_hide_list.js";
+
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{$data.page_title}</title>
+		<!-- Mobile Devices Support @begin -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="false" name="twcClient" id="twcClient">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<!--允许全屏模式-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--指定sari的样式-->
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta content="telephone=no" name="format-detection" />-->
+		<!-- Mobile Devices Support @end -->
+		<script type="text/javascript " src="{$TMPL}/html/js/jquery.min.js "></script>
+		<script type="text/javascript" src="{$TMPL}/html/js/dateRange.js"></script>
+
+		<link rel="stylesheet" href="{$TMPL}/html/css/ktv_details.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/head_foot.css" />
+		<style type="text/css">
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				position: fixed;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				z-index: 99;
+				transition: all 1s ease 0.5s;
+			}
+			
+			.loading img {
+				width: 20%;
+				position: fixed;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="{$TMPL}/html/img/icon/gooey_2x.gif" alt="" />
+		</div>
+		<div class="box">
+			<header>
+				<div class="spell_details">
+					<div class="spell_details_wid clearfix">
+						<a onclick="window.history.go(-1);" class="back"><img src="{$TMPL}/html/img/icon/back.png" alt="" /></a>
+						<p class="details_details">{$store_info.name}</p>
+						<img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt="" class="ka_city_right" />
+					</div>
+					<div class="hotshow_title_down">
+						<ul>
+							<li>
+								<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/icon/imgshou3.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/icon/imgshou1.png" alt="" /></a>
+							</li>
+							<li>
+								<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/icon/imgshou2.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--头部下拉-->
+				<div class="head_stance"></div>
+
+			</header>
+			<section>
+				<!--顶部图片-->
+				<div class="spell_img ">
+					<img src="{$TMPL}/html/img/ktv_details/ktv_02.png" alt=" " />
+				</div>
+				<!--商品名称分享-->
+				<div class="wid partition ">
+					<div class="wid_small ">
+						<div class="name_share">
+							<div class="clearfix">
+								<p>{$store_info.name}</p>
+								<div class="share">
+								{if $data.is_collect eq 1}
+									<a onclick="del_collect({$store_info.id},this);" style="padding-right:0.14rem; "><img src="{$TMPL}/html/img/icon/hongxin.png" alt=" " /></a>
+								{else}
+									<a onclick="add_collect({$store_info.id},this);" style="padding-right:0.14rem; "><img src="{$TMPL}/html/img/icon/kanjia1.png" alt=" " /></a>
+								{/if}
+									<a onclick="WapTosinaweibo('{$store_info.name}', '{$store_info.share_url}');" style="width: 0.2rem; "><img src="{$TMPL}/html/img/icon/kanjia2.png" alt=" " /></a>
+								</div>
+							</div>
+							<ul class="star_title clearfix ">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					<div class="line"></div>
+					<!--点击领取优惠券-->
+					<div class="wid_small">
+						<div class="click_receive">
+							<img src="{$TMPL}/html/img/ktv_details/ktv_05.png" alt="" class="icon" />
+							<p>领取优惠券</p>
+							<img src="{$TMPL}/html/img/icon/gerenxinxi2.png" alt="" class="to_right" />
+						</div>
+					</div>
+					<div class="line"></div>
+
+					<!--地址电话-->
+					<div class="wid_small ">
+						<div class="commodity_address clearfix">
+							<div class="commodity_address_left">
+								{if $data.address}
+								<p>{$data.address} {$data.distance}</p>
+							{/if}	
+							</div>
+							{if $data.tel}
+							<div class="commodity_address_right">
+								<a href="tel:{$data.tel}"><img src="{$TMPL}/html/img/icon/tuangoushangpin7.png" alt="" /></a>
+							</div>
+							{/if}
+						</div>
+					</div>
+					<div class="line"></div>
+					<!--地址电话结束-->
+					<!--在线预订-->
+					<div class="wid_small">
+						<div class="purchase_online">
+							<p class="title">在线预定</p>
+							<div class="line"></div>
+							<div class="week">
+								<ul>
+									{foreach from=$data_week item=week}
+									<li onclick="week({$week.sc})">{$week.week}</li>
+									{/foreach}
+									<!-- <li class="week_this">周二</li>
+									<li>周三</li>
+									<li>周四</li>
+									<li>周五</li>
+									<li>周六</li>
+									<li>周日</li> -->
+								</ul>
+							</div>
+							<div class="line"></div>
+							<div class="scale_size">
+								<ul>
+									{foreach from=$data.ktv_array item=ktv_arr}
+										<li onclick="goods({$ktv_arr.id})">{$ktv_arr.sub_name}</li>
+									{/foreach}
+									<!-- <li>中包 6-8人</li>
+									<li class="scale_this">大包 9-12人</li>
+									<li>VIP 12-18人</li> -->
+								</ul>
+							</div>
+							<div class="line"></div>
+							<div class="time_status">
+								<ul>
+									{foreach from=$data.ktv_detail item=ktv}
+										<li class="no_vacancy">
+											<div class="left">
+												<p class="time_m">{$ktv.time}</p>
+												<p class="time_all">{$ktv.hours}小时</p>
+											</div>
+											<div class="right clearfix">
+												<p class="price">¥ {$ktv.price}</p>
+												{if $ktv.kucun gt 0}
+													<a onclick="yuding({$ktv.price},'{$ktv.time}',{$ktv.hours})" class="status">预定</a>
+												{else}
+													<p class="status">满房</p>
+												{/if}
+												
+											</div>
+										</li>
+									{/foreach}
+								</ul>
+
+								<form id="goods-form" action="{url a="index" r="cart#addcart" }"  method="post">
+
+									<input type="hidden" value="" name="id" id="id_info">
+									<input type="hidden" value="" name="price" id="price">
+									<input type="hidden" value="" name="week" id="week">
+									<input type="hidden" value="" name="time" id="time">
+									<input type="hidden" value="" name="hours " id="hours">
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+
+					<!--在线预订结束-->
+
+					<div class="banner"></div>
+				</div>
+				<!--评价-->
+				{if $data.dp_list}
+				<div class="wid">
+					<div class="wid_small">
+						<div class="evaluate clearfix ">
+							<p class="clearfix "><img src="{$TMPL}/html/img/icon/kanjia3.png" alt=" " />评价</p>
+							<ul class="star clearfix ">
+								{$data.pingjun_xingxing}
+							</ul>
+						</div>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!--图文评价-->
+				{foreach from="$data.dp_list" item="dp"}
+				<div class="wid ">
+					<div class="wid_small">
+						<p class="evaluate_day ">{$dp.create_time}</p>
+						<div class="evaluate_txt clearfix ">
+							<p>{$dp.content}</p>
+							<ul class="star_small clearfix ">
+								{$dp.xingxing}
+							</ul>
+						</div>
+						{if $dp.xingxing}
+							<div class="user_evaluate_img">
+							  
+							</div>
+						{/if}
+						{if $dp.images}
+						<div class="evaluate_img ">
+							{foreach from="$dp.images" item="img"}
+								<img src="{$img}" alt=" " />
+							{/foreach}
+						</div>
+						{/if} 
+					</div>
+					<div class="line"></div>
+				</div>
+				{/foreach}
+				<div class="wid partition ">
+					<a href="{$data.dp_url}"><p class="evaluate_more">查看全部评价 <img src="{$TMPL}/html/img/icon/kanjia9.png" alt=" " /></p></a>
+				</div>
+				{/if}
+
+				<div class="line"></div>
+				<!--领取优惠券弹窗-->
+				<div class="receive_coupon">
+					<div class="small_al">
+						<img src="{$TMPL}/html/img/ktv_details/colse_03.png" alt="" class="colse_this"/>
+						<p class="title">领取优惠券</p>
+						<!--第一个优惠券-->
+						{if $data.youhui}
+						{foreach from=$data.youhui item=youhui}
+							<div class="discount clearfix">
+								<ul class="left">
+									<li>{$youhui.name}</li>
+									<!-- <li>
+										<p class="small">序列号：91723490</p>
+									</li> -->
+									<li>
+										<p class="small2">限{$youhui.now_time}前使用</p>
+									</li>
+								</ul>
+								<div class="modden">
+									<p><span>¥</span>{$youhui.youhui_money}</p>
+									<p>{$youhui.supplier_name}</p>
+								</div>
+								<div class="get">
+									{if $youhui.is_lingqu eq 1}
+										<p>已领</p>
+									{else}
+										<p class="true" onclick="lingqu({$youhui.id},'{$youhui.now_time}')">领取</p>
+									{/if}
+								</div>
+							</div>
+						{/foreach}
+						{else}
+							暂无优惠券
+						{/if}
+					<!--第二个优惠券-->
+					<!-- <div class="discount clearfix">
+							<ul class="left">
+								<li>麦乐汇KTV</li>
+								<li>
+									<p class="small">序列号：91723490</p>
+								</li>
+								<li>
+									<p class="small2">限2017-10-07前使用</p>
+								</li>
+							</ul>
+							<div class="modden">
+								<p><span>¥</span>5</p>
+								<p>通用优惠券</p>
+							</div>
+							<div class="get">
+								<p>已领</p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+				<!--领取优惠券弹窗结束-->
+				<!--页脚-->
+				<div class="footer"></div>
+			</section>
+		</div>
+		<script type="text/javascript " src="{$TMPL}/html/js/loading.js "></script>
+		<script type="text/javascript ">
+		function lingqu(id,time_info){
+			if(id){
+				$.ajax({
+					url:"{url a="index" r="store#lingqu_youhui"}",
+					data:{id:id,time_info:time_info},
+					type:"POST",
+					dataType:"json",
+					success:function(obj){
+						// console.log(1);return false;
+						if(obj.status==1)
+						{
+							alert(obj.info);
+						}else if(obj.status==-1){
+							location.href = obj.jump;
+						}else{
+							alert(obj.info);
+						}
+						
+					}			
+				});
+			}
+		}
+		$(".click_receive").click(function(){
+			$(".receive_coupon").show();
+		})
+		$(".discount .get .true").click(function(){
+			$(".receive_coupon").fadeOut(500,function(){
+				// alert("领取成功")
+			});
+		})
+		$(".colse_this").click(function(){
+			$(".receive_coupon").hide();
+		})
+		$('.receive_coupon').bind("touchmove", function(e) {　　
+				e.preventDefault();
+			});
+			//           点击周效果
+			$(".week ul li").click(function() {
+				$(this).addClass("week_this").siblings().removeClass("week_this");
+			})
+			$(".scale_size ul li").click(function() {
+				$(this).addClass("scale_this").siblings().removeClass("scale_this");
+			})
+			//头部下拉
+			$(".ka_city_right ").click(function() {
+				if($(".hotshow_title_down ").is(":hidden ")) {
+					$(".hotshow_title_down ").slideDown();
+				} else {
+					$(".hotshow_title_down ").slideUp();
+				}
+			});
+
+			//			点击加载更多未鉴定
+			var li_h = $(".reservation ul li").innerHeight();
+			var ul_h = $(".reservation ul").innerHeight();
+			$(".reservation ul").css("height", li_h * 3)
+			//			$(".click_more").click(function(){
+			//				$(".reservation ul").css("height",li_h)	
+			//			})
+		</script>
+		<script>
+		
+		$(document).ready(function(){
+			$(".buy-btn").bind("click",function(){
+				// alert($('#id').val());
+				// alert($('#price').val());
+				// return false;
+		    	$("#goods-form").submit();
+		    });  
+		    init_addcart();	
+		});
+		function WapTosinaweibo(_rt,_ru) {
+		    _rt = encodeURI(_rt);
+		    _ru = encodeURIComponent(_ru);
+		    var _u = 'http://v.t.sina.com.cn/share/share.php?title='+_rt+'&url='+_ru;
+		    window.location.href = _u;
+		}
+		//收藏活动
+		function add_collect(){
+			var id = {$data.id};//活动的id
+			if(!id){
+				alert('参数不足，请稍后重试');
+				return false;
+			}
+			$.ajax({
+				url:'{url a="index" r="deal#addcollect"}',
+				data: {activity_id:id},
+				dataType:"json",
+				type: "post",
+				success: function(obj){
+				//console.log(obj);
+					alert(obj);
+					location.reload();
+					
+				}
+			});
+		}
+		//取消商品
+				function del_collect(){
+				
+					var id = {$data.id};//活动的id
+					
+					if(!id){
+						alert('参数不足，请稍后重试');
+						return false;
+					}
+					$.ajax({
+						url:'{url a="index" r="deal#delcollect"}',
+						data: {activity_id:id},
+						dataType:"json",
+						type: "post",
+						success: function(obj){
+						//console.log(obj);
+							alert(obj);
+							location.reload();
+						}
+					});
+				}
+			    function init_addcart()
+				{
+					$("#goods-form").bind("submit",function(){
+						
+						// var price = $('#price').val();
+						// var num = $('#num').val();
+
+						// $("#new_price").val(price*num);
+						var query = $(this).serialize();
+						var action = $(this).attr("action");
+						
+						// var query = id+"&"+price*num;
+						// console.log(query);return false;
+						$.ajax({
+							url:action,
+							data:query,
+							type:"POST",
+							dataType:"json",
+							success:function(obj){
+								if(obj.status==-1)
+								{
+									location.href = obj.jump;
+								}
+								else if(obj.status)
+								{
+									if(obj.jump!="")
+									location.href = obj.jump;
+								}
+								else
+								{
+									alert(obj.info);
+								}
+							}			
+						});
+						
+						
+						return false;
+					});
+				}
+				function get_data(id,name,price,con){
+					$('#id').val(id);
+					$('#chuangxing').text(name);
+					$('#price').val(price);
+					$('#del_info').text(con);
+					$.ajax({
+						url:"{url a="index" r="store#get_hotel_shuxing"}",
+						data:{id:id},
+						type:"POST",
+						dataType:"json",
+						success:function(obj){
+							if(obj.status==1)
+							{
+								// attr_info
+								var html = '';
+								for (var i = 0; i <obj.pdata.length; i++) {
+									html += "<li><p>"+obj.pdata[i].name+"</p><p>"+obj.pdata[i].value+"</p></li>";
+								}
+								$("#attr_info").empty().append(html);
+								// console.log(obj);
+							}
+							
+						}			
+					});
+				}
+				function week(week){
+					$("#week").val(week);
+				}
+				function goods(id){
+					$("#id_info").val(id);
+				}
+				function yuding(price,time,hours){
+					$("#price").val(price);
+					$("#time").val(time);
+					$("#hours").val(hours);
+					var id = $("#id_info").val();
+					var price = $("#price").val();
+					if(!id||!price){
+						alert("请先选择日期和房间后购买");
+						return false;
+					}
+					$("#goods-form").submit();
+					init_addcart();
+				}
+				
+		</script>
+
+	</body>
+
+</html>

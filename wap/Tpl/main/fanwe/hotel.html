@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+		<title>{$data.page_title} </title>
+		<script src="{$TMPL}/html/js/jquery.min.js"></script>
+	<!-- 	<script type="text/javascript" src="{$TMPL}/html/js/dateRange.js"></script>
+		<link rel="stylesheet" type="text/css" href="{$TMPL}/html/css/dateRange.css" /> -->
+		<link rel="stylesheet" href="{$TMPL}/html/css/hotel.css" />
+		<link rel="stylesheet" type="text/css" href="{$TMPL}/html/css/index.css" />
+	</head>
+
+	<body>
+		<div id="box">
+			<!--tab-->
+			<div id="tab" class="clearfix">
+				<!-- <span onclick="window.history.go(-1);" class="back left"><img src="{$TMPL}/html/img/icon/back.png" alt=""/></span> -->
+				<a href="{url a="index" r="index"}" class="back left"><img src="{$TMPL}/html/img/icon/back.png" alt=""/></a>
+				<span style="color: #fff;margin-left: 28px;" class="jiudian">酒店</span>
+				<span class="list right"><img src="{$TMPL}/html/img/icon/tuangoushangpin2.png" alt=""/></span>
+				<div id="slideDown">
+					<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></a>
+					<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></a>
+					<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></a>
+				</div>
+			</div>
+<div class="top_stop"></div>
+			<!--selected-->
+			<div class="classify_region clearfix">
+				<div class="all_classify">
+					<p>{if $request.catename}{$request.catename}{else}全部分类{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="allcity_classify">
+					<p>{if $request.brandname}<span>{$request.brandname}</span>{else}<span>全城</span>{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="synthesis_classify">
+					<p>{if $request.ordername}{$request.ordername}{else}综合{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+			</div>
+			<div class="top-stop1"></div>
+			<!--全部分类列表-->
+			<div class="pulldown">{include file="pull_down.html"}</div>
+			<!--综合分类结束-->
+			<!--time-->
+			<!-- <div id="time">
+				住 08-29
+				<soan style="color:#b5b5b5">|</soan>
+				离 08-30 <img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" />
+			</div> -->
+			<!-- <div class="banner"></div> -->
+			<!--content-->
+			<div id="content">
+
+				{foreach from=$data.item item=tuanlist}
+
+				<div>
+					<a href="{url a="index" r="store#index " p="data_id=$tuanlist.id&c=1"}">
+						<img src="{$tuanlist.preview}" class="contentLeft" />
+
+						<div class="contentRight">
+							<p class="title">{$tuanlist.name}</p>
+							<!--<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin10.png" class="grade" />-->
+							<ul>
+								{$tuanlist.xingxing}
+							</ul>
+							<p class="info">{if $tuanlist.address}{$tuanlist.address}{else}暂无数据{/if}</p>
+
+							<p class="price">{$tuanlist.price}元 <span>起</span><!--  <span class="right">23分钟前有人预定</span> --></p>
+						</div>
+					</a>
+				</div>
+
+				{/foreach}
+			</div>
+			<!--page-->
+			<div id="page">
+				<span class="last1">上一页</span>
+				<span class="pageSlect">1</span>
+				<span>2</span>
+				<span class="next1 next">下一页</span>
+			</div>
+
+		</div>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+
+		<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+		<script>
+
+			/*内容与图片高度一下*/
+			$('.contentRight').css({
+				'height': $('.contentLeft').height() + 'px'
+			});
+
+			/*点击菜单，下滑菜单栏*/
+			$('.list').click(function() {
+				$('#slideDown').slideToggle();
+			})
+		</script>
+	</body>
+
+</html>

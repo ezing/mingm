@@ -1,0 +1,49 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<include file="Public:header" />
+<!--以下三行为引入时间插件-->
+<script type="text/javascript" src="__TMPL__Common/js/calendar/calendar.php?lang=zh-cn" ></script>
+<load href='__TMPL__Common/js/calendar/calendar.css' />
+<load href='__TMPL__Common/js/calendar/calendar.js' />
+<script type="text/javascript">
+
+
+
+</script>
+<div class="main">
+<div class="main_title">{$vo.title}{%EDIT} <a href="{:u("HotelShuxing/index")}" class="back_list">{%BACK_LIST}</a></div>
+<div class="blank5"></div>
+<form name="edit" action="__APP__" method="post" enctype="multipart/form-data">
+<table class="form" cellpadding=0 cellspacing=0>
+	<tr>
+		<td colspan=2 class="topTd"></td>
+	</tr>
+	
+<tr>
+		<td class="item_title">属性名称:</td>
+		<td class="item_input"><input class="textbox require" type="text"  name="name" size="30"  value="{$vo.name}"/></td>
+	</tr>
+	<tr>
+		<td class="item_title">属性值:</td>
+		<td class="item_input"><input class="textbox require" type="text"  name="value" size="30"  value="{$vo.value}"/></td>
+	</tr>
+	
+	<tr>
+		<td class="item_title"></td>
+		<td class="item_input">
+			<!--隐藏元素-->
+			<input type="hidden" name="id" value="{$vo.id}" />
+			<input type="hidden" name="{:conf("VAR_MODULE")}" value="HotelShuxing" />
+			<input type="hidden" name="{:conf("VAR_ACTION")}" value="update" />
+			<!--隐藏元素-->
+			<input type="submit" class="button" value="{%EDIT}" />
+			<input type="reset" class="button" value="{%RESET}" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="bottomTd"></td>
+	</tr>
+</table>	 
+</form>
+</div>
+<include file="Public:footer" />

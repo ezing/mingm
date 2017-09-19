@@ -1,0 +1,131 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height: 63px;
+}
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+}
+
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.banner {
+	height: 7px;
+	width: 100%;
+	background: #f8f8f8;
+}
+.line{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	
+}
+/*通用部分结束*/
+.balance{
+	margin-top: 0.22rem;
+	padding-bottom: 0.25rem;
+}
+.balance p{
+	font-size: 14px;
+	font-family: "fzhjt";
+	color: #595757;
+}
+.balance p:nth-child(2){
+	font-size: 36px;
+	font-family: "fzzh";
+	color: #000;
+	padding-top: 0.41rem;
+}
+.balance_option ul li{
+	padding: 0.24rem 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+.balance_option ul li a{
+	display: block;
+}
+.balance_option ul li .left{
+	float: left;
+	width: 0.2rem;
+	margin-right: 0.18rem;
+}
+.balance_option ul li .right{
+	width: 0.07rem;
+	float: right;
+}
+.balance_option ul li p{
+	font-size: 16px;
+	float: left;
+	color: #000;
+	font-family: "fzhjt";
+}
+.balance_option ul li:after{
+	content: " ";
+	display: block;
+	clear: both;
+}

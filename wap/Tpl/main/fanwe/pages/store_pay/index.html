@@ -1,0 +1,86 @@
+<?php
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/weebox.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/fanweUI.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/style.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/color.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/user_login.css";	
+$this->_var['pagecss'][] = $this->_var['TMPL_REAL']."/css/store_pay.css"; 
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/store_pay.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/store_pay.js";
+?>
+{include file="inc/header_payrule.html"}
+<script type="text/javascript">
+    var promote_json = '{$promote_json}';
+    var location_id={$location_id};
+   var custom_ajax_url='{url r="index" p="store_pay"}';
+</script>
+<div class="wrap">
+<div class="content">
+				
+        <form id="submit_dp" name="submit_dp" action="{url r="index" p="store_pay#make_order"}" method="post">
+      <div class="normal-fieldset buy_money">
+          
+          <section class="back-white" style="margin-bottom:0px;overflow: hidden;">
+          <h1>消费金额：</h1>           
+              <div class="money_div">                  
+                		 <input class="money_int" name="money" value="" placeholder="询问服务员后输入" />
+              </div>
+          </section>
+          <div class="rule-info">
+            <i class="iconfont">&#xe707;</i>
+            <p>输入不参与优惠的金额（酒水，特价菜等）</p>
+          </div>
+          <section class="back-white split-line" style="margin-bottom:0px;overflow: hidden;">
+          <h1>不可优惠金额：</h1>           
+              <div class="money_div">                  
+                     <input class="money_int other_money" name="other_money" value="" placeholder="询问服务员后输入" />
+              </div>
+          </section>
+      </div>
+       {foreach from=$data.promote item=row}
+      <div class="normal-fieldset">
+          
+          <section class="split-line items-common common-radio-box split-line-top" style="margin-bottom: .4rem;">           
+              <div>
+                  <label class="pro_item promote_id_{$row.id}">
+                		<p>{if $row.description}{$row.description}{else}{$row.name}{/if}</p><div class="discount_money">-&yen;<span>0</span></div>
+                  </label>
+              </div>
+          </section>
+      </div>     
+        {/foreach}  
+        
+      <div class="normal-fieldset">
+          
+          <section class="split-line split-line-top items-common common-radio-box">           
+              <div class="" style="border-bottom:none;">
+                  <label class="pro_item promote_id_{$row.id}">
+                		<p>实付金额</p><div class="pay_amount"><span>0</span></div>
+                  </label>
+              </div>
+          </section>
+      </div>   
+
+			<input type="hidden" name="location_id" value="{$location_id}"/>
+        </form>	
+               <div class="sub_btn btn_login" style="margin:.4rem">
+                  
+                   <input style="-webkit-appearance: none" type="button" value="确认支付">
+              </div>
+			 	
+</div>
+</div>
+{include file="inc/no_footer.html"}	

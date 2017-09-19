@@ -1,0 +1,280 @@
+<?php
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery-1.6.2.min.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.bgiframe.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.timer.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.weebox.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/utils/jquery.touchwipe.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/fanwe_utils/fanweUI.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/script.js";
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/tuan_star.js";
+
+$this->_var['pagejs'][] = $this->_var['TMPL_REAL']."/js/event.js";
+$this->_var['cpagejs'][] = $this->_var['TMPL_REAL']."/js/event.js";
+
+?>
+
+	<!DOCTYPE html>
+	<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$data.page_title}</title>
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{$TMPL}/html/Font-Awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{$TMPL}/html/css/index.css" />
+		<link rel="stylesheet" href="{$TMPL}/html/css/notes_application.css" />
+		
+	</head>
+	<script>
+		var ajax_url = '{$ajax_url}';
+	</script>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="hotshow_title clear">
+				<a href="{url a="index" r="events"}" class="back"><img src="{$TMPL}/html/img/icon/mmsearch.png" alt="" /></a>
+				<div class="ka_city">
+					<a href="#script">{if $event.supplier_info_name}[{$event.supplier_info_name}]{/if}{$event.name}</a>
+				</div>
+				<div class="ka_city_right">
+					<img src="{$TMPL}/html/img/hotshow/icon/cai.png" alt="" />
+				</div>
+			<div class="hotshow_title_down">
+				<ul>
+					<a href="{url a="index" r="index#index"}">
+						<li><img src="{$TMPL}/html/img/hotshow/icon/la_09.png" alt="" /></li>
+					</a>
+					<a href="{url a="index" r="user_center#index"}">
+						<li><img src="{$TMPL}/html/img/hotshow/icon/la_06.png" alt="" /></li>
+					</a>
+					<a href="{url a="index" r="search#index"}">
+						<li><img src="{$TMPL}/html/img/hotshow/icon/la_08.png" alt="" /></li>
+					</a>
+				</ul>
+			</div>
+			</div>
+			<!--头部下拉-->
+
+			<div class="zhanwei"></div>
+		</header>
+		
+		<!--内容-->
+		<section>
+			<div class="commodity_img_show">
+				<img src="{$event.icon}" alt="" />
+				<div class="share_box">
+					<div class="commodity_share_title clear">
+						<p>{if $event.supplier_info_name}[{$event.supplier_info_name}]{/if}{$event.name}</p>
+						<div class="commodity_share_hongxin">
+							<a onClick="WapTosinaweibo('{$event.name}', '{$event.share_url}');"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin4.png" alt="" /></a>
+							{if $data.is_collect eq 1}
+							<a onClick="del_collect({$data.id},this);" class="xin"><img src="{$TMPL}/html/img/icon/hongxin.png" width="10px" alt="" /></a>
+							{else}
+							<a onClick="add_collect({$data.id},this);" class="xin"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin3.png" alt="" /></a>
+							{/if}
+						</div>
+					</div>
+					<div class="share_collect">
+						<p>{$event.address}</p>
+					</div>
+				</div>
+			</div>
+			<div class="line"></div>
+			<div class="l_fx_wid">
+				<div class="l_fx_small">
+					<div class="notes_application">
+						<div class="notes_application_title clear">
+							<h5>报名须知</h5>
+							{if $data.is_login eq 1}
+								{if $event.submitted_data && $event.submitted_data.is_verify eq 1}
+									<button class="btn">已报名</button>
+									{elseif $event.submitted_data && $event.submitted_data.is_verify eq 2}
+										<button class="btn">报名未通过</button>
+									{elseif $event.submit_begin_time lt $event.now_time and ($event.submit_end_time gt $event.now_time or $event.submit_end_time eq 0)}		{if $event.submitted_data && $event.submitted_data.is_verify eq 0}
+
+										<button class="btn" onClick="location.href='{url a="index" r="event#load_event_submit" p="data_id=$event.id"}';">修改报名</button>
+										{else}
+											<button class="btn" onClick="location.href='{url a="index" r="event#load_event_submit" p="data_id=$event.id"}';">立即报名</button>
+										{/if}
+									{elseif $event.submit_begin_time gt $NOW_TIME}
+										<button class="btn">报名未开始</button>
+									{elseif $event.submit_end_time neq 0 and $event.submit_end_time lt $NOW_TIME}
+										<button class="btn">活动已过期</button>
+								{/if}
+								
+							{else}
+								<button class="btn" onClick="location.href='{url a="index" r="user#login"}';">登录后报名</button>
+							{/if}
+						</div>
+						<ul>
+							<li>
+								<img src="{$TMPL}/html/img/bulk_goods/application_03.png" alt="" />
+								<p>已报：{$event.submit_count}人</p>
+							</li>
+							<li>
+								<img src="{$TMPL}/html/img/bulk_goods/application_06.png" alt="" />
+								<p>名额：{$event.total_count}人</p>
+							</li>
+							<li>
+								<img src="{$TMPL}/html/img/bulk_goods/application_08.png" alt="" />
+								<p>截止：<span id="t_d">00天</span><span id="t_h">00时</span><span id="t_m">00分</span><span id="t_s">00秒</span></p>
+							</li>
+							<li>
+								<img src="{$TMPL}/html/img/bulk_goods/application_10.png" alt="" />
+								<p>时间：{if $event.event_begin_time}{$event.event_begin_time_format} 至 {/if}{if $event.event_end_time}{$event.event_end_time_format}{else}无限期{/if}</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="line"></div>
+
+			<div class="price_time_now">
+				<div class="commodity_price clear">
+				</div>
+				<!-- <div class="commodity_countdown clear">
+					<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin6.png" alt="" />
+					<p class="countdown">活动结束时间：{$event.submit_end_time_format}
+					</p>
+					<p>已售{$event.submit_count}</p>
+				</div> -->
+			</div>
+			<div class="commodity_address clear">
+				<div class="commodity_address_left">
+					<p>{if $event.supplier_info_name}[{$event.supplier_info_name}]{/if}{$event.name}</p>
+					<p>{$event.address}</p>
+				</div>
+				<div class="commodity_address_right">
+					<a href="tel:{$data.store_info.tel}" class="shop-phone"><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin7.png" alt="" /></a>
+				</div>
+			</div>
+			<div class="line"></div>
+			
+			<div class="recommend_reason">
+				<div class="recommend_reason_title clear">
+					<p>推荐理由</p>
+				</div>
+				{$event.content}
+				<!-- <ul>
+					<li></li>
+				</ul> -->
+			</div>
+            <div class="banner"></div>
+			{if $data.dp_list}
+			<div class="commodity_address_bottom clear">
+				<p class="clear">评价<img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin8.png" alt="" /></p>
+				<ul>
+				{$data.pingjun_xingxing}
+				</ul>
+			</div>
+			{foreach from=$data.dp_list item=row key=k1}
+			<div class="user_evaluate">
+				<div class="user_evaluate_data">
+					<p>{$row.user_name} {$row.create_time}</p>
+                </div>
+				<div class="user_evaluate_text clear">
+					<p>{$row.content}</p>
+					<ul>
+					  {$row.xingxing}
+					</ul>
+				</div>
+				<div class="user_evaluate_img">
+					{foreach from=$row.images item=image}
+					<img src="{$image}" /> {/foreach}
+				</div>
+			</div>
+			{/foreach}
+			<div class="load_more">
+				<p>
+					<a href="{url a=" index " r="dp_list#index "  p="data_id=$data.id&type=event "}">查看全部评价</a><img src="{$TMPL}/html/img/bulk_goods/icon/tuangoushangpin11.png" alt="" /></p>
+
+			</div>
+			{/if}
+		</section>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+	</body>
+	<script type="text/javascript" src="{$TMPL}/html/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+
+	<script>
+		function WapTosinaweibo(_rt, _ru) {
+			_rt = encodeURI(_rt);
+			_ru = encodeURIComponent(_ru);
+			var _u = 'http://v.t.sina.com.cn/share/share.php?title=' + _rt + '&url=' + _ru;
+			window.location.href = _u;
+		}
+			//收藏活动
+			function add_collect(){
+				var id = {$data.id};//活动的id
+				if(!id){
+					alert('参数不足，请稍后重试');
+					return false;
+				}
+				$.ajax({
+					url:'{url a="index" r="event#addcollect"}',
+					data: {activity_id:id},
+					dataType:"json",
+					type: "post",
+					success: function(obj){
+					//console.log(obj);
+						// alert(obj);
+						location.reload();
+					}
+				});
+			}
+		//取消收藏
+		function del_collect() {
+		    var id = {$data.id};//活动的id
+			if(!id) {
+				alert('参数不足，请稍后重试');
+				return false;
+			}
+			$.ajax({
+				url: '{url a="index" r="event#delcollect"}',
+				data: {id_value: id},
+				dataType: "json",
+				type: "post",
+				success: function(obj) {
+					// alert(obj);
+					location.reload();
+				}
+			});
+		}
+		function GetRTime(){
+		    var EndTime= {$event.submit_end_time}+'000';
+		    var NowTime = new Date();
+		    var t =EndTime- NowTime.getTime();
+		    var d=0;
+		    var h=0;
+		    var m=0;
+		    var s=0;
+		    if(t>=0){
+		      d=Math.floor(t/1000/60/60/24);
+		      h=Math.floor(t/1000/60/60%24);
+		      m=Math.floor(t/1000/60%60);
+		      s=Math.floor(t/1000%60);
+		    }
+		    document.getElementById("t_d").innerHTML = d + "天";
+		    document.getElementById("t_h").innerHTML = h + "时";
+		    document.getElementById("t_m").innerHTML = m + "分";
+		    document.getElementById("t_s").innerHTML = s + "秒";
+		  }
+		  if({$event.submit_end_time}>0){
+		  	setInterval(GetRTime,0);
+		  }
+	</script>
+
+	</html>

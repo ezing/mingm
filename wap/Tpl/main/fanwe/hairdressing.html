@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+		<title>丽人美发</title>
+		<link rel="stylesheet" href="{$TMPL}/html/css/hair.css" />
+		<link rel="stylesheet" type="text/css" href="{$TMPL}/html/css/index.css"/>
+		
+	</head>
+
+	<body>
+		<div id="box">
+			<!--tab-->
+			<div id="tab" class="clearfix">
+				<!-- <span onclick="window.history.go(-1);" class="back left"><img src="{$TMPL}/html//img/icon/back.png" alt=""/></span> -->
+				<a href="{url a="index" r="index"}" class="back left"><img src="{$TMPL}/html//img/icon/back.png" alt=""/></a>
+				<span style="color: #fff;margin-left: 28px;">丽人美发</span>
+				<span class="list right"><img src="{$TMPL}/html//img/icon/tuangoushangpin2.png" alt=""/></span>
+				<div id="slideDown">
+					<a href="{url a="index" r="index#index"}"><img src="{$TMPL}/html/img/icon/imgshou3.png" alt="" /></a>
+					<a href="{url a="index" r="user_center#index"}"><img src="{$TMPL}/html/img/icon/imgshou2.png" alt="" /></a>
+					<a href="{url a="index" r="search#index"}"><img src="{$TMPL}/html/img/icon/imgshou1.png" alt="" /></a>
+				</div>
+			</div>
+			<!--selected-->
+			<div class="classify_region clearfix">
+				<div class="all_classify" style="width: 42.333333%;">
+					<p>{if $request.catename}{$request.catename}{else}全部分类{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="allcity_classify" style=" width: 20%;
+">
+					<p>{if $request.brandname}{$request.brandname}{else}全城{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+				<div class="synthesis_classify">
+					<p>{if $request.ordername}{$request.ordername}{else}综合{/if}<img src="{$TMPL}/html/img/hotshow/icon/down.png" alt="" /></p>
+				</div>
+			</div>
+			<div class="allsyn"></div>
+			
+			<!--全部分类列表-->
+			<div class="pulldown">{include file="pull_down.html"}</div>
+			<!--综合分类结束-->
+			<!--content-->
+			<div id="content">
+				{foreach from=$data.item item=tuanlist}
+					<a href="{url a="index" r="store#index" p="data_id=$tuanlist.id&c=2"}" class="wo">
+					<div>
+						<img src="{$tuanlist.preview}" class="contentLeft" />
+
+						<div class="contentRight">
+							<p class="title">{$tuanlist.name}</p>
+
+							<p class="info">{$tuanlist.brief}</p>
+
+							<p class="price">{$tuanlist.price}元 <span>门市价{$tuanlist.price2}元</span> <span class="right" style="padding-top: 6px;">已售{$tuanlist.buy_count}</span></p>
+						</div>
+					</div>
+					</a>
+				{/foreach}
+
+
+			</div>
+			<!--page-->
+			<div id="page">
+				<span class="last">上一页</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="pageSlect">1</span>
+				<span>2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span class="next">下一页</span>
+			</div>
+
+		</div>
+		<!--本页底部-->
+		<div class="footer">{include file="inc/footer_new.html"}</div>
+		<script src="{$TMPL}/html/js/jquery.min.js"></script>
+		<script type="text/javascript" src="{$TMPL}/html/js/businessshow.js"></script>
+		<script type="text/javascript" src="{$TMPL}/html/js/list.js"></script>
+		
+		<script>
+
+			/*内容与图片高度一下*/
+			$('.contentRight').css({
+				'height': $('.contentLeft').height() + 'px'
+			});
+
+			/*点击菜单，下滑菜单栏*/
+			$('.list').click(function() {
+				$('#slideDown').slideToggle();
+			})
+		</script>
+		</script>
+	</body>
+
+</html>

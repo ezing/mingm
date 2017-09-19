@@ -1,0 +1,276 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height: 63px;
+}
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+}
+
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.banner {
+	height: 7px;
+	width: 100%;
+	background: #f8f8f8;
+}
+.line{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	box-sizing: border-box;
+	
+}
+/*通用部分结束*/
+.recharge_title{
+	margin-top: 0.25rem;
+	padding-bottom: 0.2rem;
+}
+.bank_card_choice{
+	padding: 0.16rem 0;
+}
+.bank_card_choice ul li .left{
+		float: left;
+	width: 0.4rem;
+	margin-right: 0.24rem;
+	margin-left: 0.1rem;
+}
+.bank_card_choice ul li .bank_n{
+	float: left;
+}
+.bank_card_choice ul li .bank_n p:nth-child(1){
+	font-size: 16px;
+	font-family: "fzhjt";
+	color: #000;
+}
+.bank_card_choice ul li .bank_n p:nth-child(2){
+	font-size: 14px;
+	font-family: "fzhjt";
+	color: #969696;
+	margin-top:0.06rem;
+}
+.bank_card_choice ul li:after{
+	content: " ";
+	display: block;
+	clear:both;
+}
+.bank_card_choice .right{
+	float:right;
+	margin-top: 0.1rem;
+	width: 0.07rem;
+}
+.amount{
+	padding: 0.18rem 0;
+}
+.amount p{
+	font-family: "fzhjt";
+	font-size: 14px;
+	margin-right: 0.27rem;
+	margin-left: 0.12rem;
+}
+.amount span{
+	font-size: 34px;
+	color: #b6b6b6;
+	margin-left: 0.12rem;
+	
+	display: inline-block;
+	margin-right: 0.08rem;
+	margin-top: 0.25rem;
+}
+.amount input{
+	font-size: 30px;
+	width: 87%;
+	border:none;
+	border-bottom: 1px solid #e5e5e5;
+	outline: none;
+	margin-top: 1px;
+	color: #000;
+}
+.affirm{
+	width: 80%;
+	margin:0 auto;
+	margin-top: 0.45rem;
+	margin-bottom: 1rem;
+}
+.affirm a{
+	display: block;
+	color: #fff;
+	background: #000;
+	font-size: 18px;
+    text-align: center;
+	height:0.42rem;
+	line-height: 0.42rem;
+}
+/*弹窗*/
+.bank_cpm{
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	background:rgba(0,0,0,.4);
+}
+.bank_cpm .bank_cpm_con{
+	background: #fff;
+	width: 100%;
+	bottom:0;
+	position: absolute;
+}
+.bank_cpm .bank_cpm_con .bank_cpm_title{
+	padding: 0.16rem 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+.bank_cpm .bank_cpm_con .bank_cpm_title p{
+	color: #000;
+	float: left;
+	font-size: 16px;
+	padding-left: 33%;
+	font-family:"fzhjt";
+}
+.bank_cpm .bank_cpm_con .bank_cpm_title span{
+	display: block;
+	float:right;
+	margin-right: 5.333333%;
+	font-size: 16px;
+}
+.bank_cpm{
+	display: none;
+}
+.bank_cpm ul{
+	height:3.1rem;
+	overflow: auto;
+	background: #fff;
+}
+.bank_cpm ul li{
+	padding: 0.16rem 0;
+	padding-left: 5.333%;
+	padding-right: 5.333%;
+	border-bottom: 1px solid #e5e5e5;
+	
+}
+.bank_cpm ul li img{
+	display: block;
+	float: left;
+	width: 0.4rem;
+	margin-right: 0.28rem;
+}
+.bank_cpm ul li .bank_num_name{
+	float: left;
+}
+.bank_num_name .bank_name{
+	font-size: 16px;
+	color: #000;
+	font-family:"fzhjt";
+}
+.bank_num_name .bank_num{
+	font-size: 12px;
+	color: #969696;
+	margin-top: 0.05rem;
+	font-family:"fzhjt";
+}
+.bank_cpm ul li span{
+	float: right;
+	display: none;
+	margin-top: 0.1rem;
+}
+.bank_cpm ul li .xuanze{
+	display: block;
+}
+.add_bank {
+	width: 89.33333%;
+	margin:0 auto;
+}
+.add_bank a{
+	display: block;
+	color: #000;
+	font-size: 16px;
+	text-align: center;
+	height: 0.59rem;
+	line-height: 0.59rem;
+}
+.bank_cpm ul li:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.available_balance{
+	padding-bottom:0.1rem;
+}
+.available_balance p:nth-child(1){
+	font-size: 12px;
+	color: #b6b6b6 ;
+	padding-left: 0.12rem;
+	float: left;
+	font-family: "fahjt";
+}
+.available_balance p:nth-child(2){
+	font-size: 12px;
+	color: #595757;
+	float:right;
+	padding-right: 0.05rem;
+	font-family: "fahjt";
+}

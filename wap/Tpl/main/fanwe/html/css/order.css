@@ -1,0 +1,151 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: "fzhjt";
+	src: url(../font/FZLTHJW.TTF);
+}
+
+@font-face {
+	font-family: "fzzh";
+	src: url(../font/方正兰亭中黑_GBK.TTF);
+}
+
+html {
+	font-size: 625%;
+}
+
+a,
+img,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+li,
+div {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-family: "fzhjt";
+}
+
+body {
+	width: 100%;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.head_stance {
+	width: 100%;
+	height:63px;
+}
+
+.spell_img {
+	width: 100%;
+	position: relative;
+}
+
+.spell_img img {
+	width: 100%;
+}
+
+.wid {
+	width: 100%;
+}
+
+.wid_small {
+	width: 89.66666%;
+	margin: 0 auto;
+	margin-top: 0.2rem;
+}
+.partition {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom:20px;
+}
+
+/*通用部分*/
+.handover {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.handover ul {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #000;
+	margin-top: 12px;
+	background: #fff;
+	box-sizing: border-box;
+}
+
+.handover ul li {
+	width: 50%;
+	float: left;
+	font-size: 16px;
+	line-height:37px;
+	padding: 0;
+	text-align: center;
+}
+
+.handover ul li:nth-child(1) {
+	border-right: 1px solid #000;
+	box-sizing: border-box;
+}
+
+.black {
+	background: #000;
+	color: #fff;
+}
+
+.con {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	    line-height: 38px;
+    font-size: 15px;
+    color: #595757;
+    
+}
+.dl-price p{
+	float: right;
+	padding-right:14px;
+	color: #595757;
+}
+.dl-price .font-fc8{
+	color: #595757;
+}
+.color-f{
+	color: #595757;
+}
+.mmediately a{
+	font-size:14px;
+	color: #595757;
+	border:1px solid #000;
+	line-height: 30px;
+	/*height: 30px;*/
+	display: block;
+	text-align: center;
+	width: 77px;
+}
+.mmediately {
+	float: right;
+	margin-top: -42px;
+	padding-right: 15px;
+}
+.already1{
+	display: none;
+}
